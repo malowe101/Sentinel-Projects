@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+"resources": [
+        {
+            "id": "body('Parse_JSON')?['id']",
+            "name": "body('Parse_JSON')?['name']",
+            "type": "body('Parse_JSON')?['type']",
+            "kind": "body('Parse_JSON')?['kind']",
+            "apiVersion": "2021-03-01-preview",
+            "properties": {
+                "displayName": "body('Parse_JSON')?['properties']?['displayName']",
+                "description": "body('Parse_JSON')?['properties']?['description']",
+                "severity": "body('Parse_JSON')?['properties']?['severity']",
+                "enabled": body('Parse_JSON')?['properties']?['enabled'],
+                "query": "body('Parse_JSON')?['properties']?['query']",
+                "queryFrequency": "body('Parse_JSON')?['properties']?['queryFrequency']",
+                "queryPeriod": "body('Parse_JSON')?['properties']?['queryPeriod']",
+                "triggerOperator": "body('Parse_JSON')?['properties']?['triggerOperator']",
+                "triggerThreshold": body('Parse_JSON')?['properties']?['triggerThreshold'],
+                "suppressionDuration": "body('Parse_JSON')?['properties']?['suppressionDuration']",
+                "suppressionEnabled": body('Parse_JSON')?['properties']?['suppressionEnabled'],
+                "tactics": body('Parse_JSON')?['properties']?['tactics'],
+                "alertRuleTemplateName": body('Parse_JSON')?['properties']?['alertRuleTemplateName'],
+                "incidentConfiguration": {
+                    "createIncident": body('Parse_JSON')?['properties']?['incidentConfiguration']?['createIncident'],
+                    "groupingConfiguration": {
+                        "enabled": body('Parse_JSON')?['properties']?['incidentConfiguration']?['groupingConfiguration']?['enabled'],
+                    "reopenClosedIncident": body('Parse_JSON')?['properties']?['incidentConfiguration']?['groupingConfiguration']?['reopenClosedIncident'],
+                    "lookbackDuration": "body('Parse_JSON')?['properties']?['incidentConfiguration']?['groupingConfiguration']?['lookbackDuration']",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": body('Parse_JSON')?['properties']?['incidentConfiguration']?['groupingConfiguration']?['groupByEntities'],
+                        "groupByAlertDetails": [],
+                        "groupByCustomDetails": []
+}
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "body('Parse_JSON')?['properties']?['eventGroupingSettings']?['aggregationKind']"
+                },
+                "alertDetailsOverride": {
+                    "alertDisplayNameFormat": "alert name {{AlertName}}",
+                    "alertDescriptionFormat": "DESC test {{Description}}",
+                    "alertTacticsColumnName": null,
+                    "alertSeverityColumnName": null
+                },
+                "customDetails": null,
+                "entityMappings": null
+            }
+        }
+    ]
+}
