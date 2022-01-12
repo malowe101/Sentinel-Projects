@@ -27,8 +27,8 @@
                         "groupByEntities":[]
                     }
                 },
-                "queryFrequency":"PT2H",
-                "queryPeriod":"PT2H",
+                "queryFrequency":"PT4H",
+                "queryPeriod":"PT4H",
                 "triggerOperator":"GreaterThan",
                 "triggerThreshold":0,
                 "eventGroupingSettings":
