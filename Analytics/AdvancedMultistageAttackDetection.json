@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+"resources": [
+        {
+            "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/BuiltInFusion",
+            "name": "BuiltInFusion",
+            "type": "Microsoft.SecurityInsights/alertRules",
+            "kind": "Fusion",
+            "apiVersion": "2021-03-01-preview",
+            "properties": {
+                "displayName": "Advanced Multistage Attack Detection",
+                "description": "Microsoft Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be very difficult to catch. By design, these incidents are low-volume, high-fidelity, and high-severity, which is why this detection is turned ON by default.  Since Fusion correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as Fusion incidents on the Microsoft Sentinel Incidents page. This rule covers the following detections: - Fusion for emerging threats - Fusion for ransomware - Scenario-based Fusion detections (122 scenarios)  To enable these detections, we recommend you configure the following data connectors for best results: - Out-of-the-box anomaly detections - Azure Active Directory Identity Protection - Azure Defender - Azure Defender for IoT - Microsoft 365 Defender - Microsoft Cloud App Security     - Microsoft Defender for Endpoint - Microsoft Defender for Identity - Microsoft Defender for Office 365 - Palo Alto Networks - Scheduled analytics rules, both built-in and those created by your security analysts. Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.  For the full description of each detection that is supported by Fusion, go to https://aka.ms/SentinelFusion.",
+                "alertRuleTemplateName":"f71aba3d-28fb-450b-b192-4e76a83015c8", 
+                "tactics": ["Collection","CommandAndControl","CredentialAccess","DefenseEvasion","Discovery","Execution","Exfiltration","Impact","InitialAccess","LateralMovement","Persistence","PrivilegeEscalation"],
+                "severity": "High",
+                "enabled": True
+            }
+        }
+    ]
+}
