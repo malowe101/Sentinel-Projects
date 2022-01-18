@@ -1,0 +1,94 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/2d3e33c6-d8e6-4b51-92d6-dbe8bd9efb05')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/2d3e33c6-d8e6-4b51-92d6-dbe8bd9efb05')]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Anomaly",
+            "apiVersion": "2021-09-01-preview",
+            "properties": {
+                "alertRuleTemplateName": "2d3e33c6-d8e6-4b51-92d6-dbe8bd9efb05",
+                "displayName": "(Preview) Anomalous Azure AD sign-in sessions (test)",
+                "enabled": true,
+                "tactics": [
+                    "InitialAccess"
+                ],
+                "anomalyVersion": "1.0.4",
+                "techniques": [
+                    "T1078",
+                    "T1566",
+                    "T1133"
+                ],
+                "frequency": "P1D",
+                "ruleStatus": "Production",
+                "isDefaultRule": true,
+                "anomalyRuleVersion": 0,
+                "customizableObservations": {
+                    "multiSelectObservations": [
+                        {
+                            "supportedValues": [
+                                "Fraction of failed signins",
+                                "Number of failed signins",
+                                "Failed signins to successful signins ratio",
+                                "Number of signins with incorrect passwords",
+                                "Incorrect passwords to correct passwords ratio",
+                                "Fraction of incorrect password signins",
+                                "Distinct number of app ids",
+                                "Distinct number of client apps",
+                                "Distinct number of ip addresses",
+                                "Distinct number of opperating systems",
+                                "Distinct number of browsers",
+                                "Distinct number of cities",
+                                "Distinct number of states",
+                                "Distinct number of countries"
+                            ],
+                            "values": [
+                                "Fraction of failed signins",
+                                "Number of failed signins",
+                                "Failed signins to successful signins ratio",
+                                "Number of signins with incorrect passwords",
+                                "Incorrect passwords to correct passwords ratio",
+                                "Fraction of incorrect password signins",
+                                "Distinct number of app ids",
+                                "Distinct number of client apps",
+                                "Distinct number of ip addresses",
+                                "Distinct number of opperating systems",
+                                "Distinct number of browsers",
+                                "Distinct number of cities",
+                                "Distinct number of states",
+                                "Distinct number of countries"
+                            ],
+                            "supportedValuesKql": null,
+                            "valuesKql": null,
+                            "name": "Top reason for high anomaly score",
+                            "description": "Include only anomalies where the top reason is one of these values.",
+                            "sequenceNumber": 0,
+                            "rerun": "RerunAlways"
+                        }
+                    ],
+                    "singleSelectObservations": null,
+                    "prioritizeExcludeObservations": null,
+                    "thresholdObservations": [
+                        {
+                            "minimum": "0.0",
+                            "maximum": "1.0",
+                            "value": "0.5",
+                            "name": "Score",
+                            "description": "Generate an anomaly when the anomaly score is greater than or equal to the chosen value.",
+                            "sequenceNumber": 0,
+                            "rerun": "RerunAlways"
+                        }
+                    ],
+                    "singleValueObservations": null
+                }
+            }
+        }
+    ]
+}
