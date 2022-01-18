@@ -8,8 +8,8 @@
     },
     "resources": [
         {
-            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/8a7b865f-92de-43c6-9292-ad55700b8643')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/8a7b865f-92de-43c6-9292-ad55700b8643')]",
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/a240026f-8db9-4bf6-b77d-6449f072af50')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/a240026f-8db9-4bf6-b77d-6449f072af50')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
             "apiVersion": "2021-09-01-preview",
@@ -29,7 +29,7 @@
                     "Execution"
                 ],
                 "techniques": [],
-                "alertRuleTemplateName": "2c55fe7a-b06f-4029-a5b9-c54a2320d7b8",
+                "alertRuleTemplateName": "a240026f-8db9-4bf6-b77d-6449f072af50",
                 "incidentConfiguration": {
                     "createIncident": true,
                     "groupingConfiguration": {
