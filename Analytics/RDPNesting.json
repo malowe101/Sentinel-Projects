@@ -36,6 +36,9 @@
                         "entitiesMatchingMethod": "All",
                         "groupByEntities": "[]"
                      }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                 }
             }
         }
