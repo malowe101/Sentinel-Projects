@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+"resources": [
+        {
+            "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/8b8df84b-6f2e-4522-b712-1b8f47e0c30d",
+            "name": "8b8df84b-6f2e-4522-b712-1b8f47e0c30d",
+            "type": "Microsoft.SecurityInsights/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-03-01-preview",
+            "properties": {
+                "displayName": "SUPERNOVA webshell",
+                "description": "Identifies SUPERNOVA webshell based on W3CIISLog data. References: - https://unit42.paloaltonetworks.com/solarstorm-supernova/",
+                "severity": "High",
+                "enabled": true,
+                "query": "W3CIISLog| where csMethod == 'GET'| where isnotempty(csUriStem) and isnotempty(csUriQuery)| where csUriStem contains \"logoimagehandler.ashx\"| where csUriQuery contains \"codes\" and csUriQuery contains \"clazz\" and csUriQuery contains \"method\" and csUriQuery contains \"args\"| extend timestamp = TimeGenerated, IPCustomEntity = cIP, HostCustomEntity = Computer, AccountCustomEntity = csUserName",
+                "queryFrequency": "P1D",
+                "queryPeriod": "P1D",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "tactics": ["Persistence","PrivilegeEscalation"],
+                "alertRuleTemplateName": "2acc91c3-17c2-4388-938e-4eac2d5894e8", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "entitiesMatchingMethod": "All",
+                        "groupByEntities": "[]"
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                }
+            }
+        }
+    ]
+}
