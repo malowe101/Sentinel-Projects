@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+"resources": [
+        {
+            "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/06c208c0-b64a-4dd5-8457-9fbeb65064f7",
+            "name": "06c208c0-b64a-4dd5-8457-9fbeb65064f7",
+            "type": "Microsoft.SecurityInsights/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-03-01-preview",
+            "properties": {
+                "displayName": "Cisco SE High Events Last Hour",
+                "description": "Find events from Cisco Secure Endpoint that are of High severity in the last hour.",
+                "severity": "High",
+                "enabled": false,
+                "query": "let starttime = 14d;let endtime = 1d;let timeframe = 1h;let TotalEventsThreshold = 5;let ExeList = dynamic([\"powershell.exe\",\"cmd.exe\",\"wmic.exe\",\"psexec.exe\",\"cacls.exe\",\"rundll.exe\"]);let TimeSeriesData =SecurityEvent| where EventID == 4688 | extend Process = tolower(Process)| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime)))| where Process in (ExeList)| project TimeGenerated, Computer, AccountType, Account, Process| make-series Total=count() on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by Process;let TimeSeriesAlerts = materialize(TimeSeriesData| extend (anomalies, score, baseline) = series_decompose_anomalies(Total, 1.5, -1, 'linefit')| mv-expand Total to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double), score to typeof(double), baseline to typeof(long)| where anomalies > 0| project Process, TimeGenerated, Total, baseline, anomalies, score| where Total > TotalEventsThreshold);let AnomalyHours = materialize(TimeSeriesAlerts  | where TimeGenerated > ago(2d) | project TimeGenerated);TimeSeriesAlerts| where TimeGenerated > ago(2d)| join (SecurityEvent| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime)))| extend DateHour = bin(TimeGenerated, 1h) // create a new column and round to hour| where DateHour in ((AnomalyHours)) //filter the dataset to only selected anomaly hours| where EventID == 4688 | extend Process = tolower(Process)| summarize CommandlineCount = count() by bin(TimeGenerated, 1h), Process, CommandLine, Computer, Account) on Process, TimeGenerated| project AnomalyHour = TimeGenerated, Computer, Account, Process, CommandLine, CommandlineCount, Total, baseline, anomalies, score| extend timestamp = AnomalyHour, AccountCustomEntity = Account, HostCustomEntity = Computer",
+                "queryFrequency": "PT1H",
+                "queryPeriod": "PT1H",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT1H",
+                "suppressionEnabled": false,
+                "tactics": ["Execution","InitialAccess"],
+                "alertRuleTemplateName": "", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5M",
+                        "entitiesMatchingMethod": "All",
+                        "groupByEntities": "[]"
+                     }
+                }
+            }
+        }
+    ]
+}
