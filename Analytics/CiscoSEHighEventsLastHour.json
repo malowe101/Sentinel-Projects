@@ -32,7 +32,7 @@
                     "groupingConfiguration": {
                         "enabled": false, 
                     "reopenClosedIncident": false,
-                    "lookbackDuration": "PT5M",
+                    "lookbackDuration": "PT5M
                         "entitiesMatchingMethod": "All",
                         "groupByEntities": "[]"
                      }
