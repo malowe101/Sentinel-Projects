@@ -19,7 +19,7 @@
                 "severity": "High",
                 "enabled": false,
                 "query": "let endtime = 1h;CiscoSecureEndpoint_CL| where TimeGenerated >= ago(endtime)| where severity_s == \"High\"| project NetworkAddresses = parse_json(computer_network_addresses_s), computer_hostname_s, date_t, event_type_s, computer_links_trajectory_s| summarize CountInLastHour = count() by computer_hostname_s, date_t, event_type_s, tostring(NetworkAddresses.ip), computer_links_trajectory_s",
-                "queryFrequency": "PT1H",
+                "queryFrequency": "PT2H",
                 "queryPeriod": "PT1H",
                 "triggerOperator": "GreaterThan",
                 "triggerThreshold": 0,
@@ -32,7 +32,7 @@
                     "groupingConfiguration": {
                         "enabled": false, 
                     "reopenClosedIncident": false,
-                    "lookbackDuration": "PT5M
+                    "lookbackDuration": "PT5M",
                         "entitiesMatchingMethod": "All",
                         "groupByEntities": "[]"
                      }
