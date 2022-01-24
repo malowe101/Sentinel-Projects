@@ -15,7 +15,7 @@
             "apiVersion": "2021-03-01-preview",
             "properties": {
                 "displayName": "Test",
-                "description": "This is a test rule.I am putting "\double quotes in because they ruin my work.\"",
+                "description": "This is a test rule.I am putting \"double quotes in because they ruin my work.\"",
                 "severity": "Medium",
                 "enabled": true,
                 "query": "Heartbeat| extend Message = 'Double quotes suck and ruin my logic. I am tired of hitting obstacles.'| project Message| take 1",
