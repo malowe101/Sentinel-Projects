@@ -9,7 +9,7 @@
 "resources": [
         {
             "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/255cbb61-ac2d-44e4-97da-b41f29ff5715",
-            "name": "Microsoft.SecurityInsights/255cbb61-ac2d-44e4-97da-b41f29ff5715",
+            "name": "Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/255cbb61-ac2d-44e4-97da-b41f29ff5715",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
             "apiVersion": "2021-03-01-preview",
