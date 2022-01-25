@@ -4,7 +4,15 @@
     "parameters": {
         "workspace": {
             "type": "String"
-        }
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "bb91fdbe-645b-4b24-b8c9-b41c60607c17",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
     },
 "resources": [
         {
@@ -32,13 +40,7 @@
                     "groupingConfiguration": {
                         "enabled": false, 
                     "reopenClosedIncident": false,
-                    "lookbackDuration": "PT5H",
-                        "entitiesMatchingMethod": "All",
-                        "groupByEntities": "[]"
-                     }
-                },
-                "eventGroupingSettings": {
-                    "aggregationKind": "SingleAlert"
+                    "lookbackDuration": "PT5H"
                 }
             }
         }
