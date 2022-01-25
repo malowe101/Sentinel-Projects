@@ -4,14 +4,23 @@
     "parameters": {
         "workspace": {
             "type": "String"
+        },
+        "analytic-id": {
+            "type": "string",
+            "defaultValue": "255cbb61-ac2d-44e4-97da-b41f29ff5715",
+            "minLength": 1,
+            "metadata": {
+                "description": "Unique id for the scheduled alert rule"
+            }
         }
     },
 "resources": [
         {
-            "name": "malowe/Microsoft.SecurityInsights/255cbb61-ac2d-44e4-97da-b41f29ff5715",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
-            "kind": "Scheduled",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
             "apiVersion": "2021-03-01-preview",
+            "kind": "Scheduled",
+            "location": "[resourceGroup().location]".
             "properties": {
                 "displayName": "Known Barium IP",
                 "description": "Identifies a match across various data feeds for IP IOCs related to the Barium activity group.   References: https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer' ",
