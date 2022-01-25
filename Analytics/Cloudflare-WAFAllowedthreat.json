@@ -8,37 +8,33 @@
     },
 "resources": [
         {
-            "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/1f3f08b0-7982-4b37-bb22-6538cde98a38",
-            "name": "1f3f08b0-7982-4b37-bb22-6538cde98a38",
+            "id": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe/providers/Microsoft.OperationalInsights/workspaces/malowe/providers/Microsoft.SecurityInsights/alertRules/88a99f44-3e8d-4a64-99bd-7c9d1af28dd7",
+            "name": "88a99f44-3e8d-4a64-99bd-7c9d1af28dd7",
             "type": "Microsoft.SecurityInsights/alertRules",
             "kind": "Scheduled",
             "apiVersion": "2021-03-01-preview",
             "properties": {
-                "displayName": "Test",
-                "description": "This is a test rule.I am putting "double quotes in because they ruin my work."",
-                "severity": "Medium",
-                "enabled": true,
-                "query": "Heartbeat| extend Message = 'Double quotes suck and ruin my logic. I am tired of hitting obstacles.'| project Message| take 1",
-                "queryFrequency": "PT5H",
-                "queryPeriod": "PT5H",
+                "displayName": "Cloudflare - WAF Allowed threat",
+                "description": "Detects WAF "Allowed" action on threat events.",
+                "severity": "High",
+                "enabled": false,
+                "query": "Cloudflare| where isnotempty(WAFRuleID) or isnotempty(WAFRuleMessage)| where WAFAction =~ 'Allow'| extend IPCustomEntity = SrcIpAddr| extend UrlCustomEntity = ClientRequestURI",
+                "queryFrequency": "PT1H",
+                "queryPeriod": "PT1H",
                 "triggerOperator": "GreaterThan",
                 "triggerThreshold": 0,
-                "suppressionDuration": "PT5H",
+                "suppressionDuration": "PT1H",
                 "suppressionEnabled": false,
-                "tactics": [],
+                "tactics": ["InitialAccess"],
                 "alertRuleTemplateName": "", 
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": true, 
+                        "enabled": false, 
                     "reopenClosedIncident": false,
-                    "lookbackDuration": "PT5H",
-                        "entitiesMatchingMethod": "",
+                    "lookbackDuration": "PT5M",
                         "groupByEntities": "[]"
                      }
-                },
-                "eventGroupingSettings": {
-                    "aggregationKind": "SingleAlert"
                 }
             }
         }
