@@ -15,7 +15,7 @@
             "apiVersion": "2021-03-01-preview",
             "properties": {
                 "displayName": "Cloudflare - WAF Allowed threat",
-                "description": "Detects WAF "Allowed" action on threat events.",
+                "description": "Detects WAF \"Allowed\" action on threat events.",
                 "severity": "High",
                 "enabled": false,
                 "query": "Cloudflare| where isnotempty(WAFRuleID) or isnotempty(WAFRuleMessage)| where WAFAction =~ 'Allow'| extend IPCustomEntity = SrcIpAddr| extend UrlCustomEntity = ClientRequestURI",
