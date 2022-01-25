@@ -20,7 +20,7 @@
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
             "apiVersion": "2021-03-01-preview",
             "kind": "Scheduled",
-            "location": "[resourceGroup().location]".
+            "location": "[resourceGroup().location]",
             "properties": {
                 "displayName": "Known Barium IP",
                 "description": "Identifies a match across various data feeds for IP IOCs related to the Barium activity group.   References: https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer' ",
