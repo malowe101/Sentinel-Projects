@@ -43,6 +43,7 @@
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
                         "groupByEntities": ""
+                    }
                 }
             }
         }
