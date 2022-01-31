@@ -5,22 +5,21 @@
         "workspace": {
             "type": "String"
         },
-        "analytic-id": {
-           "type": "string",
-           "defaultValue": "3d6ccebc-2586-4ea3-b6b9-8c83edf6fd91",
-           "minLength": 1,
-           "metadata": {
-           "description": "Unique id for the scheduled alert rule"
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
       }
     }
     },
 "resources": [
         {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
-            "apiVersion": "2021-03-01-preview",
-            "location": "[resourceGroup().location]", 
+            "apiVersion": "2021-10-01",
             "properties": {
                 "displayName": "Known NICKEL domains and hashes",
                 "description": "IOC domains and hash values for tools and malware used by NICKEL.  Matches domain name, hash IOCs and M365 Defender sigs related to the NICKEL activity group with CommonSecurityLog, DnsEvents, VMConnection and SecurityEvents dataTypes.",
@@ -35,6 +34,8 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
                 "tactics": ["CommandAndControl"],
+                "techniques": ,
+                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "9122a9cb-916b-4d98-a199-1b7b0af8d598", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -42,8 +43,12 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities"
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": "[]"
                      }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                 }
             }
         }
