@@ -5,22 +5,21 @@
         "workspace": {
             "type": "String"
         },
-        "analytic-id": {
-           "type": "string",
-           "defaultValue": "8a7b865f-92de-43c6-9292-ad55700b8643",
-           "minLength": 1,
-           "metadata": {
-           "description": "Unique id for the scheduled alert rule"
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
       }
     }
     },
 "resources": [
         {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
-            "apiVersion": "2021-03-01-preview",
-            "location": "[resourceGroup().location]", 
+            "apiVersion": "2021-10-01",
             "properties": {
                 "displayName": "Process execution frequency anomaly",
                 "description": "Identifies anomalous spike in frequency of executions of sensitive processes which are often leveraged as attack vectors.The query leverages KQL built-in anomaly detection algorithms to find large deviations from baseline patterns.Sudden increases in execution frequency of sensitive processes should be further investigated for malicious activity.Tune the values from 1.5 to 3 in series_decompose_anomalies for further outliers or based on custom threshold values for score.",
@@ -35,6 +34,8 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]}],
                 "tactics": ["Execution"],
+                "techniques": ,
+                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "2c55fe7a-b06f-4029-a5b9-c54a2320d7b8", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -42,8 +43,12 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities"
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": "[]"
                      }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                 }
             }
         }
