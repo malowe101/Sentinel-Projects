@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "Azure AD Role Management Permission Grant",
+                "description": "Identifies when the Microsoft Graph RoleManagement.ReadWrite.Directory (Delegated or Application) permission is granted to a service principal.This permission allows an application to read and manage the role-based access control (RBAC) settings for your company's directory.An adversary could use this permission to add an Azure AD object to an Admin directory role and escalate privileges.Ref : https://docs.microsoft.com/graph/permissions-reference#role-management-permissionsRef : https://docs.microsoft.com/graph/api/directoryrole-post-members?view=graph-rest-1.0&tabs=http",
+                "severity": "High",
+                "enabled": true,
+                "query": "AuditLogs| where LoggedByService =~ \"Core Directory\"| where Category =~ \"ApplicationManagement\"| where AADOperationType =~ \"Assign\"| where ActivityDisplayName has_any (\"Add delegated permission grant\",\"Add app role assignment to service principal\")| mv-expand TargetResources| mv-expand TargetResources.modifiedProperties| extend displayName_ = tostring(TargetResources_modifiedProperties.displayName)| where displayName_ has_any (\"AppRole.Value\",\"DelegatedPermissionGrant.Scope\")| extend Permission = tostring(parse_json(tostring(TargetResources_modifiedProperties.newValue)))| where Permission has \"RoleManagement.ReadWrite.Directory\"| extend InitiatingApp = tostring(parse_json(tostring(InitiatedBy.app)).displayName)| extend Initiator = iif(isnotempty(InitiatingApp), InitiatingApp, tostring(parse_json(tostring(InitiatedBy.user)).userPrincipalName))| extend Target = tostring(parse_json(tostring(TargetResources.modifiedProperties[4].newValue)))| extend TargetId = iif(displayName_ =~ 'DelegatedPermissionGrant.Scope',  tostring(parse_json(tostring(TargetResources.modifiedProperties[2].newValue))),  tostring(parse_json(tostring(TargetResources.modifiedProperties[3].newValue))))| summarize by bin(TimeGenerated, 1h), OperationName, Initiator, Target, TargetId, Result",
+                "queryFrequency": "PT2H",
+                "queryPeriod": "PT2H",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "tactics": ["PrivilegeEscalation","Persistence"],
+                "alertRuleTemplateName": "1ff56009-db01-4615-8211-d4fda21da02d", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+           }
+        }
+    ]
+}
