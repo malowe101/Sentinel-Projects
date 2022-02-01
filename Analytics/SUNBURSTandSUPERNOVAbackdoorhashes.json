@@ -32,7 +32,6 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"FileHash","fieldMappings":[{"identifier":"Algorithm","columnName":"MD5"},{"identifier":"Value","columnName":"FileHashCustomEntity"}]}],
                 "tactics": ["Execution","Persistence"],
                 "alertRuleTemplateName": "a3c144f9-8051-47d4-ac29-ffb0c312c910", 
                 "incidentConfiguration": {
@@ -41,11 +40,10 @@
                         "enabled": true, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": ""
-                 }
-                }
-            }
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+           }
         }
     ]
 }
