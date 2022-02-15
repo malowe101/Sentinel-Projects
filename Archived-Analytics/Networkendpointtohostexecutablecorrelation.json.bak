@@ -43,14 +43,15 @@
                         "enabled": true, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
+                        "matchingMethod": "Selected",
+                        "groupByEntities": "["Account","Host","IP","URL"]"
                      }
                 },
                 "eventGroupingSettings": {
                     "aggregationKind": "SingleAlert"
-                }
-            }
+                   }
+               }
+           }
         }
     ]
 }
