@@ -32,7 +32,6 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT1H",
                 "suppressionEnabled": false,
-                "entityMappings": ,
                 "tactics": ["InitialAccess"],
                 "alertRuleTemplateName": "", 
                 "incidentConfiguration": {
@@ -41,11 +40,10 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5M",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
-                 }
-                }
-            }
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+           }
         }
     ]
 }
