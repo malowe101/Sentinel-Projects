@@ -49,9 +49,8 @@
                 },
                 "eventGroupingSettings": {
                     "aggregationKind": "SingleAlert"
-                   }
-               }
-           }
+                }
+            }
         }
     ]
 }
