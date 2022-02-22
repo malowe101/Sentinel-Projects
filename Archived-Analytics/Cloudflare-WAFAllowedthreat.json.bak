@@ -22,7 +22,7 @@
             "apiVersion": "2021-10-01",
             "properties": {
                 "displayName": "Cloudflare - WAF Allowed threat",
-                "description": "Detects WAF "Allowed" action on threat events.",
+                "description": "Detects WAF 'Allowed' action on threat events.",
                 "severity": "High",
                 "enabled": false,
                 "query": "Cloudflare| where isnotempty(WAFRuleID) or isnotempty(WAFRuleMessage)| where WAFAction =~ 'Allow'| extend IPCustomEntity = SrcIpAddr| extend UrlCustomEntity = ClientRequestURI",
@@ -32,7 +32,6 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT1H",
                 "suppressionEnabled": false,
-                "entityMappings": ,
                 "tactics": ["InitialAccess"],
                 "alertRuleTemplateName": "", 
                 "incidentConfiguration": {
@@ -41,11 +40,10 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5M",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
-                 }
-                }
-            }
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+           }
         }
     ]
 }
