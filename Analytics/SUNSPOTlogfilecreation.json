@@ -43,7 +43,7 @@ More details:
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": false, 
+                        "enabled": true, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
