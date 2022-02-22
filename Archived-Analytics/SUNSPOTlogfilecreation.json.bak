@@ -22,13 +22,10 @@
             "apiVersion": "2021-10-01",
             "properties": {
                 "displayName": "SUNSPOT log file creation",
-                "description": "This query uses Microsoft Defender for Endpoint data and Windows Event Logs to look for IoCs associated with the SUNSPOT malware shared by Crowdstrike.
-More details: 
-  - https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/ 
-  - https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-your-software-build-process-with-azure-sentinel/ba-p/2140807",
+                "description": "This query uses Microsoft Defender for Endpoint data and Windows Event Logs to look for IoCs associated with the SUNSPOT malware shared by Crowdstrike.'More details: '  - https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/ '  - https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-your-software-build-process-with-azure-sentinel/ba-p/2140807",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "union isfuzzy=true(DeviceFileEvents| where FolderPath endswith 'vmware-vmdmp.log'| extend HostCustomEntity = DeviceName, timestamp=TimeGenerated),(SecurityEvent| where EventID == 4663| where ObjectName endswith 'vmware-vmdmp.log'| extend HostCustomEntity = Computer, timestamp=TimeGenerated),(imFileEvent| where TargetFileName endswith 'vmware-vmdmp.log'| extend HostCustomEntity = DvcHostname, timestamp=TimeGenerated)",
+                "query": "union isfuzzy=true(DeviceFileEvents| where FolderPath endswith \"vmware-vmdmp.log\"| extend HostCustomEntity = DeviceName, timestamp=TimeGenerated),(SecurityEvent| where EventID == 4663| where ObjectName endswith \"vmware-vmdmp.log\"| extend HostCustomEntity = Computer, timestamp=TimeGenerated),(imFileEvent| where TargetFileName endswith \"vmware-vmdmp.log\"| extend HostCustomEntity = DvcHostname, timestamp=TimeGenerated)",
                 "queryFrequency": "P1D",
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
@@ -43,7 +40,7 @@ More details:
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": true, 
+                        "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
