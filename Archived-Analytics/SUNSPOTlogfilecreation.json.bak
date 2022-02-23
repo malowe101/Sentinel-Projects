@@ -7,7 +7,7 @@
         },
      "analytic-id": {
         "type": "string",
-        "defaultValue": "316a95e1-943b-418f-8058-17d74735d4df",
+        "defaultValue": "e0718779-b034-4648-ab41-ee256032ce91",
         "minLength": 1,
         "metadata": {
         "description": "Unique id for the scheduled alert rule"
@@ -32,23 +32,18 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]}],
                 "tactics": ["Persistence"],
                 "alertRuleTemplateName": "c0e84221-f240-4dd7-ab1e-37e034ea2a4e", 
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": true, 
+                        "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": []
-                     }
-                },
-                "eventGroupingSettings": {
-                    "aggregationKind": "SingleAlert"
+                        "matchingMethod": "AllEntities"
                    }
                }
            }
+        }
     ]
 }
