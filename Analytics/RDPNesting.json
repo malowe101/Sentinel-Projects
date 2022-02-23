@@ -34,8 +34,6 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
                 "tactics": ["LateralMovement"],
-                "techniques": ,
-                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "69a45b05-71f5-45ca-8944-2e038747fb39", 
                 "incidentConfiguration": {
                     "createIncident": true, 
