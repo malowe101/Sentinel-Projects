@@ -25,7 +25,7 @@
                 "description": "Identifies SUPERNOVA webshell based on W3CIISLog data. References: - https://unit42.paloaltonetworks.com/solarstorm-supernova/",
                 "severity": "High",
                 "enabled": true,
-                "query": "W3CIISLog| where csMethod == 'GET'| where isnotempty(csUriStem) and isnotempty(csUriQuery)| where csUriStem contains \"logoimagehandler.ashx\"| where csUriQuery contains \"codes\" and csUriQuery contains \"clazz\" and csUriQuery contains \"method\" and csUriQuery contains \"args\"| extend timestamp = TimeGenerated, IPCustomEntity = cIP, HostCustomEntity = Computer, AccountCustomEntity = csUserName",
+                "query": "W3CIISLog| where csMethod == 'GET'| where isnotempty(csUriStem) and isnotempty(csUriQuery)| where csUriStem contains 'logoimagehandler.ashx'| where csUriQuery contains 'codes' and csUriQuery contains 'clazz' and csUriQuery contains 'method' and csUriQuery contains 'args'| extend timestamp = TimeGenerated, IPCustomEntity = cIP, HostCustomEntity = Computer, AccountCustomEntity = csUserName",
                 "queryFrequency": "P1D",
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
