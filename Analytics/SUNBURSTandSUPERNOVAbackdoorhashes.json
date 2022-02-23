@@ -32,6 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
+                "entityMappings": ,
                 "tactics": ["Execution","Persistence"],
                 "alertRuleTemplateName": "a3c144f9-8051-47d4-ac29-ffb0c312c910", 
                 "incidentConfiguration": {
