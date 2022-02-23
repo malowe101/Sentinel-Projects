@@ -42,7 +42,7 @@
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
+                        "groupByEntities": []
                      }
                 },
                 "eventGroupingSettings": {
