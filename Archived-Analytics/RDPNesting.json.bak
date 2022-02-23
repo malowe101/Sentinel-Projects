@@ -34,6 +34,7 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
                 "tactics": ["LateralMovement"],
+                "techniques": ,
                 "alertRuleTemplateName": "69a45b05-71f5-45ca-8944-2e038747fb39", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -41,10 +42,14 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities"
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                    }
                }
            }
-        }
     ]
 }
