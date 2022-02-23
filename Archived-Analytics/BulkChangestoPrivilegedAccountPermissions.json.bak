@@ -32,6 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
+                "entityMappings": ,
                 "tactics": ["PrivilegeEscalation"],
                 "alertRuleTemplateName": "218f60de-c269-457a-b882-9966632b9dc6", 
                 "incidentConfiguration": {
