@@ -32,7 +32,6 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"Initiator"}]},{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"Target"}]}],
                 "tactics": ["PrivilegeEscalation","Persistence"],
                 "alertRuleTemplateName": "1ff56009-db01-4615-8211-d4fda21da02d", 
                 "incidentConfiguration": {
@@ -41,11 +40,10 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": ""
-                 }
-                }
-            }
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+           }
         }
     ]
 }
