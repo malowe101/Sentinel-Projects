@@ -34,8 +34,6 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]}],
                 "tactics": ["Execution"],
-                "techniques": ,
-                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "2c55fe7a-b06f-4029-a5b9-c54a2320d7b8", 
                 "incidentConfiguration": {
                     "createIncident": true, 
