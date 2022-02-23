@@ -7,7 +7,7 @@
         },
      "analytic-id": {
         "type": "string",
-        "defaultValue": "e0718779-b034-4648-ab41-ee256032ce91",
+        "defaultValue": "316a95e1-943b-418f-8058-17d74735d4df",
         "minLength": 1,
         "metadata": {
         "description": "Unique id for the scheduled alert rule"
@@ -49,7 +49,7 @@
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": false, 
+                        "enabled": true, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
