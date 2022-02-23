@@ -7,7 +7,7 @@
         },
      "analytic-id": {
         "type": "string",
-        "defaultValue": "",
+        "defaultValue": "3d6ccebc-2586-4ea3-b6b9-8c83edf6fd91",
         "minLength": 1,
         "metadata": {
         "description": "Unique id for the scheduled alert rule"
