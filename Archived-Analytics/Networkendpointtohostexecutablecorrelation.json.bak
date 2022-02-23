@@ -34,6 +34,7 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"URL","fieldMappings":[{"identifier":"Url","columnName":"URLCustomEntity"}]}],
                 "tactics": ["Execution"],
+                "techniques": ,
                 "alertRuleTemplateName": "01f64465-b1ef-41ea-a7f5-31553a11ad43", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -41,10 +42,14 @@
                         "enabled": true, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "Selected"
+                        "matchingMethod": "Selected",
+                        "groupByEntities": ['Account','Host','IP','URL']
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                    }
                }
            }
-        }
     ]
 }
