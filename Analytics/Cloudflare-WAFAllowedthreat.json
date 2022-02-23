@@ -25,7 +25,12 @@
                 "description": "Detects WAF 'Allowed' action on threat events.",
                 "severity": "High",
                 "enabled": false,
-                "query": "Cloudflare| where isnotempty(WAFRuleID) or isnotempty(WAFRuleMessage)| where WAFAction =~ 'Allow'| extend IPCustomEntity = SrcIpAddr| extend UrlCustomEntity = ClientRequestURI",
+                "query": "Cloudflare
+| where isnotempty(WAFRuleID) or isnotempty(WAFRuleMessage)
+| where WAFAction =~ 'Allow'
+| extend IPCustomEntity = SrcIpAddr
+| extend UrlCustomEntity = ClientRequestURI
+",
                 "queryFrequency": "PT1H",
                 "queryPeriod": "PT1H",
                 "triggerOperator": "GreaterThan",
