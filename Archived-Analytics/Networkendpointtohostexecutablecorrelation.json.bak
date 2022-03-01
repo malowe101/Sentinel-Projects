@@ -43,7 +43,7 @@
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "Selected",
-                        "groupByEntities": ['Account','Host','IP','URL']
+                        "groupByEntities": ["Account","Host","IP","URL"]
                      }
                 },
                 "eventGroupingSettings": {
