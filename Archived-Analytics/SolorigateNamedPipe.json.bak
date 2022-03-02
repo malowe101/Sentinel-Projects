@@ -34,8 +34,6 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]}],
                 "tactics": ["DefenseEvasion","PrivilegeEscalation"],
-                "techniques": ,
-                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "11b4c19d-2a79-4da3-af38-b067e1273dee", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -44,13 +42,13 @@
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
+                        "groupByEntities": []
                      }
                 },
                 "eventGroupingSettings": {
                     "aggregationKind": "SingleAlert"
-                }
-            }
-        }
+                   }
+               }
+           }
     ]
 }
