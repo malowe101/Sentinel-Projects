@@ -34,8 +34,6 @@
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"AzureResource","fieldMappings":[{"identifier":"ResourceId","columnName":"ResourceCustomEntity"}]}],
                 "tactics": ["InitialAccess"],
-                "techniques": ,
-                "requiredDataConnectors": ,
                 "alertRuleTemplateName": "968358d6-6af8-49bb-aaa4-187b3067fb95", 
                 "incidentConfiguration": {
                     "createIncident": true, 
@@ -44,13 +42,13 @@
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
-                        "groupByEntities": "[]"
+                        "groupByEntities": []
                      }
                 },
                 "eventGroupingSettings": {
                     "aggregationKind": "SingleAlert"
-                }
-            }
-        }
+                   }
+               }
+           }
     ]
 }
