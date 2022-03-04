@@ -32,7 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT1H",
                 "suppressionEnabled": false,
-                "entityMappings": ,
+                "entityMappings": [],
                 "tactics": ["InitialAccess"],
                 "alertRuleTemplateName": "", 
                 "incidentConfiguration": {
