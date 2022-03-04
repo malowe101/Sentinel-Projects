@@ -32,7 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"FileHash","fieldMappings":[{"identifier":"Algorithm","columnName":"FileHashType"},{"identifier":"Value","columnName":"FileHashCustomEntity"}]}],
+                "entityMappings": Value,
                 "tactics": ["Execution","Persistence","InitialAccess"],
                 "alertRuleTemplateName": "738702fd-0a66-42c7-8586-e30f0583f8fe", 
                 "incidentConfiguration": {
