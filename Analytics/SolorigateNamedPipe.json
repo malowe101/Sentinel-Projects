@@ -32,7 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]}],
+                "entityMappings": Value,
                 "tactics": ["DefenseEvasion","PrivilegeEscalation"],
                 "alertRuleTemplateName": "11b4c19d-2a79-4da3-af38-b067e1273dee", 
                 "incidentConfiguration": {
