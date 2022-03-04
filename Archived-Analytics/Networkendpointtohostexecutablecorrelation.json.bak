@@ -32,7 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"URL","fieldMappings":[{"identifier":"Url","columnName":"URLCustomEntity"}]}],
+                "entityMappings": Value,
                 "tactics": ["Execution"],
                 "alertRuleTemplateName": "01f64465-b1ef-41ea-a7f5-31553a11ad43", 
                 "incidentConfiguration": {
