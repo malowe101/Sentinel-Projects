@@ -32,7 +32,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
+                "entityMappings": Value,
                 "tactics": ["InitialAccess","Collection"],
                 "alertRuleTemplateName": "a04cf847-a832-4c60-b687-b0b6147da219", 
                 "incidentConfiguration": {
