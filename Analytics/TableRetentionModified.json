@@ -32,7 +32,6 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [],
                 "tactics": [],
                 "alertRuleTemplateName": "", 
                 "incidentConfiguration": {
@@ -44,10 +43,7 @@
                         "matchingMethod": "AllEntities"
                    }
                }
-              "eventGroupingSettings": {
-                    "aggregationKind": "SingleAlert"
-                   }
-               }
            }
+        }
     ]
 }
