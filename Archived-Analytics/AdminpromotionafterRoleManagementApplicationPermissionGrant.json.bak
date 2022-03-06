@@ -7,7 +7,7 @@
         },
      "analytic-id": {
         "type": "string",
-        "defaultValue": "1d534d8e-a3ab-43cd-9ca7-c0b3bf8176a5",
+        "defaultValue": "9d921a62-f849-411e-98a1-8ea6718746bf",
         "minLength": 1,
         "metadata": {
         "description": "Unique id for the scheduled alert rule"
@@ -32,19 +32,23 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
-                "entityMappings": [],
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"ServicePrincipal"}]},{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"TargetObject"}]}],
                 "tactics": ["PrivilegeEscalation","Persistence"],
                 "alertRuleTemplateName": "f80d951a-eddc-4171-b9d0-d616bb83efdc", 
                 "incidentConfiguration": {
                     "createIncident": true, 
                     "groupingConfiguration": {
-                        "enabled": true, 
+                        "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities"
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
                    }
                }
            }
-        }
     ]
 }
