@@ -25,7 +25,7 @@
                 "description": "",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "\nAzureActivity
+                "query": "AzureActivity
         | where TimeGenerated >= ago(90d)
         | where ActivityStatus has 'succeeded'
         | where OperationName has 'tables/write'
