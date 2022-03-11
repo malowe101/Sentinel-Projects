@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "ceba0711-c74d-49a1-813e-c496e39f0683",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "TEARDROP memory-only dropper",
+                "description": "Identifies SolarWinds TEARDROP memory-only dropper IOCs in Window's defender Exploit Guard activityReferences:- https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html- https://gist.github.com/olafhartong/71ffdd4cab4b6acd5cbcd1a0691ff82f",
+                "severity": "High",
+                "enabled": true,
+                "query": "DeviceEvents\n| where ActionType has 'ExploitGuardNonMicrosoftSignedBlocked'\n| where InitiatingProcessFileName contains 'svchost.exe' and FileName contains 'NetSetupSvc.dll'\n| extend timestamp = TimeGenerated, AccountCustomEntity = iff(isnotempty(InitiatingProcessAccountUpn), InitiatingProcessAccountUpn, InitiatingProcessAccountName),HostCustomEntity = DeviceName, FileHashCustomEntity = InitiatingProcessSHA1, FileHashType = 'SHA1'",
+                "queryFrequency": "P1D",
+                "queryPeriod": "P1D",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"FileHash","fieldMappings":[{"identifier":"Algorithm","columnName":"FileHashType"},{"identifier":"Value","columnName":"FileHashCustomEntity"}]}],
+                "tactics": ["Execution","Persistence","InitialAccess"],
+                "alertRuleTemplateName": "738702fd-0a66-42c7-8586-e30f0583f8fe", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                   }
+               }
+           }
+    ]
+}
