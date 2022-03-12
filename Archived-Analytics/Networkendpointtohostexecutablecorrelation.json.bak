@@ -1,3 +1,4 @@
+
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -26,7 +27,7 @@
                 "severity": "Medium",
                 "enabled": true,
                 "query": "let endpointData = 
-(SecurityEvent
+"(SecurityEvent
   | where EventID == 4688
   | extend shortFileName = tostring(split(NewProcessName, '\\')[-1])
   );
@@ -38,7 +39,7 @@ CommonSecurityLog
 | project TimeGenerated, Activity , RequestURL , SourceIP, DestinationIP
 | extend suspectExeName = tolower(tostring(split(RequestURL, '/')[-1]))
 | join (endpointData) on $left.suspectExeName == $right.shortFileName 
-| extend timestamp = TimeGenerated, IPCustomEntity = DestinationIP, AccountCustomEntity = TargetUserName, HostCustomEntity = Computer, URLCustomEntity = RequestURL",
+| extend timestamp = TimeGenerated, IPCustomEntity = DestinationIP, AccountCustomEntity = TargetUserName, HostCustomEntity = Computer, URLCustomEntity = RequestURL","
                 "queryFrequency": "P1D",
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
