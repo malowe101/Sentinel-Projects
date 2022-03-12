@@ -25,7 +25,7 @@
                 "description": "",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "AzureActivity         | where TimeGenerated >= ago(90d)         | where ActivityStatus has 'succeeded'         | where OperationName has 'tables/write'         | extend modifiedTable = extract('tables/(.*)', 1, _ResourceId)         | summarize arg_max(TimeGenerated, *) by modifiedTable         | project ['Last Modified Time'] = TimeGenerated, modifiedTable",
+                "query": "AzureActivity //This is a sample comment \n| where TimeGenerated >= ago(90d) \n| where ActivityStatus has 'succeeded' \n| where OperationName has 'tables/write' \n| extend modifiedTable = extract('tables/(.*)', 1, _ResourceId) \n| summarize arg_max(TimeGenerated, *) by modifiedTable \n| project ['Last Modified Time'] = TimeGenerated, modifiedTable",
                 "queryFrequency": "PT5H",
                 "queryPeriod": "PT5H",
                 "triggerOperator": "GreaterThan",
