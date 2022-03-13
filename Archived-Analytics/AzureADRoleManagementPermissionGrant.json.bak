@@ -41,11 +41,10 @@
                         "enabled": false, 
                     "reopenClosedIncident": false,
                     "lookbackDuration": "PT5H",
-                        "matchingMethod": "AllEntities",
-                        "groupByEntities": []
-                     }
-                },
-                "eventGroupingSettings": {
+                        "matchingMethod": "AllEntities"
+                   }
+               }
+              "eventGroupingSettings": {
                     "aggregationKind": "SingleAlert"
                    }
                }
