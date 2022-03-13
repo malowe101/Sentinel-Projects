@@ -4,51 +4,86 @@
     "parameters": {
         "workspace": {
             "type": "String"
-        },
-     "analytic-id": {
-        "type": "string",
-        "defaultValue": "95df51cb-836d-4e1a-9f2a-d66a20eacff9",
-        "minLength": 1,
-        "metadata": {
-        "description": "Unique id for the scheduled alert rule"
-      }
-    }
+        }
     },
-"resources": [
+    "resources": [
         {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/95df51cb-836d-4e1a-9f2a-d66a20eacff9')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
-            "apiVersion": "2021-10-01",
             "properties": {
-                "displayName": "Network endpoint to host executable correlation",
-                "description": "Correlates blocked URLs hosting [malicious] executables with host endpoint datato identify potential instances of executables of the same name having been recently run.",
-                "severity": "Medium",
-                "enabled": true,
-                "query": "let endpointData =  (SecurityEvent   \n| where EventID == 4688   \n| extend shortFileName = tostring(split(NewProcessName, '\\')[-1])   ); // Correlate suspect executables seen in TrendMicro rule updates with similar activity on endpoints CommonSecurityLog \n| where DeviceVendor =~ 'Trend Micro' \n| where Activity =~ 'Deny List updated'  \n| where RequestURL endswith '.exe' \n| project TimeGenerated, Activity , RequestURL , SourceIP, DestinationIP \n| extend suspectExeName = tolower(tostring(split(RequestURL, '/')[-1])) \n| join (endpointData) on $left.suspectExeName == $right.shortFileName  \n| extend timestamp = TimeGenerated, IPCustomEntity = DestinationIP, AccountCustomEntity = TargetUserName, HostCustomEntity = Computer, URLCustomEntity = RequestURL",
-                "queryFrequency": "P1D",
-                "queryPeriod": "P1D",
-                "triggerOperator": "GreaterThan",
-                "triggerThreshold": 0,
-                "suppressionDuration": "PT5H",
-                "suppressionEnabled": false,
-                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"URL","fieldMappings":[{"identifier":"Url","columnName":"URLCustomEntity"}]}],
-                "tactics": ["Execution"],
-                "alertRuleTemplateName": "01f64465-b1ef-41ea-a7f5-31553a11ad43", 
                 "incidentConfiguration": {
-                    "createIncident": true, 
+                    "createIncident": true,
                     "groupingConfiguration": {
-                        "enabled": false, 
-                    "reopenClosedIncident": false,
-                    "lookbackDuration": "PT5H",
+                        "enabled": false,
+                        "reopenClosedIncident": false,
+                        "lookbackDuration": "PT5H",
                         "matchingMethod": "AllEntities",
-                        "groupByEntities": []
-                     }
-                },
-                "eventGroupingSettings": {
-                    "aggregationKind": "SingleAlert"
-                   }
-               }
-           }
-    ]
+                    "groupByEntities": [],
+                "groupByAlertDetails": [],
+            "groupByCustomDetails": []
+        }
+    },
+    "entityMappings": [
+        {
+            "entityType": "Account",
+            "fieldMappings": [
+                {
+                    "identifier": "FullName",
+                    "columnName": "AccountCustomEntity"
+                }
+            ]
+        },
+        {
+            "entityType": "Host",
+            "fieldMappings": [
+                {
+                    "identifier": "FullName",
+                    "columnName": "HostCustomEntity"
+                }
+            ]
+        },
+        {
+            "entityType": "IP",
+            "fieldMappings": [
+                {
+                    "identifier": "Address",
+                    "columnName": "IPCustomEntity"
+                }
+            ]
+        },
+        {
+            "entityType": "URL",
+            "fieldMappings": [
+                {
+                    "identifier": "Url",
+                    "columnName": "URLCustomEntity"
+                }
+            ]
+        }
+    ],
+    "templateVersion": "1.0.0",
+    "queryFrequency": "P1D",
+    "queryPeriod": "P1D",
+    "triggerOperator": "GreaterThan",
+    "triggerThreshold": 0,
+    "eventGroupingSettings": {
+        "aggregationKind": "SingleAlert"
+    },
+    "severity": "Medium",
+    "query": "let endpointData = \n(SecurityEvent\n  | where EventID == 4688\n  | extend shortFileName = tostring(split(NewProcessName, '\\\\')[-1])\n  );\n// Correlate suspect executables seen in TrendMicro rule updates with similar activity on endpoints\nCommonSecurityLog\n| where DeviceVendor =~ \"Trend Micro\"\n| where Activity =~ \"Deny List updated\" \n| where RequestURL endswith \".exe\"\n| project TimeGenerated, Activity , RequestURL , SourceIP, DestinationIP\n| extend suspectExeName = tolower(tostring(split(RequestURL, '/')[-1]))\n| join (endpointData) on $left.suspectExeName == $right.shortFileName \n| extend timestamp = TimeGenerated, IPCustomEntity = DestinationIP, AccountCustomEntity = TargetUserName, HostCustomEntity = Computer, URLCustomEntity = RequestURL",
+    "suppressionDuration": "PT5H",
+    "suppressionEnabled": false,
+    "tactics": [
+        "Execution"
+    ],
+    "displayName": "Network endpoint to host executable correlation",
+    "enabled": true,
+    "description": "Correlates blocked URLs hosting [malicious] executables with host endpoint data\nto identify potential instances of executables of the same name having been recently run.",
+    "alertRuleTemplateName": "01f64465-b1ef-41ea-a7f5-31553a11ad43"
+},
+"apiVersion": "2021-09-01-preview"
+}
+]
 }
