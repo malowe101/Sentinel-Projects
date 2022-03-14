@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "84899c32-1adf-43a7-8d22-b31f8f15cb7a",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "Suspicious application consent similar to O365 Attack Toolkit",
+                "description": "This will alert when a user consents to provide a previously-unknown Azure application with the same OAuth permissions used by the MDSec O365 Attack Toolkit (https://github.com/mdsecactivebreach/o365-attack-toolkit).The default permissions/scope for the MDSec O365 Attack toolkit are contacts.read, user.read, mail.read, notes.read.all, mailboxsettings.readwrite, and files.readwrite.all.Consent to applications with these permissions should be rare, especially as the knownApplications list is expanded, especially as the knownApplications list is expanded. Public contributions to expand this filter are welcome!For further information on AuditLogs please see https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-audit-activities.",
+                "severity": "High",
+                "enabled": true,
+                "query": "let detectionTime = 1d;\rlet joinLookback = 14d;\rAuditLogs\r| where TimeGenerated > ago(detectionTime)\r| where LoggedByService =~ 'Core Directory'\r| where Category =~ 'ApplicationManagement'\r| where OperationName =~ 'Consent to application'\r| where TargetResources has 'mailboxsettings'\r| extend AppDisplayName = TargetResources.[0].displayName\r| extend AppClientId = tolower(TargetResources.[0].id)\r| where AppClientId !in ((externaldata(knownAppClientId:string, knownAppDisplayName:string)[@'https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Sample%20Data/Feeds/Microsoft.OAuth.KnownApplications.csv'] with (format='csv')))\r| extend ConsentFull = TargetResources[0].modifiedProperties[4].newValue\r| parse ConsentFull with * 'ConsentType: ' GrantConsentType ', Scope: ' GrantScope1 ']' *\r| where ConsentFull contains 'contacts.read' and ConsentFull contains 'user.read' and ConsentFull contains 'mail.read' and ConsentFull contains 'notes.read.all' and ConsentFull contains 'mailboxsettings.readwrite' and ConsentFull contains 'Files.ReadWrite.All'\r| where GrantConsentType != 'AllPrincipals' // NOTE: we are ignoring if OAuth application was granted to all users via an admin - but admin due diligence should be audited occasionally\r| extend GrantIpAddress = iff(isnotempty(InitiatedBy.user.ipAddress), tostring(InitiatedBy.user.ipAddress), tostring(InitiatedBy.app.ipAddress))\r| extend GrantInitiatedBy = iff(isnotempty(InitiatedBy.user.userPrincipalName), tostring(InitiatedBy.user.userPrincipalName), tostring(InitiatedBy.app.displayName))\r| extend GrantUserAgent = iff(AdditionalDetails[0].key =~ 'User-Agent', tostring(AdditionalDetails[0].value), '')\r| project TimeGenerated, GrantConsentType, GrantScope1, GrantInitiatedBy, AppDisplayName, GrantIpAddress, GrantUserAgent, AppClientId, OperationName, ConsentFull, CorrelationId\r| join kind = leftouter (AuditLogs\r| where TimeGenerated > ago(joinLookback)\r| where LoggedByService =~ 'Core Directory'\r| where Category =~ 'ApplicationManagement'\r| where OperationName =~ 'Add service principal'\r| extend AppClientId = tolower(TargetResources[0].id)\r| extend AppReplyURLs = iff(TargetResources[0].modifiedProperties[1].newValue has 'AddressType', TargetResources[0].modifiedProperties[1].newValue, '')\r| distinct AppClientId, tostring(AppReplyURLs)\r)\ron AppClientId\r| join kind = innerunique (AuditLogs\r| where TimeGenerated > ago(joinLookback)\r| where LoggedByService =~ 'Core Directory'\r| where Category =~ 'ApplicationManagement'\r| where OperationName =~ 'Add OAuth2PermissionGrant' or OperationName =~ 'Add delegated permission grant'\r| extend GrantAuthentication = tostring(TargetResources[0].displayName)\r| extend GrantOperation = OperationName\r| project GrantAuthentication, GrantOperation, CorrelationId\r) on CorrelationId\r| project TimeGenerated, GrantConsentType, GrantScope1, GrantInitiatedBy, AppDisplayName, AppReplyURLs, GrantIpAddress, GrantUserAgent, AppClientId, GrantAuthentication, OperationName, GrantOperation, CorrelationId, ConsentFull\r| extend timestamp = TimeGenerated, AccountCustomEntity = GrantInitiatedBy, IPCustomEntity = GrantIpAddress",
+                "queryFrequency": "P1D",
+                "queryPeriod": "P14D",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
+                "tactics": ["CredentialAccess","DefenseEvasion"],
+                "alertRuleTemplateName": "f948a32f-226c-4116-bddd-d95e91d97eb9", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                   }
+               }
+           }
+    ]
+}
