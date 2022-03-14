@@ -30,7 +30,7 @@
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
                 "triggerThreshold": 0,
-                "suppressionDuration": "PT6H",
+                "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
                 "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"URL","fieldMappings":[{"identifier":"Url","columnName":"URLCustomEntity"}]}],
                 "tactics": ["Execution"],
