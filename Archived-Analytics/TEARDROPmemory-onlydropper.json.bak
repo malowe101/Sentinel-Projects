@@ -25,7 +25,7 @@
                 "description": "Identifies SolarWinds TEARDROP memory-only dropper IOCs in Window's defender Exploit Guard activityReferences:- https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html- https://gist.github.com/olafhartong/71ffdd4cab4b6acd5cbcd1a0691ff82f",
                 "severity": "High",
                 "enabled": true,
-                "query": "DeviceEvents\r\n| where ActionType has 'ExploitGuardNonMicrosoftSignedBlocked'\r\n| where InitiatingProcessFileName contains 'svchost.exe' and FileName contains 'NetSetupSvc.dll'\r\n| extend timestamp = TimeGenerated, AccountCustomEntity = iff(isnotempty(InitiatingProcessAccountUpn), InitiatingProcessAccountUpn, InitiatingProcessAccountName),HostCustomEntity = DeviceName, FileHashCustomEntity = InitiatingProcessSHA1, FileHashType = 'SHA1'",
+                "query": "DeviceEvents| where ActionType has 'ExploitGuardNonMicrosoftSignedBlocked'| where InitiatingProcessFileName contains 'svchost.exe' and FileName contains 'NetSetupSvc.dll'| extend timestamp = TimeGenerated, AccountCustomEntity = iff(isnotempty(InitiatingProcessAccountUpn), InitiatingProcessAccountUpn, InitiatingProcessAccountName),HostCustomEntity = DeviceName, FileHashCustomEntity = InitiatingProcessSHA1, FileHashType = 'SHA1'",
                 "queryFrequency": "P1D",
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
