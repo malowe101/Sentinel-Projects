@@ -25,12 +25,12 @@
                 "description": "",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "AzureActivity^M//This is a sample comment^M
-| where TimeGenerated >= ago(90d)^M
-| where ActivityStatus has 'succeeded'^M
-| where OperationName has 'tables/write'^M
-| extend modifiedTable = extract('tables/(.*)', 1, _ResourceId)^M
-| summarize arg_max(TimeGenerated, *) by modifiedTable^M
+                "query": "AzureActivity\r//This is a sample comment\r
+| where TimeGenerated >= ago(90d)\r
+| where ActivityStatus has 'succeeded'\r
+| where OperationName has 'tables/write'\r
+| extend modifiedTable = extract('tables/(.*)', 1, _ResourceId)\r
+| summarize arg_max(TimeGenerated, *) by modifiedTable\r
 | project ['Last Modified Time'] = TimeGenerated, modifiedTable",
                 "queryFrequency": "PT5H",
                 "queryPeriod": "PT5H",
