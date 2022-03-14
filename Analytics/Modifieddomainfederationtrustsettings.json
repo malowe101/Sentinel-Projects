@@ -1,0 +1,80 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "60488305-ad12-451c-8d6e-df2a663f0119",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "Modified domain federation trust settings",
+                "description": "This will alert when a user or application modifies the federation settings on the domain or Update domain authentication from Managed to Federated.For example, this alert will trigger when a new Active Directory Federated Service (ADFS) TrustedRealm object, such as a signing certificate, is added to the domain.Modification to domain federation settings should be rare. Confirm the added or modified target domain/URL is legitimate administrator behavior.To understand why an authorized user may update settings for a federated domain in Office 365, Azure, or Intune, see: https://docs.microsoft.com/office365/troubleshoot/active-directory/update-federated-domain-office-365.For details on security realms that accept security tokens, see the ADFS Proxy Protocol (MS-ADFSPP) specification: https://docs.microsoft.com/openspecs/windows_protocols/ms-adfspp/e7b9ea73-1980-4318-96a6-da559486664b.For further information on AuditLogs please see https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-audit-activities.",
+                "severity": "High",
+                "enabled": true,
+                "query": "(union isfuzzy=true
+(
+AuditLogs
+| where OperationName =~ 'Set federation settings on domain'
+//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts
+| mv-expand TargetResources
+| extend modifiedProperties = parse_json(TargetResources).modifiedProperties
+| mv-expand modifiedProperties
+| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName)
+| mv-expand AdditionalDetails
+),
+(
+AuditLogs
+| where OperationName =~ 'Set domain authentication'
+//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts
+| mv-expand TargetResources
+| extend modifiedProperties = parse_json(TargetResources).modifiedProperties
+| mv-expand modifiedProperties
+| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName), NewDomainValue=tostring(parse_json(modifiedProperties).newValue)
+| where NewDomainValue has 'Federated'
+)
+)
+| extend UserAgent = iff(AdditionalDetails.key == 'User-Agent',tostring(AdditionalDetails.value),'')
+| extend InitiatingUserOrApp = iff(isnotempty(InitiatedBy.user.userPrincipalName),tostring(InitiatedBy.user.userPrincipalName), tostring(InitiatedBy.app.displayName))
+| extend InitiatingIpAddress = iff(isnotempty(InitiatedBy.user.ipAddress), tostring(InitiatedBy.user.ipAddress), tostring(InitiatedBy.app.ipAddress))
+| project-reorder TimeGenerated, OperationName, InitiatingUserOrApp, AADOperationType, targetDisplayName, Result, InitiatingIpAddress, UserAgent, CorrelationId, TenantId, AADTenantId
+| extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress",
+                "queryFrequency": "P1D",
+                "queryPeriod": "P1D",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
+                "tactics": ["CredentialAccess"],
+                "alertRuleTemplateName": "95dc4ae3-e0f2-48bd-b996-cdd22b90f9af", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                   }
+               }
+           }
+    ]
+}
