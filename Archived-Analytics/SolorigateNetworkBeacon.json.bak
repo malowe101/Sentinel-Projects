@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "d087ec83-c2bd-447d-8171-dd35d407c852",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "Solorigate Network Beacon",
+                "description": "Identifies a match across various data feeds for domains IOCs related to the Solorigate incident. References: https://blogs.microsoft.com/on-the-issues/2020/12/13/customers-protect-nation-state-cyberattacks/,  https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html?1",
+                "severity": "High",
+                "enabled": true,
+                "query": "let domains = dynamic(['incomeupdate.com','zupertech.com','databasegalore.com','panhardware.com','avsvmcloud.com','digitalcollege.org','freescanonline.com','deftsecurity.com','thedoccloud.com','virtualdataserver.com','lcomputers.com','webcodez.com','globalnetworkissues.com','kubecloud.com','seobundlekit.com','solartrackingsystem.net','virtualwebdata.com']);\r(union isfuzzy=true\r(CommonSecurityLog \r  | parse Message with * '(' DNSName ')' * \r  | where DNSName in~ (domains) or DestinationHostName has_any (domains) or RequestURL has_any(domains)\r  | extend AccountCustomEntity = SourceUserID, HostCustomEntity = DeviceName, IPCustomEntity = SourceIP\r  ),\r(DnsEvents \r  | extend DNSName = Name\r  | where isnotempty(DNSName)\r  | where DNSName has_any (domains)\r  | extend IPCustomEntity = ClientIP\r  ),\r(imDns (domain_has_any=domains)\r  | extend DNSName = DnsQuery\r  | extend IPCustomEntity = SrcIpAddr\r  ),\r(VMConnection \r  | parse RemoteDnsCanonicalNames with * '['' DNSName '']' *\r  | where isnotempty(DNSName)\r  | where DNSName in~ (domains)\r  | extend IPCustomEntity = RemoteIp\r  ),\r(DeviceNetworkEvents \r  | where isnotempty(RemoteUrl) \r  | where RemoteUrl  has_any (domains)  \r  | extend DNSName = RemoteUrl\r  | extend IPCustomEntity = RemoteIP \r  | extend HostCustomEntity = DeviceName \r  ),\r(AzureDiagnostics\r  | where ResourceType == 'AZUREFIREWALLS'\r  | where Category == 'AzureFirewallDnsProxy'\r  | parse msg_s with 'DNS Request: ' ClientIP ':' ClientPort ' - ' QueryID ' ' Request_Type ' ' Request_Class ' ' Request_Name '. ' Request_Protocol ' ' Request_Size ' ' EDNSO_DO ' ' EDNS0_Buffersize ' ' Responce_Code ' ' Responce_Flags ' ' Responce_Size ' ' Response_Duration\r  | where Request_Name has_any (domains)  \r  | extend DNSName = Request_Name\r  | extend IPCustomEntity = ClientIP \r  ),\r(AzureDiagnostics \r  | where ResourceType == 'AZUREFIREWALLS'\r  | where Category == 'AzureFirewallApplicationRule'\r  | parse msg_s with Protocol 'request from ' SourceHost ':' SourcePort 'to ' DestinationHost ':' DestinationPort '. Action:' Action\r  | where isnotempty(DestinationHost)\r  | where DestinationHost has_any (domains)  \r  | extend DNSName = DestinationHost \r  | extend IPCustomEntity = SourceHost\r  ) \r  )",
+                "queryFrequency": "PT6H",
+                "queryPeriod": "PT6H",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"Host","fieldMappings":[{"identifier":"FullName","columnName":"HostCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]},{"entityType":"DNS","fieldMappings":[{"identifier":"DomainName","columnName":"DNSName"}]}],
+                "tactics": ["CommandAndControl"],
+                "alertRuleTemplateName": "cecdbd4c-4902-403c-8d4b-32eb1efe460b", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                   }
+               }
+           }
+    ]
+}
