@@ -1,0 +1,82 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        },
+     "analytic-id": {
+        "type": "string",
+        "defaultValue": "4be07ce6-23aa-482f-851c-88f0b339a4ce",
+        "minLength": 1,
+        "metadata": {
+        "description": "Unique id for the scheduled alert rule"
+      }
+    }
+    },
+"resources": [
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('analytic-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2021-10-01",
+            "properties": {
+                "displayName": "Failed AzureAD logons but success logon to AWS Console",
+                "description": "Identifies a list of IP addresses with a minimum number(defualt of 5) of failed logon attempts to Azure Active Directory.Uses that list to identify any successful AWS Console logons from these IPs within the same timeframe.",
+                "severity": "Medium",
+                "enabled": true,
+                "query": "//Adjust this threshold to fit your environment
+let signin_threshold = 5; 
+//Make a list of IPs with AAD signin failures above our threshold
+let aadFunc = (tableName:string){
+let Suspicious_signins = 
+table(tableName)
+| where ResultType !in ('0', '50125', '50140')
+| where IPAddress !in ('127.0.0.1', '::1')
+| summarize count() by IPAddress
+| where count_ >  signin_threshold
+| summarize make_set(IPAddress);
+Suspicious_signins
+};
+let aadSignin = aadFunc('SigninLogs');
+let aadNonInt = aadFunc('AADNonInteractiveUserSignInLogs');
+let Suspicious_signins = 
+union isfuzzy=true aadSignin, aadNonInt
+| summarize make_set(set_IPAddress);
+//See if any of those IPs have sucessfully logged into the AWS console
+AWSCloudTrail
+| where EventName =~ 'ConsoleLogin'
+| extend LoginResult = tostring(parse_json(ResponseElements).ConsoleLogin) 
+| where LoginResult =~ 'Success'
+| where SourceIpAddress in (Suspicious_signins)
+| extend Reason = 'Multiple failed AAD logins from IP address'
+| extend MFAUsed = tostring(parse_json(AdditionalEventData).MFAUsed)
+| extend User = iif(isempty(UserIdentityUserName), UserIdentityType, UserIdentityUserName) 
+| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated) by Reason, LoginResult, EventTypeName, UserIdentityType, User, AWSRegion, SourceIpAddress, UserAgent, MFAUsed
+| extend timestamp = StartTimeUtc, AccountCustomEntity = User, IPCustomEntity = SourceIpAddress",
+                "queryFrequency": "P1D",
+                "queryPeriod": "P1D",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "entityMappings": [{"entityType":"Account","fieldMappings":[{"identifier":"FullName","columnName":"AccountCustomEntity"}]},{"entityType":"IP","fieldMappings":[{"identifier":"Address","columnName":"IPCustomEntity"}]}],
+                "tactics": ["InitialAccess","CredentialAccess"],
+                "alertRuleTemplateName": "643c2025-9604-47c5-833f-7b4b9378a1f5", 
+                "incidentConfiguration": {
+                    "createIncident": true, 
+                    "groupingConfiguration": {
+                        "enabled": false, 
+                    "reopenClosedIncident": false,
+                    "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": []
+                     }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                   }
+               }
+           }
+    ]
+}
