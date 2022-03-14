@@ -25,33 +25,7 @@
                 "description": "This will alert when a user or application modifies the federation settings on the domain or Update domain authentication from Managed to Federated.For example, this alert will trigger when a new Active Directory Federated Service (ADFS) TrustedRealm object, such as a signing certificate, is added to the domain.Modification to domain federation settings should be rare. Confirm the added or modified target domain/URL is legitimate administrator behavior.To understand why an authorized user may update settings for a federated domain in Office 365, Azure, or Intune, see: https://docs.microsoft.com/office365/troubleshoot/active-directory/update-federated-domain-office-365.For details on security realms that accept security tokens, see the ADFS Proxy Protocol (MS-ADFSPP) specification: https://docs.microsoft.com/openspecs/windows_protocols/ms-adfspp/e7b9ea73-1980-4318-96a6-da559486664b.For further information on AuditLogs please see https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-audit-activities.",
                 "severity": "High",
                 "enabled": true,
-                "query": "(union isfuzzy=true
-(
-AuditLogs
-| where OperationName =~ 'Set federation settings on domain'
-//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts
-| mv-expand TargetResources
-| extend modifiedProperties = parse_json(TargetResources).modifiedProperties
-| mv-expand modifiedProperties
-| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName)
-| mv-expand AdditionalDetails
-),
-(
-AuditLogs
-| where OperationName =~ 'Set domain authentication'
-//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts
-| mv-expand TargetResources
-| extend modifiedProperties = parse_json(TargetResources).modifiedProperties
-| mv-expand modifiedProperties
-| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName), NewDomainValue=tostring(parse_json(modifiedProperties).newValue)
-| where NewDomainValue has 'Federated'
-)
-)
-| extend UserAgent = iff(AdditionalDetails.key == 'User-Agent',tostring(AdditionalDetails.value),'')
-| extend InitiatingUserOrApp = iff(isnotempty(InitiatedBy.user.userPrincipalName),tostring(InitiatedBy.user.userPrincipalName), tostring(InitiatedBy.app.displayName))
-| extend InitiatingIpAddress = iff(isnotempty(InitiatedBy.user.ipAddress), tostring(InitiatedBy.user.ipAddress), tostring(InitiatedBy.app.ipAddress))
-| project-reorder TimeGenerated, OperationName, InitiatingUserOrApp, AADOperationType, targetDisplayName, Result, InitiatingIpAddress, UserAgent, CorrelationId, TenantId, AADTenantId
-| extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress",
+                "query": "(union isfuzzy=true\n(\nAuditLogs\n| where OperationName =~ 'Set federation settings on domain'\n//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts\n| mv-expand TargetResources\n| extend modifiedProperties = parse_json(TargetResources).modifiedProperties\n| mv-expand modifiedProperties\n| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName)\n| mv-expand AdditionalDetails\n),\n(\nAuditLogs\n| where OperationName =~ 'Set domain authentication'\n//| where Result =~ 'success'   // commenting out, as it may be interesting to capture failed attempts\n| mv-expand TargetResources\n| extend modifiedProperties = parse_json(TargetResources).modifiedProperties\n| mv-expand modifiedProperties\n| extend targetDisplayName = tostring(parse_json(modifiedProperties).displayName), NewDomainValue=tostring(parse_json(modifiedProperties).newValue)\n| where NewDomainValue has 'Federated'\n)\n)\n| extend UserAgent = iff(AdditionalDetails.key == 'User-Agent',tostring(AdditionalDetails.value),'')\n| extend InitiatingUserOrApp = iff(isnotempty(InitiatedBy.user.userPrincipalName),tostring(InitiatedBy.user.userPrincipalName), tostring(InitiatedBy.app.displayName))\n| extend InitiatingIpAddress = iff(isnotempty(InitiatedBy.user.ipAddress), tostring(InitiatedBy.user.ipAddress), tostring(InitiatedBy.app.ipAddress))\n| project-reorder TimeGenerated, OperationName, InitiatingUserOrApp, AADOperationType, targetDisplayName, Result, InitiatingIpAddress, UserAgent, CorrelationId, TenantId, AADTenantId\n| extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUserOrApp, IPCustomEntity = InitiatingIpAddress",
                 "queryFrequency": "P1D",
                 "queryPeriod": "P1D",
                 "triggerOperator": "GreaterThan",
