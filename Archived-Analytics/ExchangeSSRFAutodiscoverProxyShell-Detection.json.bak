@@ -25,7 +25,17 @@
                 "description": "This query looks for suspicious request patterns to Exchange servers that fit patterns recentlyblogged about by PeterJson. This exploitation chain utilises an SSRF vulnerability in Exchangewhich eventually allows the attacker to execute arbitrary Powershell on the server. In the examplepowershell can be used to write an email to disk with an encoded attachment containing a shell.Reference: https://peterjson.medium.com/reproducing-the-proxyshell-pwn2own-exploit-49743a4ea9a1",
                 "severity": "High",
                 "enabled": true,
-                "query": "let successCodes = dynamic([200, 302, 401]);\rW3CIISLog\r| where scStatus has_any (successCodes)\r| where ipv4_is_private(cIP) == False\r| where csUriStem hasprefix '/autodiscover/autodiscover.json'\r| project TimeGenerated, cIP, sIP, sSiteName, csUriStem, csUriQuery, Computer, csUserName, _ResourceId, FileUri\r| where (csUriQuery !has 'Protocol' and isnotempty(csUriQuery))\ror (csUriQuery has_any('/mapi/', 'powershell'))\ror (csUriQuery contains '@' and csUriQuery matches regex @'\.[a-zA-Z]{2,4}?(?:[a-zA-Z]{2,4}\/)')\ror (csUriQuery contains ':' and csUriQuery matches regex @'\:[0-9]{2,4}\/')\r| extend timestamp = TimeGenerated, HostCustomEntity = Computer, IPCustomEntity = cIP, AccountCustomEntity = csUserName, ResourceCustomEntity = _ResourceId, FileCustomEntity = FileUri",
+                "query": "let successCodes = dynamic([200, 302, 401]);
+W3CIISLog
+| where scStatus has_any (successCodes)
+| where ipv4_is_private(cIP) == False
+| where csUriStem hasprefix '/autodiscover/autodiscover.json'
+| project TimeGenerated, cIP, sIP, sSiteName, csUriStem, csUriQuery, Computer, csUserName, _ResourceId, FileUri
+| where (csUriQuery !has 'Protocol' and isnotempty(csUriQuery))
+or (csUriQuery has_any('/mapi/', 'powershell'))
+or (csUriQuery contains '@' and csUriQuery matches regex @'\.[a-zA-Z]{2,4}?(?:[a-zA-Z]{2,4}\/)')
+or (csUriQuery contains ':' and csUriQuery matches regex @'\:[0-9]{2,4}\/')
+| extend timestamp = TimeGenerated, HostCustomEntity = Computer, IPCustomEntity = cIP, AccountCustomEntity = csUserName, ResourceCustomEntity = _ResourceId, FileCustomEntity = FileUri",
                 "queryFrequency": "PT12H",
                 "queryPeriod": "PT12H",
                 "triggerOperator": "GreaterThan",
