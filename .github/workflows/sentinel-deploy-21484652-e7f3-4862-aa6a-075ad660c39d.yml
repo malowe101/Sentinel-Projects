@@ -26,7 +26,11 @@ jobs:
       directory: '${{ github.workspace }}'
       cloudEnv: 'AzureCloud'
       creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_21484652e7f34862aa6a075ad660c39d }}
-      contentTypes: 'AutomationRule,HuntingQuery,Parser,Playbook,AnalyticsRule'
+      contentTypes: 'AutomationRule,HuntingQuery,Parser,Playbook,AnalyticsRule,Workbook'
+      branch: 'master'
+      sourceControlId: '21484652-e7f3-4862-aa6a-075ad660c39d'
+      githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
+      smartDeployment: 'true'
 
     steps:
     - name: Login to Azure (Attempt 1)
