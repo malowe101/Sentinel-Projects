@@ -786,7 +786,7 @@
                                         {
                                             "name":  "DiffEx1",
                                             "question":  "Open up the demo workspace using the button at the bottom of the page. Run a diffpattern on the SecurityEvent table for events 4624 and 4625 over the last 14 days. Project Account, AccountName, EventID, Computer. Rename columns by using: project-rename SucceedCount=CountA,FailedCount=CountB,PercentFailed=PercentB,PercentSucceed=PercentA, PercentDiff=PercentDiffAB",
-                                            "dataset":  "Demoz",
+                                            "dataset":  "Demo",
                                             "answer":  "U2VjdXJpdHlFdmVudOKAiwp8IHdoZXJlIFRpbWVHZW5lcmF0ZWQgPiBhZ28oMTRkKeKAiwp8IHdoZXJlIEV2ZW50SUQgaW4gKDQ2MjQsNDYyNSnigIsKfCBwcm9qZWN0IEFjY291bnQsIEFjY291bnROYW1lLCBFdmVudElELCBDb21wdXRlcgp8IGV2YWx1YXRlIGRpZmZwYXR0ZXJucyhFdmVudElELCc0NjI0JywnNDYyNScp4oCLCnwgcHJvamVjdC1yZW5hbWUgU3VjY2VlZENvdW50PUNvdW50QSxGYWlsZWRDb3VudD1Db3VudEIsUGVyY2VudEZhaWxlZD1QZXJjZW50QixQZXJjZW50U3VjY2VlZD1QZXJjZW50QSwgUGVyY2VudERpZmY9UGVyY2VudERpZmZBQg=="
                                         }
                                     ],
