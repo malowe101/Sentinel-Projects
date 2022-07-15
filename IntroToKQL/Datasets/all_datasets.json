@@ -29,12 +29,8 @@
             "kql_reference" : "ZGF0YXRhYmxlIChuYW1lOiBzdHJpbmcsIGtpZHM6ZHluYW1pYykKWwogICAgIlNhbSIsIGR5bmFtaWMoWydTYW0gSnInLCdKZW5ueScsJ1NhbWFudGhhJ10pLAogICAgIkplbm4iLGR5bmFtaWMoWydwZXRlciddKSwKICAgICJCb2IiLGR5bmFtaWMoWydCaWxseScsJ1NhbW15J10pCl0="
         },
         {
-            "name" : "Syslogs2",
-            "kql_reference" : "ZXh0ZXJuYWxkYXRhIChTb3VyY2VTeXN0ZW06c3RyaW5nLCBNRzpzdHJpbmcsIENvbXB1dGVyOnN0cmluZywgUmF3RGF0YTpzdHJpbmcsIFR5cGU6c3RyaW5nKSBbaCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vQXp1cmUvQXp1cmUtU2VudGluZWwvbWFzdGVyL1Rvb2xzL0ludHJvdG9LUUwvRGF0YXNldHMvV2VhdGhlci5qc29uJ10Kd2l0aCAoZm9ybWF0PSJtdWx0aWpzb24iKTs=="
-        },
-        {
             "name": "Syslogs",
-            "kql_reference": "ZXh0ZXJuYWxkYXRhIChUaW1lR2VuZXJhdGVkOiBkYXRldGltZSwgU291cmNlU3lzdGVtOnN0cmluZywgTUc6c3RyaW5nLCBDb21wdXRlcjpzdHJpbmcsUmF3RGF0YTpzdHJpbmcsIFR5cGU6c3RyaW5nKSBbaCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWFsb3dlMTAxL1NlbnRpbmVsLVByb2plY3RzL21hc3Rlci9JbnRyb3RvS1FML0RhdGFzZXRzL1N5c2xvZ3MuanNvbiddIHdpdGggKGZvcm1hdD0ibXVsdGlqc29uIik====="
+            "kql_reference": "ZXh0ZXJuYWxkYXRhIChUaW1lR2VuZXJhdGVkOiBkYXRldGltZSwgU291cmNlU3lzdGVtOnN0cmluZywgTUc6c3RyaW5nLCBDb21wdXRlcjpzdHJpbmcsUmF3RGF0YTpzdHJpbmcsIFR5cGU6c3RyaW5nKSBbQCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWFsb3dlMTAxL1NlbnRpbmVsLVByb2plY3RzL21hc3Rlci9JbnRyb3RvS1FML0RhdGFzZXRzL1N5c2xvZ3MuanNvbiddIHdpdGggKGZvcm1hdD0ibXVsdGlqc29uIik======"
         }        
     ]
 }
