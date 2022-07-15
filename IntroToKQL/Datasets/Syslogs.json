@@ -3,7 +3,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:03 +0200] \"GET /admin HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -12,7 +12,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:07 +0200] \"GET / HTTP/1.1\" 200 11217 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -22,7 +22,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:21 +0200] \"GET /1.tar.gz HTTP/1.1\" 404 967 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -31,7 +31,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:37 +0200] \"GET /user=?username HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -40,7 +40,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:03 +0200] \"GET /admin HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -49,7 +49,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:07 +0200] \"GET / HTTP/1.1\" 200 11217 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -58,7 +58,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:21 +0200] \"GET /1.tar.gz HTTP/1.1\" 404 967 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -67,7 +67,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:37 +0200] \"GET /user=?username HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -76,7 +76,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:03 +0200] \"GET /admin HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -85,7 +85,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:07 +0200] \"GET / HTTP/1.1\" 200 11217 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -94,7 +94,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:21 +0200] \"GET /1.tar.gz HTTP/1.1\" 404 967 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -103,7 +103,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "13.14.15.16 - - [16/Mar/2021:13:41:37 +0200] \"GET /user=?username HTTP/1.1\" 404 961 \"-\" \"curl/7.29.0\"\n",
         "Type": "Tomcat_CL"
@@ -112,7 +112,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:00 PM org.apache.coyote.AbstractProtocol pause\n",
         "Type": "Tomcat_CL"
@@ -121,7 +121,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Pausing ProtocolHandler [\"http-bio-8080\"]\n",
         "Type": "Tomcat_CL"
@@ -130,7 +130,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:00 PM org.apache.coyote.AbstractProtocol pause\n",
         "Type": "Tomcat_CL"
@@ -139,7 +139,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Pausing ProtocolHandler [\"ajp-bio-8009\"]\n",
         "Type": "Tomcat_CL"
@@ -148,7 +148,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:01 PM org.apache.catalina.core.StandardService stopInternal\n",
         "Type": "Tomcat_CL"
@@ -157,7 +157,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Stopping service Catalina\n",
         "Type": "Tomcat_CL"
@@ -166,7 +166,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:01 PM org.apache.coyote.AbstractProtocol stop\n",
         "Type": "Tomcat_CL"
@@ -175,7 +175,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Stopping ProtocolHandler [\"http-bio-8080\"]\n",
         "Type": "Tomcat_CL"
@@ -184,7 +184,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:01 PM org.apache.coyote.AbstractProtocol stop\n",
         "Type": "Tomcat_CL"
@@ -194,7 +194,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Stopping ProtocolHandler [\"ajp-bio-8009\"]\n",
         "Type": "Tomcat_CL"
@@ -204,7 +204,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:01 PM org.apache.coyote.AbstractProtocol destroy\n",
         "Type": "Tomcat_CL"
@@ -213,7 +213,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Destroying ProtocolHandler [\"http-bio-8080\"]\n",
         "Type": "Tomcat_CL"
@@ -222,7 +222,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:01 PM org.apache.coyote.AbstractProtocol destroy\n",
         "Type": "Tomcat_CL"
@@ -231,7 +231,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Destroying ProtocolHandler [\"ajp-bio-8009\"]\n",
         "Type": "Tomcat_CL"
@@ -240,7 +240,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -249,7 +249,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Server version:        Apache Tomcat/7.0.76\n",
         "Type": "Tomcat_CL"
@@ -258,7 +258,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -267,7 +267,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Server built:          Nov 16 2020 16:51:26 UTC\n",
         "Type": "Tomcat_CL"
@@ -276,7 +276,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -285,7 +285,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Server number:         7.0.76.0\n",
         "Type": "Tomcat_CL"
@@ -294,7 +294,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -303,7 +303,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: OS Name:               Linux\n",
         "Type": "Tomcat_CL"
@@ -312,7 +312,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -321,7 +321,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: OS Version:            3.10.0-1160.15.2.el7.x86_64\n",
         "Type": "Tomcat_CL"
@@ -330,7 +330,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -339,7 +339,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Architecture:          amd64\n",
         "Type": "Tomcat_CL"
@@ -348,7 +348,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -357,7 +357,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Java Home:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.282.b08-1.el7_9.x86_64/jre\n",
         "Type": "Tomcat_CL"
@@ -366,7 +366,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -375,7 +375,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: JVM Version:           1.8.0_282-b08\n",
         "Type": "Tomcat_CL"
@@ -384,7 +384,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -393,7 +393,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: JVM Vendor:            Red Hat, Inc.\n",
         "Type": "Tomcat_CL"
@@ -402,7 +402,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -411,7 +411,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: CATALINA_BASE:         /usr/share/tomcat\n",
         "Type": "Tomcat_CL"
@@ -420,7 +420,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -429,7 +429,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: CATALINA_HOME:         /usr/share/tomcat\n",
         "Type": "Tomcat_CL"
@@ -438,7 +438,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -447,7 +447,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Djavax.sql.DataSource.Factory=org.apache.commons.dbcp.BasicDataSourceFactory\n",
         "Type": "Tomcat_CL"
@@ -456,7 +456,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -465,7 +465,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Dcatalina.base=/usr/share/tomcat\n",
         "Type": "Tomcat_CL"
@@ -474,7 +474,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -483,7 +483,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Dcatalina.home=/usr/share/tomcat\n",
         "Type": "Tomcat_CL"
@@ -492,7 +492,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -501,7 +501,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Djava.endorsed.dirs=\n",
         "Type": "Tomcat_CL"
@@ -510,7 +510,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -519,7 +519,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Djava.io.tmpdir=/var/cache/tomcat/temp\n",
         "Type": "Tomcat_CL"
@@ -528,7 +528,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -537,7 +537,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Djava.util.logging.config.file=/usr/share/tomcat/conf/logging.properties\n",
         "Type": "Tomcat_CL"
@@ -546,7 +546,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.startup.VersionLoggerListener log\n",
         "Type": "Tomcat_CL"
@@ -555,7 +555,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager\n",
         "Type": "Tomcat_CL"
@@ -564,7 +564,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:06 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent\n",
         "Type": "Tomcat_CL"
@@ -573,7 +573,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib\n",
         "Type": "Tomcat_CL"
@@ -582,7 +582,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.coyote.AbstractProtocol init\n",
         "Type": "Tomcat_CL"
@@ -591,7 +591,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Initializing ProtocolHandler [\"http-bio-8080\"]\n",
         "Type": "Tomcat_CL"
@@ -600,7 +600,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.coyote.AbstractProtocol init\n",
         "Type": "Tomcat_CL"
@@ -609,7 +609,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Initializing ProtocolHandler [\"ajp-bio-8009\"]\n",
         "Type": "Tomcat_CL"
@@ -618,7 +618,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.Catalina load\n",
         "Type": "Tomcat_CL"
@@ -627,7 +627,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Initialization processed in 509 ms\n",
         "Type": "Tomcat_CL"
@@ -636,7 +636,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.core.StandardService startInternal\n",
         "Type": "Tomcat_CL"
@@ -645,7 +645,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Starting service Catalina\n",
         "Type": "Tomcat_CL"
@@ -654,7 +654,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.core.StandardEngine startInternal\n",
         "Type": "Tomcat_CL"
@@ -663,7 +663,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Starting Servlet Engine: Apache Tomcat/7.0.76\n",
         "Type": "Tomcat_CL"
@@ -672,7 +672,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -681,7 +681,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deploying web application directory /var/lib/tomcat/webapps/ROOT\n",
         "Type": "Tomcat_CL"
@@ -690,7 +690,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TldConfig execute\n",
         "Type": "Tomcat_CL"
@@ -699,7 +699,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.\n",
         "Type": "Tomcat_CL"
@@ -708,7 +708,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -717,7 +717,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deployment of web application directory /var/lib/tomcat/webapps/ROOT has finished in 406 ms\n",
         "Type": "Tomcat_CL"
@@ -726,7 +726,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -735,7 +735,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deploying web application directory /var/lib/tomcat/webapps/examples\n",
         "Type": "Tomcat_CL"
@@ -744,7 +744,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -753,7 +753,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/core_rt is already defined\n",
         "Type": "Tomcat_CL"
@@ -762,7 +762,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -771,7 +771,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/core is already defined\n",
         "Type": "Tomcat_CL"
@@ -780,7 +780,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -789,7 +789,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/core is already defined\n",
         "Type": "Tomcat_CL"
@@ -798,7 +798,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -807,7 +807,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/fmt_rt is already defined\n",
         "Type": "Tomcat_CL"
@@ -816,7 +816,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -825,7 +825,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/fmt is already defined\n",
         "Type": "Tomcat_CL"
@@ -834,7 +834,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -843,7 +843,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/fmt is already defined\n",
         "Type": "Tomcat_CL"
@@ -852,7 +852,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -861,7 +861,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/functions is already defined\n",
         "Type": "Tomcat_CL"
@@ -870,7 +870,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -879,7 +879,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://jakarta.apache.org/taglibs/standard/permittedTaglibs is already defined\n",
         "Type": "Tomcat_CL"
@@ -888,7 +888,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -897,7 +897,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://jakarta.apache.org/taglibs/standard/scriptfree is already defined\n",
         "Type": "Tomcat_CL"
@@ -906,7 +906,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -915,7 +915,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/sql_rt is already defined\n",
         "Type": "Tomcat_CL"
@@ -924,7 +924,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -933,7 +933,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/sql is already defined\n",
         "Type": "Tomcat_CL"
@@ -942,7 +942,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -951,7 +951,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/sql is already defined\n",
         "Type": "Tomcat_CL"
@@ -960,7 +960,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -969,7 +969,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/xml_rt is already defined\n",
         "Type": "Tomcat_CL"
@@ -978,7 +978,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -987,7 +987,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jstl/xml is already defined\n",
         "Type": "Tomcat_CL"
@@ -996,7 +996,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TaglibUriRule body\n",
         "Type": "Tomcat_CL"
@@ -1005,7 +1005,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/xml is already defined\n",
         "Type": "Tomcat_CL"
@@ -1014,7 +1014,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TldConfig execute\n",
         "Type": "Tomcat_CL"
@@ -1023,7 +1023,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.\n",
         "Type": "Tomcat_CL"
@@ -1032,7 +1032,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1041,7 +1041,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deployment of web application directory /var/lib/tomcat/webapps/examples has finished in 318 ms\n",
         "Type": "Tomcat_CL"
@@ -1050,7 +1050,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1059,7 +1059,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deploying web application directory /var/lib/tomcat/webapps/sample\n",
         "Type": "Tomcat_CL"
@@ -1068,7 +1068,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.TldConfig execute\n",
         "Type": "Tomcat_CL"
@@ -1077,7 +1077,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.\n",
         "Type": "Tomcat_CL"
@@ -1086,7 +1086,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1095,7 +1095,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deployment of web application directory /var/lib/tomcat/webapps/sample has finished in 167 ms\n",
         "Type": "Tomcat_CL"
@@ -1104,7 +1104,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:07 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1113,7 +1113,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deploying web application directory /var/lib/tomcat/webapps/host-manager\n",
         "Type": "Tomcat_CL"
@@ -1122,7 +1122,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.TldConfig execute\n",
         "Type": "Tomcat_CL"
@@ -1131,7 +1131,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.\n",
         "Type": "Tomcat_CL"
@@ -1140,7 +1140,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1149,7 +1149,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deployment of web application directory /var/lib/tomcat/webapps/host-manager has finished in 140 ms\n",
         "Type": "Tomcat_CL"
@@ -1158,7 +1158,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1167,7 +1167,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deploying web application directory /var/lib/tomcat/webapps/manager\n",
         "Type": "Tomcat_CL"
@@ -1176,7 +1176,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.TldConfig execute\n",
         "Type": "Tomcat_CL"
@@ -1185,7 +1185,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.\n",
         "Type": "Tomcat_CL"
@@ -1194,7 +1194,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.HostConfig deployDirectory\n",
         "Type": "Tomcat_CL"
@@ -1203,7 +1203,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Deployment of web application directory /var/lib/tomcat/webapps/manager has finished in 196 ms\n",
         "Type": "Tomcat_CL"
@@ -1212,7 +1212,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.coyote.AbstractProtocol start\n",
         "Type": "Tomcat_CL"
@@ -1221,7 +1221,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Starting ProtocolHandler [\"http-bio-8080\"]\n",
         "Type": "Tomcat_CL"
@@ -1230,7 +1230,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.coyote.AbstractProtocol start\n",
         "Type": "Tomcat_CL"
@@ -1239,7 +1239,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Starting ProtocolHandler [\"ajp-bio-8009\"]\n",
         "Type": "Tomcat_CL"
@@ -1248,7 +1248,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "Mar 16, 2021 1:42:08 PM org.apache.catalina.startup.Catalina start\n",
         "Type": "Tomcat_CL"
@@ -1257,7 +1257,7 @@
         "SourceSystem": "OpsManager",
         "MG": "00000000-0000-0000-0000-000000000002",
         "ManagementGroupName": "srv-sentinel-000",
-        "TimeGenerated": "3/24/2022T11:41:57Z",
+        "TimeGenerated": "3-24-2022T11:41:57Z",
         "Computer": "srv-sentinel-000",
         "RawData": "INFO: Server startup in 1277 ms\n",
         "Type": "Tomcat_CL"
