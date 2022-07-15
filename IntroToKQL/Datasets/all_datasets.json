@@ -5,10 +5,6 @@
             "kql_reference" : "ZXh0ZXJuYWxkYXRhIChUaW1lR2VuZXJhdGVkOmRhdGV0aW1lLCBMb3c6cmVhbCwgSGlnaDpyZWFsLCBSYWluOnJlYWwsIExvY2F0aW9uOnN0cmluZykgW2gnaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0F6dXJlL0F6dXJlLVNlbnRpbmVsL21hc3Rlci9Ub29scy9JbnRyb3RvS1FML0RhdGFzZXRzL1dlYXRoZXIuanNvbiddCndpdGggKGZvcm1hdD0ibXVsdGlqc29uIik7"
         },
         {
-            "name" : "Weather2",
-            "kql_reference" : "ZXh0ZXJuYWxkYXRhIChUaW1lR2VuZXJhdGVkOmRhdGV0aW1lLCBMb3c6cmVhbCwgSGlnaDpyZWFsLCBSYWluOnJlYWwsIExvY2F0aW9uOnN0cmluZykgW2gnaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0F6dXJlL0F6dXJlLVNlbnRpbmVsL21hc3Rlci9Ub29scy9JbnRyb3RvS1FML0RhdGFzZXRzL1dlYXRoZXIuanNvbiddCndpdGggKGZvcm1hdD0ibXVsdGlqc29uIik7"
-        },
-        {
             "name" : "Mordor",
             "kql_reference" : "ZXh0ZXJuYWxkYXRhICh0YWJsZTpkeW5hbWljKSBbCkAiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0F6dXJlL0F6dXJlLVNlbnRpbmVsL21hc3Rlci9Ub29scy9JbnRyb3RvS1FML0RhdGFzZXRzL01vcmRvci5qc29uIl0Kd2l0aCAoZm9ybWF0PSJtdWx0aWpzb24iKQp8IG12ZXhwYW5kIHRhYmxlCnwgZXZhbHVhdGUgYmFnX3VucGFjayh0YWJsZSk="
         },
@@ -31,6 +27,10 @@
         {
             "name" : "parents",
             "kql_reference" : "ZGF0YXRhYmxlIChuYW1lOiBzdHJpbmcsIGtpZHM6ZHluYW1pYykKWwogICAgIlNhbSIsIGR5bmFtaWMoWydTYW0gSnInLCdKZW5ueScsJ1NhbWFudGhhJ10pLAogICAgIkplbm4iLGR5bmFtaWMoWydwZXRlciddKSwKICAgICJCb2IiLGR5bmFtaWMoWydCaWxseScsJ1NhbW15J10pCl0="
+        },
+        {
+            "name" : "Syslogs2",
+            "kql_reference" : "ZXh0ZXJuYWxkYXRhIChUaW1lR2VuZXJhdGVkOmRhdGV0aW1lLCBMb3c6cmVhbCwgSGlnaDpyZWFsLCBSYWluOnJlYWwsIExvY2F0aW9uOnN0cmluZykgW2gnaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0F6dXJlL0F6dXJlLVNlbnRpbmVsL21hc3Rlci9Ub29scy9JbnRyb3RvS1FML0RhdGFzZXRzL1dlYXRoZXIuanNvbiddCndpdGggKGZvcm1hdD0ibXVsdGlqc29uIik7"
         },
         {
             "name": "Syslogs",
