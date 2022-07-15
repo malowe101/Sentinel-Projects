@@ -650,9 +650,9 @@
                           "value":  [
                                         {
                                             "name":  "ParseEx1",
-                                            "question":  "Parse each section of the message into their own variables named TTY, PDE, USER, and COMMAND.",
-                                            "dataset":  "Syslog",
-                                            "answer":  ""
+                                            "question":  "Create a data table called 'Message' with a string column called 'SyslogMessage' with the value of 'omsagent : TTY=unknown PWD=/ USER=root COMMAND=/usr/bin/test -r /var/lib/docker/containers/sample/name-json.log'. Parse each section of this message into their own variables named TTY, PWD, USER, and COMMAND.",
+                                            "dataset":  "",
+                                            "answer":  "bGV0IE1lc3NhZ2UgPSBkYXRhdGFibGUoU3lzbG9nTWVzc2FnZTpzdHJpbmcpWyJvbXNhZ2VudCA6IFRUWT11bmtub3duIFBXRD0vIFVTRVI9cm9vdCBDT01NQU5EPS91c3IvYmluL3Rlc3QgLXIgL3Zhci9saWIvZG9ja2VyL2NvbnRhaW5lcnMvc2FtcGxlL25hbWUtanNvbi5sb2ciXTsKTWVzc2FnZQp8IHBhcnNlIFN5c2xvZ01lc3NhZ2UgIHdpdGggKiAnVFRZPScgVFRZICdQV0Q9JyBQV0QgJ1VTRVI9JyBVU0VSICdDT01NQU5EPScgQ09NTUFORA=="
                                         }
                                     ],
                           "Count":  1
