@@ -586,7 +586,7 @@
                           "value":  [
                                         {
                                             "name":  "StrcatEx1",
-                                            "question":  "Create a variable called Report with the value of 'The weather on DATE for LOCATION was a high of HIGH, a low of LOW, and had a rainfall of RAIN.'",
+                                            "question":  "Create a variable called Report that references the columns, with the value of 'The weather on DATE for LOCATION was a high of HIGH, a low of LOW, and had a rainfall of RAIN.'",
                                             "dataset":  "Weather",
                                             "answer":  "V2VhdGhlciB8IGV4dGVuZCBSZXBvcnQgPSBzdHJjYXQoJ1RoZSB3ZWF0aGVyIG9uICcsIFRpbWVHZW5lcmF0ZWQsICcgd2FzIGEgaGlnaCBvZiAnLCBIaWdoLCAnIGFuZCBhIGxvdyBvZiAnLCBMb3csICcgd2l0aCBhIHJhaW5mYWxsIG9mICcsIFJhaW4pIHwgcHJvamVjdCBSZXBvcnQ="
                                         }
