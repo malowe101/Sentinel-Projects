@@ -30,7 +30,7 @@
         },
         {
             "name": "Syslogs",
-            "kql_reference": "ZXh0ZXJuYWxkYXRhICh0YWJsZTpkeW5hbWljKSBbaCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWFsb3dlMTAxL1NlbnRpbmVsLVByb2plY3RzL21hc3Rlci9JbnRyb1RvS1FML0RhdGFzZXRzL1N5c2xvZ3MuanNvbiddIHdpdGggKGZvcm1hdD0ibXVsdGlqc29uIikKfCBtdmV4cGFuZCB0YWJsZQp8IGV2YWx1YXRlIGJhZ191bnBhY2sodGFibGUpOw=========="
+            "kql_reference": "ZXh0ZXJuYWxkYXRhICh0YWJsZTpkeW5hbWljKSBbaCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWFsb3dlMTAxL1NlbnRpbmVsLVByb2plY3RzL21hc3Rlci9JbnRyb1RvS1FML0RhdGFzZXRzL1N5c2xvZ3MuanNvbiddIHdpdGggKGZvcm1hdD0ibXVsdGlqc29uIikKfCBtdmV4cGFuZCB0YWJsZQp8IGV2YWx1YXRlIGJhZ191bnBhY2sodGFibGUp"
         }        
     ]
 }
