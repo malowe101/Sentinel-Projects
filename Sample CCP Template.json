@@ -1,54 +1,54 @@
 { 
-      "id": "{Workspace}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{data connector definition name} ",
-      "type": "Microsoft.OperationalInsights/dataConnectorDefinitions",
-      "name": "ConnectorDefinitionExample",
-      "kind": "Customizable",
-      "properties": {
-        "connectorUiConfig": {
-          "title": "{title}",
-          "publisher": "{publisher}",
-          "descriptionMarkdown": "{descriptionMarkdown}",
-          "graphQueries": {graphQueries},
-          "dataTypes": {dataTypes},
-          "connectivityCriteria": [
-            {
-              "type": "HasDataConnectors"
-            }
-          ],
-          "permissions": {
-            "resourceProvider": [
-              {
-                "provider": "Microsoft.OperationalInsights/workspaces",
-                "permissionsDisplayText": "Read and Write permissions are required.",
-                "providerDisplayName": "Workspace",
-                "scope": "Workspace",
-                "requiredPermissions": {
-                  "write": true,
-                  "read": true,
-                  "delete": true
-                }
-              }
-            ],
-            "customs": [
-            {
-              "name": "Example Connector API Key",
-              "description": "The connector API key username and password is required"
+    "id":"{Workspace}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{data connector definition name}", 
+    "type":"Microsoft.OperationalInsights/dataConnectorDefinitions", 
+    "name":"ConnectorDefinitionExample", 
+    "kind":"Customizable", 
+    "properties":{ 
+        "connectorUiConfig":{ 
+            "title":"{title}", 
+            "publisher":"{publisher}", 
+            "descriptionMarkdown":"{descriptionMarkdown}", 
+            "graphQueries":{graphQueries}, 
+            "dataTypes":{dataTypes}, 
+            "connectivityCriteria":[ 
+            { 
+                "type":"HasDataConnectors" 
+            } 
+        ], 
+        "permissions":{ 
+            "resourceProvider":[
+            { 
+                "provider":"Microsoft.OperationalInsights/workspaces", 
+                "permissionsDisplayText":"ReadandWritepermissionsarerequired.", 
+                "providerDisplayName":"Workspace", 
+                "scope":"Workspace", 
+                "requiredPermissions":{ 
+                    "write":true, 
+                    "read":true, 
+                    "delete":true 
+                } 
             }
-          ]
-        },
-        "instructionSteps": [
-          {
-            "description": "{InDescription}",
-            "instructions": [
-                {Instructions}
-            ],
-            "title": "{InTitle}"
-          }
+        ], 
+            "customs":[ 
+            { 
+                "name":"ExampleConnectorAPIKey", 
+                "description":"TheconnectorAPIkeyusernameandpasswordisrequired" 
+            } 
         ]
-      },
-      "connectionsConfig": {
-          "templateSpecName": "test",
-          "templateSpecVersion": "1.0.0"
-        }
-  }
+    }, 
+    "instructionSteps":[
+    { 
+        "description":"{InDescription}", 
+        "instructions":[ 
+            {Instructions}
+            ], 
+        "title":"{InTitle}" 
+        } 
+    ] 
+    }, 
+    "connectionsConfig":{ 
+    "templateSpecName":"test", 
+    "templateSpecVersion":"1.0.0" 
+        } 
+    } 
 } 
