@@ -25,30 +25,30 @@
                 "requiredPermissions": { 
                   "write": true, 
                   "read": true, 
-                  "delete": true 
-                } 
-              }
-            ], 
-            "customs": [ 
-              { 
-                "name": "Example Connector API Key", 
-                "description": "The connector API key username and password is required" 
-              } 
-            ]
-        }, 
-          "instructionSteps": [
-            { 
-              "description": "{InDescription}", 
-              "instructions": [ 
-               {Instructions}
-              ], 
-              "title": "{InTitle}" 
-            } 
-          ] 
-        }, 
-        "connectionsConfig": { 
-          "templateSpecName": "test",  
-          "templateSpecVersion": "1.0.0" 
-    } 
-  } 
+                  "delete": true 
+                } 
+              }
+            ], 
+            "customs": [ 
+            { 
+              "name": "Example Connector API Key", 
+              "description": "The connector API key username and password is required" 
+            } 
+          ]
+        }, 
+        "instructionSteps": [
+          { 
+            "description": "{InDescription}", 
+            "instructions": [ 
+                {Instructions}
+            ], 
+            "title": "{InTitle}" 
+          } 
+        ] 
+      }, 
+      "connectionsConfig": { 
+          "templateSpecName": "test",  
+          "templateSpecVersion": "1.0.0" 
+        }
+  }
 } 
