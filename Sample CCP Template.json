@@ -8,6 +8,62 @@
         "metadata": {
           "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
         }
+      },
+        "title": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Title for the connector"
+        }
+      },
+        "publisher": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Publisher of the connector"
+        }
+      },
+        "descriptionMarkdown": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Description of what the connector is for."
+        }
+      },
+        "graphQueries": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Queries used by the details page to show data ingestion."
+        }
+      },
+        "dataTypes": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Name of the log for the connector"
+        }
+      },
+        "instructions": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Instructions to enable data ingestion for the connector."
+        }
+      },
+        "InDescription": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Description for the instructions."
+        }
+      },
+        "InTitle": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+            "description": "Title for the instructions."
+        }
       }
     }, 
     "id":"[concat(parameters('workspace'), '/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{data connector definition name}')]", 
@@ -16,11 +72,11 @@
     "kind":"Customizable", 
     "properties":{ 
         "connectorUiConfig":{ 
-            "title":"{title}", 
-            "publisher":"{publisher}", 
-            "descriptionMarkdown":"{descriptionMarkdown}", 
-            "graphQueries":{graphQueries}, 
-            "dataTypes":{dataTypes}, 
+            "title":"parameters('title')", 
+            "publisher":"parameters('publisher')", 
+            "descriptionMarkdown":"parameters('descrptionMarkDown')", 
+            "graphQueries":"parameters('graphQueries')", 
+            "dataTypes": "parameters('dataTypes')", 
             "connectivityCriteria":[ 
             { 
                 "type":"HasDataConnectors" 
@@ -49,11 +105,11 @@
     }, 
     "instructionSteps":[
     { 
-        "description":"{InDescription}", 
+        "description":"parameters('InDescription')", 
         "instructions":[ 
-            {Instructions}
+            "parameters('instructions')"
             ], 
-        "title":"{InTitle}" 
+        "title":"parameters('InTitle')" 
         } 
     ] 
     }, 
