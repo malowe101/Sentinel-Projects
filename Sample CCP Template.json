@@ -2,120 +2,117 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "workspace": {
-        "defaultValue": "",
-        "type": "string",
-        "metadata": {
-          "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
-        }
-      },
+        "workspace": {
+            "type": "string",
+            "defaultValue": ""
+        },
         "title": {
-            "defaultValue": "",
             "type": "string",
-            "metadata": {
-            "description": "Title for the connector"
-        }
-      },
+            "defaultValue": ""
+        },
         "publisher": {
-            "defaultValue": "",
             "type": "string",
-            "metadata": {
-            "description": "Publisher of the connector"
-        }
-      },
-        "descriptionMarkdown": {
-            "defaultValue": "",
+            "defaultValue": ""
+        },
+        "description": {
             "type": "string",
-            "metadata": {
-            "description": "Description of what the connector is for."
-        }
-      },
+            "defaultValue": ""
+        },
+        "graphQueriesTableName": {
+            "type": "string",
+            "defaultValue": ""
+        },
         "graphQueries": {
-            "defaultValue": "",
             "type": "string",
-            "metadata": {
-            "description": "Queries used by the details page to show data ingestion."
-        }
-      },
+            "defaultValue": ""
+        },
+        "sampleQueries": {
+            "type": "string",
+            "defaultValue": ""
+        },
         "dataTypes": {
-            "defaultValue": "",
             "type": "string",
-            "metadata": {
-            "description": "Name of the log for the connector"
-        }
-      },
+            "defaultValue": ""
+        },
         "instructions": {
-            "defaultValue": "",
             "type": "string",
-            "metadata": {
-            "description": "Instructions to enable data ingestion for the connector."
-        }
-      },
-        "InDescription": {
-            "defaultValue": "",
+            "defaultValue": ""
+        },
+        "polling": {
             "type": "string",
-            "metadata": {
-            "description": "Description for the instructions."
-        }
-      },
-        "InTitle": {
-            "defaultValue": "",
+            "defaultValue": ""
+        },
+        "request": {
             "type": "string",
-            "metadata": {
-            "description": "Title for the instructions."
+            "defaultValue": ""
+        },
+        "paging": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "response": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "auth": {
+            "type": "string",
+            "defaultValue": ""
         }
-      }
-    }, 
-    "id":"[concat(parameters('workspace'), '/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{data connector definition name}')]", 
-    "type":"Microsoft.OperationalInsights/dataConnectorDefinitions", 
-    "name":"ConnectorDefinitionExample", 
-    "kind":"Customizable", 
-    "properties":{ 
-        "connectorUiConfig":{ 
-            "title":"parameters('title')", 
-            "publisher":"parameters('publisher')", 
-            "descriptionMarkdown":"parameters('descrptionMarkDown')", 
-            "graphQueries":"parameters('graphQueries')", 
-            "dataTypes": "parameters('dataTypes')", 
-            "connectivityCriteria":[ 
-            { 
-                "type":"HasDataConnectors" 
-            } 
-        ], 
-        "permissions":{ 
-            "resourceProvider":[
-            { 
-                "provider":"Microsoft.OperationalInsights/workspaces", 
-                "permissionsDisplayText":"ReadandWritepermissionsarerequired.", 
-                "providerDisplayName":"Workspace", 
-                "scope":"Workspace", 
-                "requiredPermissions":{ 
-                    "write":true, 
-                    "read":true, 
-                    "delete":true 
-                } 
+
+    },
+    "resources": [{
+            "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.OperationalInsights/workspaces/',parameters('workspace'),'/providers/Microsoft.SecurityInsights/dataConnectors/',guid(subscription().subscriptionId))]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',guid(subscription().subscriptionId))]",
+            "apiVersion": "2021-03-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+            "kind": "APIPolling",
+            "properties": {
+                "connectorUiConfig": {
+                    "id": "OktaSSO_Polling",
+                    "title": "[parameters('title')]",
+                    "publisher": "[parameters('publisher')]",
+                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
+                    "descriptionMarkdown": "[parameters('description')]",
+                    "graphQueries": "[parameters('graphQueries')]",
+                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "dataTypes": "[parameters('dataTypes')]",
+                    "connectivityCriteria": [{
+                            "type": "SentinelKindsV2",
+                            "value": []
+                        }
+                    ],
+                    "availability": {
+                        "status": 1,
+                        "isPreview": true
+                    },
+                    "permissions": {
+                        "resourceProvider": [{
+                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                "permissionsDisplayText": "read and write permissions are required.",
+                                "providerDisplayName": "Workspace",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "write": true,
+                                    "read": true,
+                                    "delete": true
+                                }
+                            }
+                        ]
+                    },
+                    "instructionSteps": "[parameters('instructions')]"
+                },
+                "pollingConfig": {
+                    "owner": "ASI",
+                    "version": "2.0",
+                    "source": "PaaS",
+                    "templateFilePath": "",
+                    "templateFileName": "",
+                    "auth":  "[parameters('auth')]",
+                    "request": "[parameters('request')]",
+                    "paging": "[parameters('paging')]",
+                    "response": "[parameters('response')]"
+                }
             }
-        ], 
-            "customs":[ 
-            { 
-                "name":"ExampleConnectorAPIKey", 
-                "description":"TheconnectorAPIkeyusernameandpasswordisrequired" 
-            } 
-        ]
-    }, 
-    "instructionSteps":[
-    { 
-        "description":"parameters('InDescription')", 
-        "instructions":[ 
-            "parameters('instructions')"
-            ], 
-        "title":"parameters('InTitle')" 
-        } 
-    ] 
-    }, 
-    "connectionsConfig":{ 
-    "templateSpecName":"test", 
-    "templateSpecVersion":"1.0.0" 
-        } 
-    } 
-} 
+        }
+    ]
+}
