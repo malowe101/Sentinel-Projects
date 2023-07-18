@@ -68,7 +68,7 @@
             "kind": "RestAPIPolling",
             "properties": {
                 "connectorUiConfig": {
-                    "id": "OktaSSO_Polling",
+                    "id": "DynamicTemplate",
                     "title": "[parameters('title')]",
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
