@@ -73,9 +73,9 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[parameters('graphQueries')]",
-                    "sampleQueries": "[parameters('sampleQueries')]",
-                    "dataTypes": "[parameters('dataTypes')]",
+                    "graphQueries": [parameters('graphQueries')],
+                    "sampleQueries": [parameters('sampleQueries')],
+                    "dataTypes": [parameters('dataTypes')],
                     "connectivityCriteria": [{
                             "type": "SentinelKindsV2",
                             "value": []
