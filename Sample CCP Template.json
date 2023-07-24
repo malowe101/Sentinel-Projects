@@ -101,7 +101,7 @@
                     },
                     "instructionSteps": "[parameters('instructions')]"
                 },
-                "request": [parameters('request'),
+                "request": [parameters('request')],
                 "pollingConfig": {
                     "owner": "ASI",
                     "version": "2.0",
