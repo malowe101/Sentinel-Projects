@@ -62,7 +62,7 @@
             "type": "string",
             "defaultValue": ""
         },
-        "deletePermissions": {
+        "delete": {
             "type": "string",
             "defaultValue": ""
         },
@@ -203,7 +203,7 @@
                                 "requiredPermissions": {
                                     "write": true,
                                     "read": true,
-                                    "delete": "[parameters('deletePermissions')]"
+                                    "delete": "[parameters('delete')]"
                                 }
                             }
                         ]
@@ -288,7 +288,7 @@
                                 "requiredPermissions": {
                                     "write": true,
                                     "read": true,
-                                    "delete": "[parameters('deletePermissions')]"
+                                    "delete": "[parameters('delete')]"
                                 }
                             }
                         ]
