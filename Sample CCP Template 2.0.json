@@ -58,10 +58,6 @@
             "type": "string",
             "defaultValue": ""
         },
-        "tableName": {
-            "type": "string",
-            "defaultValue": ""
-        },
         "delete": {
             "type": "string",
             "defaultValue": ""
@@ -130,7 +126,7 @@
     "_dataConnectorId2": "[variables('dataConnectorId2')]",
     "dataConnectorTemplateSpecName2": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentId2')))]",
     "dataConnectorVersion2": "1.0.0",
-    "logAnalyticsTableId1": "[parameters('tableName')]",
+    "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
     "streamName1": "[parameters('streamName1')]",
     "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
   },
@@ -203,7 +199,7 @@
                                 "requiredPermissions": {
                                     "write": true,
                                     "read": true,
-                                    "delete": "[parameters('delete')]"
+                                    "delete": "[parameters('deletePermissions')]"
                                 }
                             }
                         ]
@@ -288,7 +284,7 @@
                                 "requiredPermissions": {
                                     "write": true,
                                     "read": true,
-                                    "delete": "[parameters('delete')]"
+                                    "delete": "[parameters('deletePermissions')]"
                                 }
                             }
                         ]
