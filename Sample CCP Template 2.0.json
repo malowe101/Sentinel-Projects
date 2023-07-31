@@ -178,7 +178,11 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[parameters('graphQueries')]",
+                    "graphQueries": "[{
+                      "metricName": "Total events received",
+                      "legend": "Prisma Compute Events",
+                      "baseQuery": "[parameters('graphQueriesTableName')]"
+                    	}]",
                     "sampleQueries": "[parameters('sampleQueries')]",
                     "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [{
@@ -263,7 +267,11 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[parameters('graphQueries')]",
+                    "graphQueries": "[{
+                      "metricName": "Total events received",
+                      "legend": "Prisma Compute Events",
+                      "baseQuery": "[parameters('graphQueriesTableName')]"
+                    	}]",
                     "sampleQueries": "[parameters('sampleQueries')]",
                     "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [{
