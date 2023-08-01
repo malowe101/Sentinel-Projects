@@ -178,8 +178,19 @@
                                     "publisher": "[parameters('publisher')]",
                                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                                     "descriptionMarkdown": "[parameters('description')]",
-                                    "graphQueries": "[parameters('graphQueries')]",
-                                    "sampleQueries": "[parameters('sampleQueries')]",
+                                    "graphQueries": [
+                                        {
+                                        "metricName": "Total events received",
+                                        "legend": "[parameters('title')]",
+                                        "baseQuery": "[parameters('graphQueriesTableName')]"
+                                        }
+                                    ],
+                                    "sampleQueries": [
+                                        {
+                                            "description": "Get Sample of Connector Events",
+                                            "query": "[concat(parameters('graphQueriesTableName'), '| take 10')]"
+                                        }
+                                    ],
                                 "dataTypes": [
                                     {
                                         "name": "[parameters('graphQueriesTableName')]",
@@ -311,8 +322,19 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[parameters('graphQueries')]",
-                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "graphQueries": [
+                            {
+                            "metricName": "Total events received",
+                            "legend": "[parameters('title')]",
+                            "baseQuery": "[parameters('graphQueriesTableName')]"
+                            }
+                        ],
+                    "sampleQueries": [
+                            {
+                                "description": "Get Sample of Connector Events",
+                                "query": "[concat(parameters('graphQueriesTableName'), '| take 10')]"
+                            }
+                        ],
                     "dataTypes": [
                                     {
                                         "name": "[parameters('graphQueriesTableName')]",
