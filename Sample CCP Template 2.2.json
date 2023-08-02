@@ -56,7 +56,7 @@
         },
         "auth": {
             "type": "string",
-            "defaultValue": "{ \"authType\": \"APIKey\", \"ApiKey\": \"4fb8ab40\"}"
+            "defaultValue": ""
         },
         "delete": {
             "type": "string",
@@ -552,10 +552,7 @@
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
-                                "auth": {
-                                    "type": "Basic",
-                                    "password": "[[parameters('password')]",
-                                    "userName": "[[parameters('username')]"
+                                "auth": "[parameters('auth')
                                 },
                                 "request": {
                                     "apiEndpoint": "[[concat(parameters('domainname'),'/api/v1/audits/incidents','?acknowledged=false')]",
