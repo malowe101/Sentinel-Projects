@@ -556,9 +556,8 @@
                                 },
                                 "request": "[parameters('request')]",
                                 "paging": "[parameters('paging')]",
-                                "response": "parameters('response)]"
-                            }
-                        },
+                                "response": "[parameters('response')]"
+                            },
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
