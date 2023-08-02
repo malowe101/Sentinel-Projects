@@ -554,34 +554,9 @@
                                 "dataType": "[variables('logAnalyticsTableId1')]",
                                 "auth": "[parameters('auth')]"
                                 },
-                                "request": {
-                                    "apiEndpoint": "[[concat(parameters('domainname'),'/api/v1/audits/incidents','?acknowledged=false')]",
-                                    "rateLimitQPS": 10,
-                                    "queryWindowInMin": 5,
-                                    "httpMethod": "Get",
-                                    "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
-                                    "startTimeAttributeName": "from",
-                                    "endTimeAttributeName": "to",
-                                    "retryCount": 3,
-                                    "timeoutInSeconds": 60,
-                                    "headers": {
-                                        "Accept": "application/json",
-                                        "User-Agent": "Scuba"
-                                    },
-                                    "queryParameters": {
-                                        "sort": "time"
-                                    }
-                                },
-                                "paging": {
-                                    "pagingType": "Offset",
-                                    "offsetParaName": "offset",
-                                    "pageSizeParaName": "limit"
-                                },
-                                "response": {
-                                    "eventsJsonPaths": [
-                                        "$"
-                                    ]
-                                }
+                                "request": "[parameters('request')]",
+                                "paging": "[parameters('paging')]",
+                                "response": "parameters('response)]"
                             }
                         },
                         {
