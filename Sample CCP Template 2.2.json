@@ -44,7 +44,7 @@
         },
         "request": {
             "type": "string",
-            "defaultValue": "{\"apiEndpoint\":\"https://api.securitycenter.microsoft.com/api/vulnerabilities/machinesVulnerabilities\",\"rateLimitQPS\":\"50\",\"queryWindowInMIn\":\"10\",\"httpMethod\":\"GET\",\"queryTimeFormat\":\"yyyy-MM-ddTHH:mm:ssZ\",\"startTimeAttributeName\":\"\\\"\\\"\",\"endTimeAttributeName\":\"\\\"\\\"\",\"retryCount\":\"2\",\"timeoutInSeconds\":\"60\"}"
+            "defaultValue": ""
         },
         "paging": {
             "type": "string",
