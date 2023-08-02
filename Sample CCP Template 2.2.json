@@ -552,7 +552,7 @@
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
-                                "auth": "[parameters('auth')
+                                "auth": "[parameters('auth')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "[[concat(parameters('domainname'),'/api/v1/audits/incidents','?acknowledged=false')]",
