@@ -8,19 +8,19 @@
         },
         "title": {
             "type": "string",
-            "defaultValue": "MDE Vulnerabilities"
+            "defaultValue": ""
         },
         "publisher": {
             "type": "string",
-            "defaultValue": "Microsoft"
+            "defaultValue": ""
         },
         "description": {
             "type": "string",
-            "defaultValue": "This is the connector description."
+            "defaultValue": ""
         },
         "graphQueriesTableName": {
             "type": "string",
-            "defaultValue": "Thisisatest"
+            "defaultValue": ""
         },
         "graphQueries": {
             "type": "string",
@@ -48,11 +48,11 @@
         },
         "paging": {
             "type": "string",
-            "defaultValue": "{\"pagingType\": \"LinkHeader\"}"
+            "defaultValue": ""
         },
         "response": {
             "type": "string",
-            "defaultValue": "\"$.*\""
+            "defaultValue": ""
         },
         "auth": {
             "type": "string",
