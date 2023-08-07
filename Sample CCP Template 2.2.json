@@ -24,27 +24,27 @@
         },
         "instructions": {
             "type": "array",
-            "defaultValue": ""
+            "defaultValue": []
         },
         "polling": {
             "type": "string",
             "defaultValue": "2"
         },
         "request": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "array",
+            "defaultValue": []
         },
         "paging": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "array",
+            "defaultValue": []
         },
         "response": {
             "type": "string",
             "defaultValue": ""
         },
         "auth": {
-            "type": "string",
-            "defaultValue": ""
+            "type": "array",
+            "defaultValue": []
         },
         "delete": {
             "type": "string",
@@ -210,7 +210,7 @@
                                             }
                                         ]
                                     },
-                                    "instructionSteps": "[concat('[', parameters('instructions'), ']')]"
+                                    "instructionSteps": "[parameters('instructions')]"
                                 },
                                 "connectionsConfig": {
                                     "templateSpecName": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Resources/templateSpecs/',variables('dataConnectorTemplateSpecName2'))]",
@@ -313,7 +313,7 @@
                             }
                         ]
                     },
-                    "instructionSteps": "[concat('[', parameters('instructions'), ']')]"
+                    "instructionSteps": "[parameters('instructions')]"
                 },
                 "connectionsConfig": {
                     "templateSpecName": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Resources/templateSpecs/',variables('dataConnectorTemplateSpecName2'))]",
