@@ -22,6 +22,18 @@
             "type": "string",
             "defaultValue": ""
         },
+        "graphQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "sampleQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "dataTypes": {
+            "type": "array",
+            "defaultValue": []
+        },
         "instructions": {
             "type": "array",
             "defaultValue": []
@@ -166,25 +178,9 @@
                                     "publisher": "[parameters('publisher')]",
                                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                                     "descriptionMarkdown": "[parameters('description')]",
-                                      "graphQueries": [
-                                        {
-                                          "metricName": "Total events received",
-                                          "legend": "[concat(parameters('graphQueriesTableName'), ' Events'",
-                                          "baseQuery": "{{graphQueriesTableName}}"
-                                        }
-                                      ],
-                                      "sampleQueries": [
-                                        {
-                                          "description": "[concat('Get Sample of', parameters('graphQueriesTableName'), ' Events')]",
-                                          "query": "{{graphQueriesTableName}}\n | take 10"
-                                        }
-                                      ],
-                                      "dataTypes": [
-                                        {
-                                          "name": "{{graphQueriesTableName}}",
-                                          "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)\n            "
-                                        }
-                                      ],
+                                      "graphQueries": "[parameters('graphQueries')]",
+                                      "sampleQueries": "[parameters('sampleQueries')]",
+                                      "dataTypes": "[parameters('dataTypes')]",
                                     "connectivityCriteria": [
                                         {
                                             "type": "HasDataConnectors",
