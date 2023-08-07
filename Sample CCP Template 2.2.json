@@ -22,18 +22,6 @@
             "type": "string",
             "defaultValue": ""
         },
-        "graphQueries": {
-            "type": "string",
-            "defaultValue": "{"
-        },
-        "sampleQueries": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "dataTypes": {
-            "type": "string",
-            "defaultValue": ""
-        },
         "instructions": {
             "type": "string",
             "defaultValue": ""
@@ -181,20 +169,20 @@
                                       "graphQueries": [
                                         {
                                           "metricName": "Total events received",
-                                          "legend": "Cisco Meraki Security Events",
+                                          "legend": "[concat(parameters('graphQueriesTableName'), ' Events'",
                                           "baseQuery": "{{graphQueriesTableName}}"
                                         }
                                       ],
                                       "sampleQueries": [
                                         {
-                                          "description": "Get Sample of Cisco Meraki Security Events",
+                                          "description": "[concat('Get Sample of', parameters('graphQueriesTableName'), ' Events')]",
                                           "query": "{{graphQueriesTableName}}\n | take 10"
                                         }
                                       ],
                                       "dataTypes": [
                                         {
                                           "name": "{{graphQueriesTableName}}",
-                                          "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                          "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)\n            "
                                         }
                                       ],
                                     "connectivityCriteria": [
@@ -284,20 +272,20 @@
                     "graphQueries": [
                     {
                       "metricName": "Total events received",
-                      "legend": "Cisco Meraki Security Events",
+                      "legend": "[concat(parameters('graphQueriesTableName'), ' Events')]",
                       "baseQuery": "{{graphQueriesTableName}}"
                     }
                   ],
                   "sampleQueries": [
                     {
-                      "description": "Get Sample of Cisco Meraki Security Events",
+                      "description": "[concat('Get Sample of', parameters('graphQueriesTableName'), ' Events')]",
                       "query": "{{graphQueriesTableName}}\n | take 10"
                     }
                   ],
                   "dataTypes": [
                     {
                       "name": "{{graphQueriesTableName}}",
-                      "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                      "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)"
                     }
                   ],
                     "connectivityCriteria": [
