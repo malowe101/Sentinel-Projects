@@ -281,9 +281,25 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[concat('[', parameters('graphQueries'), ']')]",
-                    "sampleQueries": "[concat('[', parameters('sampleQueries'), ']')]",
-                    "dataTypes": "[concat('[', parameters('dataTypes'), ']')]"
+                    "graphQueries": [
+                    {
+                      "metricName": "Total events received",
+                      "legend": "Cisco Meraki Security Events",
+                      "baseQuery": "{{graphQueriesTableName}}"
+                    }
+                  ],
+                  "sampleQueries": [
+                    {
+                      "description": "Get Sample of Cisco Meraki Security Events",
+                      "query": "{{graphQueriesTableName}}\n | take 10"
+                    }
+                  ],
+                  "dataTypes": [
+                    {
+                      "name": "{{graphQueriesTableName}}",
+                      "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                    }
+                  ],
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
