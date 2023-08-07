@@ -23,7 +23,7 @@
             "defaultValue": ""
         },
         "instructions": {
-            "type": "string",
+            "type": "array",
             "defaultValue": ""
         },
         "polling": {
