@@ -475,7 +475,7 @@
                                 "version": "[variables('dataConnectorVersion2')]",
                                 "source": {
                                     "kind": "Solution",
-                                    "name": "Palo Alto Prisma Cloud Compute",
+                                    "name": "[parameters('title')]",
                                     "sourceId": "[variables('_solutionId')]"
                                 },
                                 "author": {
@@ -505,7 +505,7 @@
                 "parentId": "[variables('_solutionId')]",
                 "source": {
                     "kind": "Solution",
-                    "name": "Prisma Cloud compute",
+                    "name": "[parameters('title')]",
                     "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
