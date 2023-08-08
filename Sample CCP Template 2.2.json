@@ -44,11 +44,11 @@
         },
         "request": {
             "type": "string",
-            "defaultValue": []
+            "defaultValue": ""
         },
         "paging": {
             "type": "string",
-            "defaultValue": []
+            "defaultValue": ""
         },
         "response": {
             "type": "string",
@@ -56,7 +56,7 @@
         },
         "auth": {
             "type": "string",
-            "defaultValue": []
+            "defaultValue": ""
         },
         "delete": {
             "type": "string",
