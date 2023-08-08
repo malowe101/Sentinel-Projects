@@ -43,11 +43,11 @@
             "defaultValue": "2"
         },
         "request": {
-            "type": "array",
+            "type": "string",
             "defaultValue": []
         },
         "paging": {
-            "type": "array",
+            "type": "string",
             "defaultValue": []
         },
         "response": {
@@ -55,7 +55,7 @@
             "defaultValue": ""
         },
         "auth": {
-            "type": "array",
+            "type": "string",
             "defaultValue": []
         },
         "delete": {
