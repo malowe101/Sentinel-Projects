@@ -38,6 +38,14 @@
             "type": "array",
             "defaultValue": []
         },
+        "InTitle": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "InDescription": {
+            "defaultValue": "",
+            "type": "string"
+        },
         "polling": {
             "type": "string",
             "defaultValue": ""
@@ -313,7 +321,13 @@
                             }
                         ]
                     },
-                    "instructionSteps": "[parameters('instructions')]"
+                    "instructionSteps": [
+                        {
+                            "description": "[parameters('InDescription')]",
+                            "instructions": "[parameters('instructions')]",
+                            "title": "[parameters('InTitle')]"
+                        }
+                    ]
                 },
                 "connectionsConfig": {
                     "templateSpecName": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Resources/templateSpecs/',variables('dataConnectorTemplateSpecName2'))]",
