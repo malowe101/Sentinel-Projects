@@ -62,6 +62,10 @@
             "type": "string",
             "defaultValue": "False"
         },
+        "streamName": {
+            "type": "string",
+            "defaultValue": ""
+        },
         "subscription": {
             "defaultValue": "[last(split(subscription().id, '/'))]",
             "type": "string",
@@ -87,6 +91,10 @@
         "dataCollectionRuleId": {
             "defaultValue": "",
             "type": "string"
+        },
+        "DCRImmutableID": {
+            "defaultValue": "",
+            "type": "string",
         },
         "location": {
             "defaultValue": "[resourceGroup().location]",
