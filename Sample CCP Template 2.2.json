@@ -84,10 +84,6 @@
             "defaultValue": "",
             "type": "string"
         },
-        "streamName1": {
-            "defaultValue": "",
-            "type": "string"
-        },
         "dataCollectionRuleId": {
             "defaultValue": "",
             "type": "string"
@@ -135,7 +131,7 @@
         "dataConnectorTemplateSpecName2": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentId2')))]",
         "dataConnectorVersion2": "1.0.0",
         "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
-        "streamName1": "[parameters('streamName1')]",
+        "streamName": "[parameters('streamName')]",
         "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
     },
     "resources": [
@@ -268,7 +264,7 @@
             "kind": "Customizable",
             "properties": {
                 "connectorUiConfig": {
-                    "id": "DynamicTemplate",
+                    "id": "[variables('_uiConfigId1')]",
                     "title": "[parameters('title')]",
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
@@ -300,7 +296,7 @@
                     ],
                     "availability": {
                         "status": 1,
-                        "isPreview": true
+                        "isPreview": false
                     },
                     "permissions": {
                         "resourceProvider": [
@@ -457,7 +453,7 @@
                             "properties": {
                                 "connectorDefinitionName": "[[parameters('connectorDefinitionName')]",
                                 "dcrConfig": {
-                                    "streamName": "[variables('streamName1')]",
+                                    "streamName": "[variables('streamName')]",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
