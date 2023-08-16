@@ -40,7 +40,7 @@
         },
         "polling": {
             "type": "string",
-            "defaultValue": "2"
+            "defaultValue": ""
         },
         "request": {
             "type": "string",
@@ -77,15 +77,15 @@
             }
         },
         "logAnalyticsTableId": {
-            "defaultValue": "deploytest",
+            "defaultValue": "",
             "type": "string"
         },
         "streamName1": {
-            "defaultValue": "Holder",
+            "defaultValue": "",
             "type": "string"
         },
         "dataCollectionRuleId": {
-            "defaultValue": "AMATest",
+            "defaultValue": "",
             "type": "string"
         },
         "location": {
