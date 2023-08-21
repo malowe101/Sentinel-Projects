@@ -433,6 +433,10 @@
                                 "description": "connectorDefinitionName"
                             }
                         },
+                        "APIKey": {
+                            "defaultValue": "",
+                            "type": "string"
+                        },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
                             "type": "string"
