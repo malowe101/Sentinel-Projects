@@ -51,7 +51,7 @@
             "defaultValue": ""
         },
         "request": {
-            "type": "string",
+            "type": "object",
             "defaultValue": ""
         },
         "paging": {
