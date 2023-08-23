@@ -403,7 +403,7 @@
                             "minLength": 1,
                             "metadata": {
                             "description": "apiEndpoint"
-                        	}
+				}
                         },
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
@@ -424,7 +424,7 @@
                         "dcrConfig": {
                             "type": "object",
                             "defaultValue": {
-                                "dataCollectionEndpoint": "data collection Endpoint",
+                                "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
                                 "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
                             }
                         }
