@@ -101,9 +101,9 @@
             "type": "string"
         },
         "dataCollectionEndpointId": {
-			"defaultValue": "",
-			"type": "string"
-		},
+		"defaultValue": "",
+		"type": "string"
+	},
         "location": {
             "defaultValue": "[resourceGroup().location]",
             "minLength": 1,
@@ -411,7 +411,7 @@
 		              "minLength": 1,
 		              "metadata": {
 		                "description": "connectorDefinitionName"
-		              }
+		              },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
                             "type": "string"
