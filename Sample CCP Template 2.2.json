@@ -100,6 +100,10 @@
             "defaultValue": "",
             "type": "string"
         },
+        "dataCollectionEndpointId": {
+			"defaultValue": "",
+			"type": "string"
+		},
         "location": {
             "defaultValue": "[resourceGroup().location]",
             "minLength": 1,
@@ -122,7 +126,7 @@
         "dataCollectionRuleImmutableId": "data collection rule immutableId",
         "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
         "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
-        "_dataCollectionEndpointId": "[variables('dataCollectionEndpointId')]",
+        "_dataCollectionEndpointId": "[parameters('dataCollectionEndpointId')]",
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
         "uiConfigId1": "concat(parameters('title'),'NativePoller')",
         "_uiConfigId1": "[variables('uiConfigId1')]",
@@ -277,25 +281,9 @@
                     "publisher": "[parameters('publisher')]",
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": [
-                    {
-                      "metricName": "Total events received",
-                      "legend": "[concat(parameters('graphQueriesTableName'), ' Events')]",
-                      "baseQuery": "{{graphQueriesTableName}}"
-                    }
-                  ],
-                  "sampleQueries": [
-                    {
-                      "description": "[concat('Get Sample of', parameters('graphQueriesTableName'), ' Events')]",
-                      "query": "{{graphQueriesTableName}}\n | take 10"
-                    }
-                  ],
-                  "dataTypes": [
-                    {
-                      "name": "{{graphQueriesTableName}}",
-                      "lastDataReceivedQuery": "{{graphQueriesTableName}}\n       | where TimeGenerated > ago(12h)                 | summarize Time = max(TimeGenerated)"
-                    }
-                  ],
+                    "graphQueries": "[parameters('graphQueries')]",
+                  "sampleQueries": "[parameters('sampleQueries')]",
+                  "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
@@ -401,42 +389,7 @@
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersion2')]",
                     "parameters": {
-                        "domainname": {
-                            "defaultValue": "domainname",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                                "description": "domainname"
-                            }
-                        },
-                        "password": {
-                            "defaultValue": "password",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                                "description": "password"
-                            }
-                        },
-                        "username": {
-                            "defaultValue": "username",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                                "description": "username"
-                            }
-                        },
-                        "connectorDefinitionName": {
-                            "defaultValue": "connectorDefinitionName",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                                "description": "connectorDefinitionName"
-                            }
-                        },
-                        "APIKey": {
-                            "defaultValue": "",
-                            "type": "string"
-                        },
+                        
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
                             "type": "string"
@@ -472,7 +425,11 @@
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
-                                "auth": "[parameters('auth')]",
+                                "auth": {
+                                  "type": "APIKey",
+                                  "ApiKey": "[[parameters('apiKey')]",
+                                  "ApiKeyName": "X-API-Key"
+                                },
                             "request": "[parameters('request')]",
                             "paging": "[parameters('paging')]",
                             "response": "[parameters('response')]"
