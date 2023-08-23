@@ -397,12 +397,12 @@
                             "description": "api Key"
                         }
                         },
-                        "organization": {
-                            "defaultValue": "organization",
+                        "apiEndpoint": {
+                            "defaultValue": "apiEndpoint",
                             "type": "string",
                             "minLength": 1,
                             "metadata": {
-                            "description": "organization"
+                            "description": "apiEndpoint"
                         	}
                         },
                         "connectorDefinitionName": {
