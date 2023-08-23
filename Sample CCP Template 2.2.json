@@ -403,7 +403,7 @@
                             "minLength": 1,
                             "metadata": {
                             "description": "organization"
-                        }
+                        	}
                         },
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
