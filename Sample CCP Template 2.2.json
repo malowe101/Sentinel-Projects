@@ -123,7 +123,7 @@
     "variables": {
         "solutionId": "concat('azuresentinel.azure-sentinel-solution-',parameters('title'),'-preview')",
         "_solutionId": "[variables('solutionId')]",
-        "dataCollectionRuleImmutableId": "data collection rule immutableId",
+        "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
         "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
         "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
         "_dataCollectionEndpointId": "[parameters('dataCollectionEndpointId')]",
