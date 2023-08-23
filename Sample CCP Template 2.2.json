@@ -55,15 +55,15 @@
             "defaultValue": ""
         },
         "paging": {
-            "type": "string",
+            "type": "object",
             "defaultValue": ""
         },
         "response": {
-            "type": "string",
+            "type": "object",
             "defaultValue": ""
         },
         "auth": {
-            "type": "string",
+            "type": "object",
             "defaultValue": ""
         },
         "delete": {
