@@ -448,11 +448,7 @@
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
-                                "auth": {
-                                  "type": "APIKey",
-                                  "ApiKey": "[[parameters('apiKey')]",
-                                  "ApiKeyName": "X-API-Key"
-                                },
+                                "auth": "[parameters('auth')]",
                             "request": "[parameters('request')]",
                             "paging": "[parameters('paging')]",
                             "response": "[parameters('response')]"
