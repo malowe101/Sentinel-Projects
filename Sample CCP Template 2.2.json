@@ -463,7 +463,7 @@
                             "apiVersion": "2022-01-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(variables('_dataConnectorId2'),'/'))))]",
                             "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorEventsId1'))]",
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentId2'))]",
                                 "contentId": "[variables('_dataConnectorContentId2')]",
                                 "kind": "ResourcesDataConnector",
                                 "version": "[variables('dataConnectorVersion2')]",
