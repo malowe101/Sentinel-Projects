@@ -431,7 +431,7 @@
                     },
                     "variables": {
                         "_dataConnectorContentId2": "[variables('_dataConnectorContentId2')]",
-                        "_dataConnectorEventsId1": "[concat(parameters('title'),-events)]"
+                        "_dataConnectorEventsId1": "[concat(parameters('title'),'-events')]"
                     },
                     "resources": [
                         {
