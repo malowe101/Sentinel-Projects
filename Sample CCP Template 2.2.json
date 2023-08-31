@@ -405,6 +405,22 @@
                             "description": "apiEndpoint"
 				}
                         },
+		    	"ClientId": {
+                            "defaultValue": "ClientId",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientId"
+				}
+                        },
+		    	"ClientSecret": {
+                            "defaultValue": "ClientSecret",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientSecret"
+				}
+                        },
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
                             "type": "string",
