@@ -421,6 +421,14 @@
                             "description": "ClientSecret"
 				}
                         },
+		    	"AuthorizationCode": {
+                            "defaultValue": "AuthorizationCode",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "AuthorizationCode"
+				}
+			},
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
                             "type": "string",
