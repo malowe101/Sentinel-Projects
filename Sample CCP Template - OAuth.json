@@ -502,7 +502,7 @@
                                       "ClientSecret": "[[parameters('clientSecret')]",
                                       "ClientId": "[[parameters('clientId')]",
                                       "Scope": "[parameters('Scope')]",
-                                      "RedirectUri": "[parameters('RedirectURI')]",
+                                      "RedirectUri": "[parameters('RedirectUri')]",
                                       "GrantType": "[parameters('GrantType')]",
                                       "TokenEndpoint": "[parameters('TokenEndpoint')]",
                                       "TokenEndpointHeaders": {
