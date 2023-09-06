@@ -190,7 +190,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "kind": "ResourceDataConnector",
+                                            "kind": "ResourcesDataConnector",
                                             "contentId": "[variables('dataConnectorVersionConnections')]",
                                             "version": "[variables('_dataConnectorContentIdConnections')]"
                                         }
@@ -338,7 +338,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "kind": "ResourceDataConnector",
+                            "kind": "ResourcesDataConnector",
                             "contentId": "[variables('dataConnectorVersionConnections')]",
                             "version": "[variables('_dataConnectorContentIdConnections')]"
                         }
