@@ -62,32 +62,8 @@
             "type": "object",
             "defaultValue": ""
         },
-        "Scope": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "RedirectURI": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "GrantType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "TokenEndpoint": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "ContentType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "AccessType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "AuthorizationEndpoint": {
-            "type": "string",
+        "auth": {
+            "type": "object",
             "defaultValue": ""
         },
         "delete": {
@@ -145,7 +121,7 @@
         }
     },
     "variables": {
-        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',parameters('title'),'-preview')]",
+        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',parameters('title'))]",
         "_solutionId": "[variables('solutionId')]",
         "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
         "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
@@ -168,7 +144,10 @@
         "dataConnectorVersion2": "1.0.0",
         "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
         "streamName": "[parameters('streamName')]",
-        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]",
+        "_solutionVersion": "1.0.0",
+        "_solutionName": "[concat(parameters('title'), '-connector')]",
+        "_dataConnectorcontentProductId1": "[concat(take(variables('_solutionId'),50),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentId1'),'-', variables('dataConnectorVersion1'))))]"
     },
     "resources": [
         {
@@ -176,23 +155,6 @@
             "apiVersion": "2023-04-01-preview",
             "name": "[variables('dataConnectorTemplateSpecName1')]",
             "location": "[parameters('workspace-location')]",
-            "tags": {
-                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
-                "hidden-sentinelContentType": "DataConnector"
-            },
-            "properties": {
-                "description": "[parameters('description')]",
-                "displayName": "[concat(parameters('title'),' template')]"
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(variables('dataConnectorTemplateSpecName1'),'/',variables('dataConnectorVersion1'))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
-            ],
             "tags": {
                 "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
                 "hidden-sentinelContentType": "DataConnector"
@@ -210,7 +172,7 @@
                             "apiVersion": "2022-09-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
                             "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
+                            "kind": "Customizable",
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "DynamicTemplate",
@@ -285,7 +247,18 @@
                             }
                         }
                     ]
-                }
+                },
+                "packageKind": "Solution",
+                "packageVersion": "[variables('_solutionVersion')]",
+                "packageName": "[variables('_solutionName')]",
+                "packageId": "[variables('_solutionId')]",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "[variables('_dataConnectorContentId1')]",
+                "contentKind": "DataConnector",
+                "displayName": "Cisco ASA",
+                "contentProductId": "[variables('_dataConnectorcontentProductId1')]",
+                "id": "[variables('_dataConnectorcontentProductId1')]",
+                "version": "[variables('dataConnectorVersion1')]"
             }
         },
         {
@@ -293,7 +266,7 @@
             "apiVersion": "2022-09-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentId1'))]",
             "location": "[parameters('workspace-location')]",
-            "kind": "Customizable",
+            "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
                     "id": "[variables('_uiConfigId1')]",
@@ -302,8 +275,8 @@
                     "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
                     "graphQueries": "[parameters('graphQueries')]",
-                  "sampleQueries": "[parameters('sampleQueries')]",
-                  "dataTypes": "[parameters('dataTypes')]",
+                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
@@ -343,6 +316,9 @@
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(variables('_dataConnectorId1'),'/'))))]",
+            "dependsOn": [
+                    "[variables('_dataConnectorId1')]"
+                ],
             "properties": {
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentId1'))]",
                 "contentId": "[variables('_dataConnectorContentId1')]",
@@ -354,7 +330,7 @@
                     "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
-                    "name": "Microsoft"
+                    "name": "Custom"
                 },
                 "support": {
                     "name": "Microsoft Corporation",
@@ -374,6 +350,17 @@
             }
         },
         {
+            "type": "Microsoft.Resources/templateSpecs/versions",
+            "apiVersion": "2021-05-01",
+            "name": "[concat(variables('dataConnectorTemplateSpecName2'),'/',variables('dataConnectorVersion2'))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/templateSpecs', variables('dataConnectorTemplateSpecName2'))]"
+            ],
+            "tags": {
+                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
+                "hidden-sentinelContentType": "LogicAppsCustomConnector"
+            },
             "properties": {
                 "description": "[concat(parameters('title'),' with template version 2.0.0')]",
                 "mainTemplate": {
@@ -463,26 +450,10 @@
                                     "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
-                                "auth": {
-                                      "type": "OAuth2",
-                                      "AuthorizationCode": "[[parameters('authorizationCode')]",
-                                      "ClientSecret": "[[parameters('clientSecret')]",
-                                      "ClientId": "[[parameters('clientId')]",
-                                      "Scope": "[parameters('Scope')]",
-                                      "RedirectUri": "[parameters('RedirectUri')]",
-                                      "GrantType": "[parameters('GrantType')]",
-                                      "TokenEndpoint": "[parameters('TokenEndpoint')]",
-                                      "TokenEndpointHeaders": {
-                                        "Content-Type": "application/x-www-form-urlencoded"
-                                      },
-                              "AuthorizationEndpointQueryParameters": {
-                                        "access_type": "[parameters('AccessType')]"
-                                      },
-                                      "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]"
-                                },
-                                                "request": "[parameters('request')]",
-                                                "paging": "[parameters('paging')]",
-                                                "response": "[parameters('response')]"
+                                "auth": "[parameters('auth')]",
+                            "request": "[parameters('request')]",
+                            "paging": "[parameters('paging')]",
+                            "response": "[parameters('response')]"
                             }
                         },
                         {
@@ -548,9 +519,9 @@
                         }
                     ]
                 },
-                "firstPublishDate": "2022-06-24",
+                "firstPublishDate": "2023-06-24",
                 "providers": [
-                    "Microsoft"
+                    "Custom"
                 ],
                 "categories": {
                     "domains": [
