@@ -191,8 +191,8 @@
                                     "criteria": [
                                         {
                                             "kind": "ResourcesDataConnector",
-                                            "contentId": "[variables('dataConnectorVersionConnections')]",
-                                            "version": "[variables('_dataConnectorContentIdConnections')]"
+                                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
+                                            "version": "[variables('dataConnectorVersionConnections')]"
                                         }
                                     ]
                                 }
