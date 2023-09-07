@@ -154,7 +154,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
             ],
             "properties": {
-                "contentId": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnectorDefinition'))]",
                 "contentKind": "DataConnector",
                 "description": "Generic data connector with template version 2.0.0",
