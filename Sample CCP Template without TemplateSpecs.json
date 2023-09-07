@@ -170,7 +170,7 @@
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
-                                "contentId": "[variables('dataConnectorVersionConnectorDefinition')]",
+                                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
                                 "kind": "DataConnector",
                                 "version": "[variables('dataConnectorVersionConnectorDefinition')]",
                                 "source": {
