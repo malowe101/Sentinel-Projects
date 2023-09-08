@@ -124,7 +124,7 @@
         "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',parameters('title'))]",
         "_solutionId": "[variables('solutionId')]",
         "_solutionVersion": "1.0.0",
-        "_solutionName": "[concat(parameters('title'), '-connector')]",
+        "_solutionName": "[parameters('title')]",
         "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
         "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
         "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
@@ -461,7 +461,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
+                            "name": "[[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
