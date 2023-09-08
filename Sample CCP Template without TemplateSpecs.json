@@ -461,7 +461,7 @@
                             }
                         },
                         {
-                            "name": "[[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -475,9 +475,9 @@
                                 },
                                 "dataType": "[variables('logAnalyticsTableId1')]",
                                 "auth": "[parameters('auth')]",
-                            "request": "[parameters('request')]",
-                            "paging": "[parameters('paging')]",
-                            "response": "[parameters('response')]"
+                                "request": "[parameters('request')]",
+                                "paging": "[parameters('paging')]",
+                                "response": "[parameters('response')]"
                             }
                         }
                     ]
