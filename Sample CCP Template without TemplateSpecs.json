@@ -121,7 +121,7 @@
         }
     },
     "variables": {
-        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',parameters('title'))]",
+        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',replace(parameters('title'), ' ', ''))]",
         "_solutionId": "[variables('solutionId')]",
         "_solutionVersion": "1.0.0",
         "_solutionName": "[parameters('title')]",
@@ -135,7 +135,7 @@
         "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]",
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "dataConnectorVersionConnections": "1.0.0",
-        "_dataConnectorContentIdConnectorDefinition": "[concat(parameters('title'), '-ConnectorDefinition')]",
+        "_dataConnectorContentIdConnectorDefinition": "[concat(replace(parameters('title'), ' ', ''), '-ConnectorDefinition')]",
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
         "_dataConnectorContentIdConnections": "[concat(replace(parameters('title'), ' ', ''), '-Connections')]",
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]"
@@ -461,7 +461,7 @@
                             }
                         },
                         {
-                            "name": "[[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
