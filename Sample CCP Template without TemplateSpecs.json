@@ -137,7 +137,7 @@
         "dataConnectorVersionConnections": "1.0.0",
         "_dataConnectorContentIdConnectorDefinition": "[concat(parameters('title'), '-ConnectorDefinition')]",
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
-        "_dataConnectorContentIdConnections": "[concat(parameters('title'), '-Connections')]",
+        "_dataConnectorContentIdConnections": "[concat(replace(parameters('title'), ' ', ''), '-Connections')]",
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]"
     },
     "resources": [
