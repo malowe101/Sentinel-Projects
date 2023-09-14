@@ -488,7 +488,7 @@
                                         "access_type": "[parameters('AccessType')]"
                                       },
                                       "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]"
-                                },,
+                                },
                                 "request": "[parameters('request')]",
                                 "paging": "[parameters('paging')]",
                                 "response": "[parameters('response')]"
