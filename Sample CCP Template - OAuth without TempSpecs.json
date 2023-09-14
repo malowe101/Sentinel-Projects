@@ -62,32 +62,8 @@
             "type": "object",
             "defaultValue": ""
         },
-        "Scope": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "RedirectURI": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "GrantType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "TokenEndpoint": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "ContentType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "AccessType": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "AuthorizationEndpoint": {
-            "type": "string",
+        "auth": {
+            "type": "object",
             "defaultValue": ""
         },
         "delete": {
@@ -181,7 +157,6 @@
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnectorDefinition'))]",
                 "contentKind": "DataConnector",
-                "description": "Generic data connector with template version 2.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnectorDefinition')]",
@@ -192,6 +167,9 @@
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+                            "dependsOn": [
+                                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
+                            ],
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -337,6 +315,9 @@
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+            "dependsOn": [
+                    "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
+                ],
             "properties": {
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -478,7 +459,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/apirequest1')]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -507,7 +488,7 @@
                                         "access_type": "[parameters('AccessType')]"
                                       },
                                       "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]"
-                                },
+                                },,
                                 "request": "[parameters('request')]",
                                 "paging": "[parameters('paging')]",
                                 "response": "[parameters('response')]"
