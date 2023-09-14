@@ -62,8 +62,32 @@
             "type": "object",
             "defaultValue": ""
         },
-        "auth": {
-            "type": "object",
+        "Scope": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "RedirectURI": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "GrantType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "TokenEndpoint": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "ContentType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "AccessType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "AuthorizationEndpoint": {
+            "type": "string",
             "defaultValue": ""
         },
         "delete": {
