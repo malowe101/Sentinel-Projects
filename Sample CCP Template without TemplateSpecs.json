@@ -374,60 +374,60 @@
                             "minLength": 1,
                             "metadata": {
                             "description": "api Key"
-                        }
-                        },
+                                }
+                            },
                         "apiEndpoint": {
                             "defaultValue": "apiEndpoint",
                             "type": "string",
                             "minLength": 1,
                             "metadata": {
                             "description": "apiEndpoint"
-                    }
+                                }
                             },
-                    "ClientId": {
-                                "defaultValue": "ClientId",
-                                "type": "string",
-                                "minLength": 1,
-                                "metadata": {
-                                "description": "ClientId"
-                    }
+                        "ClientId": {
+                            "defaultValue": "ClientId",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientId"
+                            }
+                                },
+                        "ClientSecret": {
+                            "defaultValue": "ClientSecret",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientSecret"
+                            }
+                                },
+                        "AuthorizationCode": {
+                            "defaultValue": "AuthorizationCode",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "AuthorizationCode"
+                                }
+                                },
+                        "connectorDefinitionName": {
+                            "defaultValue": "connectorDefinitionName",
+                            "type": "string",
+                            "minLength": 1
                             },
-                    "ClientSecret": {
-                                "defaultValue": "ClientSecret",
-                                "type": "string",
-                                "minLength": 1,
-                                "metadata": {
-                                "description": "ClientSecret"
-                    }
+                        "workspace": {
+                            "defaultValue": "[parameters('workspace')]",
+                            "type": "string"
                             },
-                    "AuthorizationCode": {
-                                "defaultValue": "AuthorizationCode",
-                                "type": "string",
-                                "minLength": 1,
-                                "metadata": {
-                                "description": "AuthorizationCode"
-                        }
-                    },
-                    "connectorDefinitionName": {
-                        "defaultValue": "connectorDefinitionName",
-                        "type": "string",
-                        "minLength": 1
-                    },
-                    "workspace": {
-                        "defaultValue": "[parameters('workspace')]",
-                        "type": "string"
-                    },
-                    "location": {
-                        "defaultValue": "[parameters('workspace-location')]",
-                        "type": "string"
-                    },
-                    "dcrConfig": {
-                        "type": "object",
-                        "defaultValue": {
-                            "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
-                            "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
-                        }
-                    }
+                        "location": {
+                            "defaultValue": "[parameters('workspace-location')]",
+                            "type": "string"
+                            },
+                        "dcrConfig": {
+                            "type": "object",
+                            "defaultValue": {
+                                "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
+                                "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
+                                }
+                            }
                     },
                     "variables": {
                         "_dataConnectorContentIdConnections": "[variables('_dataConnectorContentIdConnections')]"
