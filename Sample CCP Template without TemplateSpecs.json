@@ -101,9 +101,9 @@
             "type": "string"
         },
         "dataCollectionEndpointId": {
-            "defaultValue": "",
-            "type": "string"
-        },
+		"defaultValue": "",
+		"type": "string"
+	},
         "location": {
             "defaultValue": "[resourceGroup().location]",
             "minLength": 1,
@@ -146,7 +146,10 @@
             "apiVersion": "2023-04-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('dataConnectorTemplateNameConnectorDefinition'), variables('dataConnectorVersionConnectorDefinition'))]",
             "location": "[parameters('workspace-location')]",
-            "tags": {},
+            "tags": {
+                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
+                "hidden-sentinelContentType": "DataConnector"
+            },
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
             ],
@@ -160,6 +163,43 @@
                     "parameters": {},
                     "variables": {},
                     "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+                            "dependsOn": [
+                                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
+                            ],
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
+                                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
+                                "kind": "DataConnector",
+                                "version": "[variables('dataConnectorVersionConnectorDefinition')]",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "[variables('_solutionName')]",
+                                    "sourceId": "[variables('_solutionId')]"
+                                },
+                                "author": {
+                                    "name": "Custom"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                },
+                                "dependencies": {
+                                    "criteria": [
+                                        {
+                                            "kind": "ResourcesDataConnector",
+                                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
+                                            "version": "[variables('dataConnectorVersionConnections')]"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
                         {
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
                             "apiVersion": "2022-09-01-preview",
@@ -209,43 +249,16 @@
                                     ]
                                 }
                             }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
-                                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
-                                "kind": "DataConnector",
-                                "version": "[variables('dataConnectorVersionConnectorDefinition')]",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "[parameters('title')]",
-                                    "sourceId": "[variables('_solutionId')]"
-                                },
-                                "author": {
-                                    "name": "Custom"
-                                },
-                                "support": {
-                                    "name": "Microsoft Corporation",
-                                    "email": "support@microsoft.com",
-                                    "tier": "Microsoft",
-                                    "link": "https://support.microsoft.com"
-                                },
-                                "dependencies": {
-                                    "criteria": [
-                                        {
-                                            "kind": "ResourcesDataConnector",
-                                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
-                                            "version": "[variables('dataConnectorVersionConnections')]"
-                                        }
-                                    ]
-                                }
-                            }
                         }
                     ]
-                }
+                },
+                "packageKind": "Solution",
+                "packageVersion": "[variables('_solutionVersion')]",
+                "packageName": "[variables('_solutionName')]",
+                "contentProductId": "[concat(variables('_solutionId'),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
+                "packageId": "[variables('_solutionId')]",
+                "contentSchemaVersion": "1.0.0",
+                "version": "[variables('_solutionVersion')]"
             }
         },
         {
@@ -295,14 +308,16 @@
                             "title": "[parameters('InTitle')]"
                         }
                     ]
-                },
-                "contentProductId": "[concat(variables('_solutionId'),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]"
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+            "dependsOn": [
+                    "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
+                ],
             "properties": {
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -310,7 +325,7 @@
                 "version": "[variables('dataConnectorVersionConnectorDefinition')]",
                 "source": {
                     "kind": "Solution",
-                    "name": "[parameters('title')]",
+                    "name": "[variables('_solutionName')]",
                     "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -341,7 +356,10 @@
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
             ],
-            "tags": {},
+            "tags": {
+                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
+                "hidden-sentinelContentType": "LogicAppsCustomConnector"
+            },
             "properties": {
                 "contentId": "[variables('_dataConnectorContentIdConnections')]",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnections'))]",
@@ -416,7 +434,32 @@
                     },
                     "resources": [
                         {
-                            "name": "[[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnections')))]",
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentIdConnections'))]",
+                                "contentId": "[variables('_dataConnectorContentIdConnections')]",
+                                "kind": "ResourcesDataConnector",
+                                "version": "[variables('dataConnectorVersionConnections')]",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "[variables('_solutionName')]",
+                                    "sourceId": "[variables('_solutionId')]"
+                                },
+                                "author": {
+                                    "name": "Custom"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        },
+                        {
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'apirequest1')]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -434,36 +477,16 @@
                                 "paging": "[parameters('paging')]",
                                 "response": "[parameters('response')]"
                             }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnections')))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentIdConnections'))]",
-                                "contentId": "[variables('_dataConnectorContentIdConnections')]",
-                                "kind": "ResourcesDataConnector",
-                                "version": "[variables('dataConnectorVersionConnections')]",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "[parameters('title')]",
-                                    "sourceId": "[variables('_solutionId')]"
-                                },
-                                "author": {
-                                    "name": "Custom"
-                                },
-                                "support": {
-                                    "name": "Microsoft Corporation",
-                                    "email": "support@microsoft.com",
-                                    "tier": "Microsoft",
-                                    "link": "https://support.microsoft.com"
-                                }
-                            }
                         }
-                        
                     ]
                 },
-                "contentProductId": "[concat(variables('_solutionId'),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]"
+                "packageKind": "Solution",
+                "packageVersion": "[variables('_solutionVersion')]",
+                "packageName": "[variables('_solutionName')]",
+                "contentProductId": "[concat(variables('_solutionId'),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
+                "packageId": "[variables('_solutionId')]",
+                "contentSchemaVersion": "1.0.0",
+                "version": "[variables('_solutionVersion')]"
             }
         },
         {
@@ -478,7 +501,7 @@
                 "contentId": "[variables('_solutionId')]",
                 "source": {
                     "kind": "Solution",
-                    "name": "[parameters('title')]",
+                    "name": "[variables('_solutionName')]",
                     "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -501,7 +524,11 @@
                 "providers": [
                     "Custom"
                 ],
-                "contentProductId": "[concat(variables('_solutionId'),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]"
+                "contentKind": "Solution",
+                "packageId": "[variables('_solutionId')]",
+                "contentProductId": "[concat(variables('_solutionId'),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
+                "displayName": "[variables('_solutionName')]",
+                "publisherDisplayName": "[variables('_solutionId')]"
             }
         }
     ],
