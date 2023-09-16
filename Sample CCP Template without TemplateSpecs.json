@@ -294,9 +294,9 @@
                             "instructions": "[parameters('instructions')]",
                             "title": "[parameters('InTitle')]"
                         }
-                    ],
-                    "contentProductId": "[concat(variables('_solutionId'),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]"
-                }
+                    ]
+                },
+                "contentProductId": "[concat(variables('_solutionId'),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]"
             }
         },
         {
@@ -461,9 +461,9 @@
                             }
                         }
                         
-                    ],
-                    "contentProductId": "[concat(variables('_solutionId'),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]"
-                }
+                    ]
+                },
+                "contentProductId": "[concat(variables('_solutionId'),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]"
             }
         },
         {
