@@ -498,7 +498,8 @@
                 "firstPublishDate": "2023-09-01",
                 "providers": [
                     "Custom"
-                ]
+                ],
+                "contentProductId": "[concat(variables('_solutionId'),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]"
             }
         }
     ],
