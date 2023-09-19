@@ -453,7 +453,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', replace(parameters('title'), ' ', '')]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', replace(parameters('title'), ' ', ''))]",
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
