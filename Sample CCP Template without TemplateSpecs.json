@@ -166,7 +166,7 @@
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition')))]",
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -311,7 +311,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition')))]",
             "properties": {
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -430,7 +430,7 @@
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnections')))]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnections')))]",
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentIdConnections'))]",
                                 "contentId": "[variables('_dataConnectorContentIdConnections')]",
