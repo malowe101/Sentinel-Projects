@@ -138,7 +138,15 @@
             "metadata": {
                 "description": "[concat('Region to deploy solution resources -- separate from location selection',parameters('location'))]"
             }
-        }
+        },
+        "tokenEndpointQueryParameters": {
+            "defaultValue": "",
+            "type": "object"
+        },
+            "authorizationEndpointQueryParameters": {
+            "defaultValue": "",
+            "type": "object"
+        }	    
     },
     "variables": {
         "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',parameters('title'),'-preview')]",
@@ -485,12 +493,11 @@
                                       "RedirectUri": "[parameters('RedirectUri')]",
                                       "GrantType": "[parameters('GrantType')]",
                                       "TokenEndpoint": "[parameters('TokenEndpoint')]",
+                                      "TokenEndpointQueryParameters": "[parameters('tokenEndpointQueryParameters')]",
                                       "TokenEndpointHeaders": {
                                         "Content-Type": "application/x-www-form-urlencoded"
                                       },
-                              "AuthorizationEndpointQueryParameters": {
-                                        "access_type": "[parameters('AccessType')]"
-                                      },
+                              "AuthorizationEndpointQueryParameters": "[parameters('authorizationEndpointQueryParameters')]",
                                       "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]"
                                 },
                                                 "request": "[parameters('request')]",
