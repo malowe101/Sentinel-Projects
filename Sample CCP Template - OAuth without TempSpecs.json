@@ -1,56 +1,44 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "outputs": {
-    },
     "parameters": {
-        "AccessType": {
-            "defaultValue": "",
-            "type": "string"
+        "workspace": {
+            "type": "string",
+            "defaultValue": ""
         },
-        "AuthorizationEndpoint": {
-            "defaultValue": "",
-            "type": "string"
+        "title": {
+            "type": "string",
+            "defaultValue": ""
         },
-        "ContentType": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "dataCollectionEndpointId": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "dataCollectionRuleId": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "dataTypes": {
-            "defaultValue": [
-            ],
-            "type": "array"
-        },
-        "DCRImmutableID": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "delete": {
-            "defaultValue": "False",
-            "type": "string"
+        "publisher": {
+            "type": "string",
+            "defaultValue": ""
         },
         "description": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "GrantType": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "graphQueries": {
-            "defaultValue": [
-            ],
-            "type": "array"
+            "type": "string",
+            "defaultValue": ""
         },
         "graphQueriesTableName": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "graphQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "sampleQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "dataTypes": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "instructions": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "InTitle": {
             "defaultValue": "",
             "type": "string"
         },
@@ -58,533 +46,525 @@
             "defaultValue": "",
             "type": "string"
         },
-        "instructions": {
-            "defaultValue": [
-            ],
-            "type": "array"
+        "request": {
+            "type": "object",
+            "defaultValue": ""
         },
-        "InTitle": {
-            "defaultValue": "",
-            "type": "string"
+        "paging": {
+            "type": "object",
+            "defaultValue": ""
         },
-        "location": {
-            "defaultValue": "[resourceGroup().location]",
+        "response": {
+            "type": "object",
+            "defaultValue": ""
+        },
+        "Scope": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "RedirectURI": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "GrantType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "TokenEndpoint": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "ContentType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "AccessType": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "AuthorizationEndpoint": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "delete": {
+            "type": "string",
+            "defaultValue": "False"
+        },
+        "streamName": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subscription": {
+            "defaultValue": "[last(split(subscription().id, '/'))]",
+            "type": "string",
             "metadata": {
-                "description": "Not used, but needed to pass arm-ttk test `Location-Should-Not-Be-Hardcoded`.  We instead use the `workspace-location` which is derived from the LA workspace"
-            },
-            "minLength": 1,
-            "type": "string"
+                "description": "subscription id where Microsoft Sentinel is setup"
+            }
+        },
+        "resourceGroupName": {
+            "defaultValue": "[resourceGroup().name]",
+            "type": "string",
+            "metadata": {
+                "description": "resource group name where Microsoft Sentinel is setup"
+            }
         },
         "logAnalyticsTableId": {
             "defaultValue": "",
             "type": "string"
         },
-        "paging": {
-            "defaultValue": "",
-            "type": "object"
-        },
-        "publisher": {
+        "dataCollectionRuleId": {
             "defaultValue": "",
             "type": "string"
         },
-        "RedirectURI": {
+        "DCRImmutableID": {
             "defaultValue": "",
             "type": "string"
         },
-        "request": {
-            "defaultValue": "",
-            "type": "object"
-        },
-        "resourceGroupName": {
-            "defaultValue": "[resourceGroup().name]",
+        "dataCollectionEndpointId": {
+		"defaultValue": "",
+		"type": "string"
+	},
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "minLength": 1,
+            "type": "string",
             "metadata": {
-                "description": "resource group name where Microsoft Sentinel is setup"
-            },
-            "type": "string"
-        },
-        "response": {
-            "defaultValue": "",
-            "type": "object"
-        },
-        "sampleQueries": {
-            "defaultValue": [
-            ],
-            "type": "array"
-        },
-        "Scope": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "streamName": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "subscription": {
-            "defaultValue": "[last(split(subscription().id, '/'))]",
-            "metadata": {
-                "description": "subscription id where Microsoft Sentinel is setup"
-            },
-            "type": "string"
-        },
-        "title": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "TokenEndpoint": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "workspace": {
-            "defaultValue": "",
-            "type": "string"
+                "description": "Not used, but needed to pass arm-ttk test `Location-Should-Not-Be-Hardcoded`.  We instead use the `workspace-location` which is derived from the LA workspace"
+            }
         },
         "workspace-location": {
             "defaultValue": "[resourceGroup().location]",
+            "type": "string",
             "metadata": {
                 "description": "[concat('Region to deploy solution resources -- separate from location selection',parameters('location'))]"
-            },
-            "type": "string"
-        },
-        "AuthorizationEndpointQueryParameters": {
-            "defaultValue": "",
-            "type": "object"
-        },
-        "TokenEndpointQueryParameters": {
-            "defaultValue": "",
-            "type": "object"
+            }
         }
+    },
+    "variables": {
+        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',replace(parameters('title'), ' ', ''))]",
+        "_solutionId": "[variables('solutionId')]",
+        "_solutionVersion": "1.0.0",
+        "_solutionName": "[parameters('title')]",
+        "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
+        "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
+        "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
+        "_dataCollectionEndpointId": "[parameters('dataCollectionEndpointId')]",
+        "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
+        "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
+        "streamName": "[parameters('streamName')]",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]",
+        "dataConnectorVersionConnectorDefinition": "1.0.0",
+        "dataConnectorVersionConnections": "1.0.0",
+        "_dataConnectorContentIdConnectorDefinition": "[concat(replace(parameters('title'), ' ', ''), '-ConnectorDefinition')]",
+        "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
+        "_dataConnectorContentIdConnections": "[concat(replace(parameters('title'), ' ', ''), '-Connections')]",
+        "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
+        "solutionIDNameLength": "[length(variables('solutionId'))]"
     },
     "resources": [
         {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('dataConnectorTemplateNameConnectorDefinition'), variables('dataConnectorVersionConnectorDefinition'))]",
+            "location": "[parameters('workspace-location')]",
+            "tags": {
+                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
+                "hidden-sentinelContentType": "DataConnector"
+            },
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
             ],
-            "location": "[parameters('workspace-location')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('dataConnectorTemplateNameConnectorDefinition'), variables('dataConnectorVersionConnectorDefinition'))]",
             "properties": {
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
-                "contentKind": "DataConnector",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
-                "contentSchemaVersion": "3.0.0",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnectorDefinition'))]",
+                "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnectorDefinition')]",
-                    "parameters": {
-                    },
+                    "parameters": {},
+                    "variables": {},
                     "resources": [
                         {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition'))]",
                             "dependsOn": [
                                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
                             ],
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition'))]",
                             "properties": {
-                                "author": {
-                                    "name": "Custom"
-                                },
-                                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
-                                "dependencies": {
-                                    "criteria": [
-                                        {
-                                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
-                                            "kind": "ResourcesDataConnector",
-                                            "version": "[variables('dataConnectorVersionConnections')]"
-                                        }
-                                    ]
-                                },
-                                "kind": "DataConnector",
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
+                                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
+                                "kind": "DataConnector",
+                                "version": "[variables('dataConnectorVersionConnectorDefinition')]",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "[variables('_solutionName')]",
                                     "sourceId": "[variables('_solutionId')]"
                                 },
-                                "support": {
-                                    "email": "support@microsoft.com",
-                                    "link": "https://support.microsoft.com",
-                                    "name": "Microsoft Corporation",
-                                    "tier": "Microsoft"
+                                "author": {
+                                    "name": "Custom"
                                 },
-                                "version": "[variables('dataConnectorVersionConnectorDefinition')]"
-                            },
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata"
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                },
+                                "dependencies": {
+                                    "criteria": [
+                                        {
+                                            "kind": "ResourcesDataConnector",
+                                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
+                                            "version": "[variables('dataConnectorVersionConnections')]"
+                                        }
+                                    ]
+                                }
+                            }
                         },
                         {
-                            "apiVersion": "2022-09-01-preview",
-                            "kind": "Customizable",
-                            "location": "[parameters('workspace-location')]",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
+                            "apiVersion": "2022-09-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "Customizable",
                             "properties": {
                                 "connectorUiConfig": {
-                                    "availability": {
-                                        "isPreview": true,
-                                        "status": 1
-                                    },
+                                    "title": "[parameters('title')]",
+                                    "publisher": "[parameters('publisher')]",
+                                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
+                                    "descriptionMarkdown": "[parameters('description')]",
+                                      "graphQueries": "[parameters('graphQueries')]",
+                                      "sampleQueries": "[parameters('sampleQueries')]",
+                                      "dataTypes": "[parameters('dataTypes')]",
                                     "connectivityCriteria": [
                                         {
                                             "type": "HasDataConnectors",
-                                            "value": [
-                                            ]
+                                            "value": []
                                         }
                                     ],
-                                    "dataTypes": "[parameters('dataTypes')]",
-                                    "descriptionMarkdown": "[parameters('description')]",
-                                    "graphQueries": "[parameters('graphQueries')]",
-                                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
+                                    "availability": {
+                                        "status": 1,
+                                        "isPreview": true
+                                    },
+                                    "permissions": {
+                                        "resourceProvider": [
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                                "permissionsDisplayText": "read and write permissions are required.",
+                                                "providerDisplayName": "Workspace",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "write": true,
+                                                    "read": true,
+                                                    "delete": "[parameters('delete')]"
+                                                }
+                                            }
+                                        ]
+                                    },
                                     "instructionSteps": [
                                         {
                                             "description": "[parameters('InDescription')]",
                                             "instructions": "[parameters('instructions')]",
                                             "title": "[parameters('InTitle')]"
                                         }
-                                    ],
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "permissionsDisplayText": "read and write permissions are required.",
-                                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                                "providerDisplayName": "Workspace",
-                                                "requiredPermissions": {
-                                                    "delete": "[parameters('delete')]",
-                                                    "read": true,
-                                                    "write": true
-                                                },
-                                                "scope": "Workspace"
-                                            }
-                                        ]
-                                    },
-                                    "publisher": "[parameters('publisher')]",
-                                    "sampleQueries": "[parameters('sampleQueries')]",
-                                    "title": "[parameters('title')]"
+                                    ]
                                 }
-                            },
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions"
+                            }
                         }
-                    ],
-                    "variables": {
-                    }
+                    ]
                 },
-                "packageId": "[variables('_solutionId')]",
                 "packageKind": "Solution",
-                "packageName": "[variables('_solutionName')]",
                 "packageVersion": "[variables('_solutionVersion')]",
+                "packageName": "[variables('_solutionName')]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
+                "packageId": "[variables('_solutionId')]",
+                "contentSchemaVersion": "3.0.0",
                 "version": "[variables('_solutionVersion')]"
-            },
-            "tags": {
-                "hidden-sentinelContentType": "DataConnector",
-                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]"
-            },
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates"
+            }
         },
         {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
             "apiVersion": "2022-09-01-preview",
-            "kind": "Customizable",
-            "location": "[parameters('workspace-location')]",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
+            "location": "[parameters('workspace-location')]",
+            "kind": "Customizable",
             "properties": {
                 "connectorUiConfig": {
-                    "availability": {
-                        "isPreview": false,
-                        "status": 1
-                    },
+                    "title": "[parameters('title')]",
+                    "publisher": "[parameters('publisher')]",
+                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
+                    "descriptionMarkdown": "[parameters('description')]",
+                    "graphQueries": "[parameters('graphQueries')]",
+                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
-                            "value": [
-                            ]
+                            "value": []
                         }
                     ],
-                    "dataTypes": "[parameters('dataTypes')]",
-                    "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": "[parameters('graphQueries')]",
-                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
+                    "availability": {
+                        "status": 1,
+                        "isPreview": false
+                    },
+                    "permissions": {
+                        "resourceProvider": [
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                "permissionsDisplayText": "read and write permissions are required.",
+                                "providerDisplayName": "Workspace",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "write": true,
+                                    "read": true,
+                                    "delete": "[parameters('delete')]"
+                                }
+                            }
+                        ]
+                    },
                     "instructionSteps": [
                         {
                             "description": "[parameters('InDescription')]",
                             "instructions": "[parameters('instructions')]",
                             "title": "[parameters('InTitle')]"
                         }
-                    ],
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "permissionsDisplayText": "read and write permissions are required.",
-                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                "providerDisplayName": "Workspace",
-                                "requiredPermissions": {
-                                    "delete": "[parameters('delete')]",
-                                    "read": true,
-                                    "write": true
-                                },
-                                "scope": "Workspace"
-                            }
-                        ]
-                    },
-                    "publisher": "[parameters('publisher')]",
-                    "sampleQueries": "[parameters('sampleQueries')]",
-                    "title": "[parameters('title')]"
+                    ]
                 }
-            },
-            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions"
+            }
         },
         {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
-            ],
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition'))]",
+            "dependsOn": [
+                    "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
+                ],
             "properties": {
-                "author": {
-                    "name": "Custom"
-                },
-                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
-                "dependencies": {
-                    "criteria": [
-                        {
-                            "contentId": "[variables('dataConnectorVersionConnections')]",
-                            "kind": "ResourcesDataConnector",
-                            "version": "[variables('_dataConnectorContentIdConnections')]"
-                        }
-                    ]
-                },
-                "kind": "DataConnector",
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
+                "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
+                "kind": "DataConnector",
+                "version": "[variables('dataConnectorVersionConnectorDefinition')]",
                 "source": {
                     "kind": "Solution",
                     "name": "[variables('_solutionName')]",
                     "sourceId": "[variables('_solutionId')]"
                 },
-                "support": {
-                    "email": "support@microsoft.com",
-                    "link": "https://support.microsoft.com",
-                    "name": "Microsoft Corporation",
-                    "tier": "Microsoft"
+                "author": {
+                    "name": "Custom"
                 },
-                "version": "[variables('dataConnectorVersionConnectorDefinition')]"
-            },
-            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata"
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                },
+                "dependencies": {
+                    "criteria": [
+                        {
+                            "kind": "ResourcesDataConnector",
+                            "contentId": "[variables('dataConnectorVersionConnections')]",
+                            "version": "[variables('_dataConnectorContentIdConnections')]"
+                        }
+                    ]
+                }
+            }
         },
         {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('dataConnectorTemplateNameConnections'), variables('dataConnectorVersionConnections'))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', variables('_solutionId'))]"
             ],
-            "location": "[parameters('workspace-location')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('dataConnectorTemplateNameConnections'), variables('dataConnectorVersionConnections'))]",
+            "tags": {
+                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]",
+                "hidden-sentinelContentType": "LogicAppsCustomConnector"
+            },
             "properties": {
                 "contentId": "[variables('_dataConnectorContentIdConnections')]",
-                "contentKind": "ResourcesDataConnector",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
-                "contentSchemaVersion": "3.0.0",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnections'))]",
+                "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnections')]",
                     "parameters": {
-                        "apiEndpoint": {
-                            "defaultValue": "apiEndpoint",
-                            "metadata": {
-                                "description": "apiEndpoint"
-                            },
-                            "minLength": 1,
-                            "type": "string"
-                        },
                         "apiKey": {
                             "defaultValue": "apiKey",
+                            "type": "string",
+                            "minLength": 1,
                             "metadata": {
-                                "description": "api Key"
-                            },
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        "AuthorizationCode": {
-                            "defaultValue": "AuthorizationCode",
-                            "metadata": {
-                                "description": "AuthorizationCode"
-                            },
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        "ClientId": {
-                            "defaultValue": "ClientId",
-                            "metadata": {
-                                "description": "ClientId"
-                            },
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        "ClientSecret": {
-                            "defaultValue": "ClientSecret",
-                            "metadata": {
-                                "description": "ClientSecret"
-                            },
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        "connectorDefinitionName": {
-                            "defaultValue": "connectorDefinitionName",
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        "dcrConfig": {
-                            "defaultValue": {
-                                "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
-                                "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
-                            },
-                            "type": "object"
-                        },
-                        "location": {
-                            "defaultValue": "[parameters('workspace-location')]",
-                            "type": "string"
-                        },
-                        "workspace": {
-                            "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "description": "api Key"
                         }
+                        },
+                        "apiEndpoint": {
+                            "defaultValue": "apiEndpoint",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "apiEndpoint"
+                    }
+                            },
+                    "ClientId": {
+                                "defaultValue": "ClientId",
+                                "type": "string",
+                                "minLength": 1,
+                                "metadata": {
+                                "description": "ClientId"
+                    }
+                            },
+                    "ClientSecret": {
+                                "defaultValue": "ClientSecret",
+                                "type": "string",
+                                "minLength": 1,
+                                "metadata": {
+                                "description": "ClientSecret"
+                    }
+                            },
+                    "AuthorizationCode": {
+                                "defaultValue": "AuthorizationCode",
+                                "type": "string",
+                                "minLength": 1,
+                                "metadata": {
+                                "description": "AuthorizationCode"
+                        }
+                    },
+                    "connectorDefinitionName": {
+                        "defaultValue": "connectorDefinitionName",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "workspace": {
+                        "defaultValue": "[parameters('workspace')]",
+                        "type": "string"
+                    },
+                    "location": {
+                        "defaultValue": "[parameters('workspace-location')]",
+                        "type": "string"
+                    },
+                    "dcrConfig": {
+                        "type": "object",
+                        "defaultValue": {
+                            "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
+                            "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
+                        }
+                    }
+                    },
+                    "variables": {
+                        "_dataConnectorContentIdConnections": "[variables('_dataConnectorContentIdConnections')]"
                     },
                     "resources": [
                         {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnections'))]",
                             "properties": {
-                                "author": {
-                                    "name": "Custom"
-                                },
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentIdConnections'))]",
                                 "contentId": "[variables('_dataConnectorContentIdConnections')]",
                                 "kind": "ResourcesDataConnector",
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', variables('_dataConnectorContentIdConnections'))]",
+                                "version": "[variables('dataConnectorVersionConnections')]",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "[variables('_solutionName')]",
                                     "sourceId": "[variables('_solutionId')]"
                                 },
-                                "support": {
-                                    "email": "support@microsoft.com",
-                                    "link": "https://support.microsoft.com",
-                                    "name": "Microsoft Corporation",
-                                    "tier": "Microsoft"
+                                "author": {
+                                    "name": "Custom"
                                 },
-                                "version": "[variables('dataConnectorVersionConnections')]"
-                            },
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata"
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
                         },
                         {
-                            "apiVersion": "2022-12-01-preview",
-                            "kind": "RestApiPoller",
-                            "location": "[parameters('workspace-location')]",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', replace(parameters('title'), ' ', ''))]",
+                            "apiVersion": "2022-12-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "RestApiPoller",
                             "properties": {
-                                "auth": {
-                                    "AuthorizationCode": "[[parameters('authorizationCode')]",
-                                    "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]",
-                                    "AuthorizationEndpointQueryParameters": "[parameters('AuthorizationEndpointQueryParameters')]",
-                                    "access_type": "[parameters('AccessType')]",
-                                    "ClientId": "[[parameters('clientId')]",
-                                    "ClientSecret": "[[parameters('clientSecret')]",
-                                    "GrantType": "[parameters('GrantType')]",
-                                    "RedirectUri": "[parameters('RedirectUri')]",
-                                    "Scope": "[parameters('Scope')]",
-                                    "TokenEndpoint": "[parameters('TokenEndpoint')]",
-                                    "TokenEndpointQueryParameters": "[parameters('TokenEndpointQueryParameters')]",
-                                    "TokenEndpointHeaders": {
-                                        "Content-Type": "application/x-www-form-urlencoded"
-                                    },
-                                    "type": "OAuth2"
-                                },
                                 "connectorDefinitionName": "[[parameters('connectorDefinitionName')]",
-                                "dataType": "[variables('logAnalyticsTableId1')]",
                                 "dcrConfig": {
+                                    "streamName": "[variables('streamName')]",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
-                                    "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]",
-                                    "streamName": "[variables('streamName')]"
+                                    "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
                                 },
-                                "paging": "[parameters('paging')]",
+                                "dataType": "[variables('logAnalyticsTableId1')]",
+                                "auth": {
+                                      "type": "OAuth2",
+                                      "AuthorizationCode": "[[parameters('authorizationCode')]",
+                                      "ClientSecret": "[[parameters('clientSecret')]",
+                                      "ClientId": "[[parameters('clientId')]",
+                                      "Scope": "[parameters('Scope')]",
+                                      "RedirectUri": "[parameters('RedirectUri')]",
+                                      "GrantType": "[parameters('GrantType')]",
+                                      "TokenEndpoint": "[parameters('TokenEndpoint')]",
+                                      "TokenEndpointHeaders": {
+                                        "Content-Type": "application/x-www-form-urlencoded"
+                                      },
+                                      "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]"
+                                },
                                 "request": "[parameters('request')]",
+                                "paging": "[parameters('paging')]",
                                 "response": "[parameters('response')]"
-                            },
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors"
+                            }
                         }
-                    ],
-                    "variables": {
-                        "_dataConnectorContentIdConnections": "[variables('_dataConnectorContentIdConnections')]"
-                    }
+                    ]
                 },
-                "packageId": "[variables('_solutionId')]",
                 "packageKind": "Solution",
-                "packageName": "[variables('_solutionName')]",
                 "packageVersion": "[variables('_solutionVersion')]",
+                "packageName": "[variables('_solutionName')]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
+                "packageId": "[variables('_solutionId')]",
+                "contentSchemaVersion": "3.0.0",
                 "version": "[variables('_solutionVersion')]"
-            },
-            "tags": {
-                "hidden-sentinelContentType": "LogicAppsCustomConnector",
-                "hidden-sentinelWorkspaceId": "[variables('workspaceResourceId')]"
-            },
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates"
+            }
         },
         {
-            "apiVersion": "2023-04-01-preview",
-            "location": "[parameters('workspace-location')]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_solutionId'))]",
+            "location": "[parameters('workspace-location')]",
+            "apiVersion": "2023-04-01-preview",
             "properties": {
-                "author": {
-                    "name": "Custom"
-                },
-                "contentId": "[variables('_solutionId')]",
-                "contentKind": "Solution",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
-                "contentSchemaVersion": "3.0.0",
-                "dependencies": {
-                    "criteria": [
-                        {
-                            "contentId": "[variables('dataConnectorVersionConnectorDefinition')]",
-                            "kind": "DataConnector",
-                            "version": "[variables('_dataConnectorContentIdConnectorDefinition')]"
-                        }
-                    ],
-                    "operator": "AND"
-                },
-                "displayName": "[variables('_solutionName')]",
-                "firstPublishDate": "2023-09-01",
+                "version": "[variables('_solutionVersion')]",
                 "kind": "Solution",
-                "packageId": "[variables('_solutionId')]",
-                "providers": [
-                    "Custom"
-                ],
-                "publisherDisplayName": "[variables('_solutionId')]",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "[variables('_solutionId')]",
                 "source": {
                     "kind": "Solution",
                     "name": "[variables('_solutionName')]",
                     "sourceId": "[variables('_solutionId')]"
                 },
+                "author": {
+                    "name": "Custom"
+                },
                 "support": {
                     "name": "Microsoft"
                 },
-                "version": "[variables('_solutionVersion')]"
-            },
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages"
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "kind": "DataConnector",
+                            "contentId": "[variables('dataConnectorVersionConnectorDefinition')]",
+                            "version": "[variables('_dataConnectorContentIdConnectorDefinition')]"
+                        }
+                    ]
+                },
+                "firstPublishDate": "2023-09-01",
+                "providers": [
+                    "Custom"
+                ],
+                "contentKind": "Solution",
+                "packageId": "[variables('_solutionId')]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
+                "displayName": "[variables('_solutionName')]",
+                "publisherDisplayName": "[variables('_solutionId')]"
+            }
         }
     ],
-    "variables": {
-        "_dataCollectionEndpointId": "[parameters('dataCollectionEndpointId')]",
-        "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
-        "_dataConnectorContentIdConnections": "[concat(replace(parameters('title'), ' ', ''), '-Connections')]",
-        "_dataConnectorContentIdConnectorDefinition": "[concat(replace(parameters('title'), ' ', ''), '-ConnectorDefinition')]",
-        "_solutionId": "[variables('solutionId')]",
-        "_solutionName": "[parameters('title')]",
-        "_solutionVersion": "1.0.0",
-        "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
-        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]",
-        "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
-        "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
-        "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
-        "dataConnectorVersionConnections": "1.0.0",
-        "dataConnectorVersionConnectorDefinition": "1.0.0",
-        "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
-        "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',replace(parameters('title'), ' ', ''))]",
-        "solutionIDNameLength": "[length(variables('solutionId'))]",
-        "streamName": "[parameters('streamName')]",
-        "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]"
-    }
+    "outputs": {}
 }
