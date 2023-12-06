@@ -472,7 +472,6 @@
                                     "RedirectUri": "[parameters('RedirectUri')]",
                                     "Scope": "[parameters('Scope')]",
                                     "TokenEndpoint": "[parameters('TokenEndpoint')]",
-                                    "TokenEndpointQueryParameters": "[parameters('TokenEndpointQueryParameters')]",
                                     "TokenEndpointHeaders": {
                                         "Content-Type": "application/x-www-form-urlencoded"
                                     },
