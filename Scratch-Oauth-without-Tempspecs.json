@@ -144,14 +144,6 @@
                 "description": "[concat('Region to deploy solution resources -- separate from location selection',parameters('location'))]"
             },
             "type": "string"
-        },
-        "AuthorizationEndpointQueryParameters": {
-            "defaultValue": "",
-            "type": "object"
-        },
-        "TokenEndpointQueryParameters": {
-            "defaultValue": "",
-            "type": "object"
         }
     },
     "resources": [
