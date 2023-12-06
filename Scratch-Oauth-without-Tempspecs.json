@@ -465,7 +465,6 @@
                                 "auth": {
                                     "AuthorizationCode": "[[parameters('authorizationCode')]",
                                     "AuthorizationEndpoint": "[parameters('AuthorizationEndpoint')]",
-                                    "AuthorizationEndpointQueryParameters": "[parameters('AuthorizationEndpointQueryParameters')]",
                                     "access_type": "[parameters('AccessType')]",
                                     "ClientId": "[[parameters('clientId')]",
                                     "ClientSecret": "[[parameters('clientSecret')]",
