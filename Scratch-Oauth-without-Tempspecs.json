@@ -157,7 +157,7 @@
             "properties": {
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
                 "contentKind": "DataConnector",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 60),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnectorDefinition'))]",
                 "mainTemplate": {
@@ -362,7 +362,7 @@
             "properties": {
                 "contentId": "[variables('_dataConnectorContentIdConnections')]",
                 "contentKind": "ResourcesDataConnector",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 60),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "[concat(variables('_solutionName'), variables('dataConnectorTemplateNameConnections'))]",
                 "mainTemplate": {
@@ -517,7 +517,7 @@
                 },
                 "contentId": "[variables('_solutionId')]",
                 "contentKind": "Solution",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 60),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
                 "contentSchemaVersion": "3.0.0",
                 "dependencies": {
                     "criteria": [
@@ -567,7 +567,6 @@
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
         "solutionId": "[concat('azuresentinel.azure-sentinel-solution-',replace(parameters('title'), ' ', ''))]",
-        "solutionIDNameLength": "[length(variables('solutionId'))]",
         "streamName": "[parameters('streamName')]",
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]"
     }
