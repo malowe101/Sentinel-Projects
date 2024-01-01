@@ -4,27 +4,75 @@
     "parameters": {
         "workspace": {
             "type": "string",
-            "defaultValue": "Enter workspace name here."
+            "defaultValue": ""
         },
         "title": {
             "type": "string",
-            "defaultValue": "Enter data connector name here."
+            "defaultValue": ""
         },
         "publisher": {
             "type": "string",
-            "defaultValue": "Enter data source provider here."
+            "defaultValue": ""
         },
         "description": {
             "type": "string",
-            "defaultValue": "Enter a description of what the data source is providing or what this is connector is used for here."
+            "defaultValue": ""
         },
-        "Scope": {
+        "graphQueriesTableName": {
             "type": "string",
-            "defaultValue": "Workspace"
+            "defaultValue": ""
+        },
+        "graphQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "sampleQueries": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "dataTypes": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "instructions": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "InTitle": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "InDescription": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "polling": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "request": {
+            "type": "object",
+            "defaultValue": ""
+        },
+        "paging": {
+            "type": "object",
+            "defaultValue": ""
+        },
+        "response": {
+            "type": "object",
+            "defaultValue": ""
+        },
+        "auth": {
+            "type": "object",
+            "defaultValue": ""
         },
         "delete": {
             "type": "string",
             "defaultValue": "False"
+        },
+        "streamName": {
+            "type": "string",
+            "defaultValue": ""
         },
         "subscription": {
             "defaultValue": "[last(split(subscription().id, '/'))]",
@@ -40,6 +88,22 @@
                 "description": "resource group name where Microsoft Sentinel is setup"
             }
         },
+        "logAnalyticsTableId": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "dataCollectionRuleId": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "DCRImmutableID": {
+            "defaultValue": "",
+            "type": "string"
+        },
+        "dataCollectionEndpointId": {
+		"defaultValue": "",
+		"type": "string"
+	},
         "location": {
             "defaultValue": "[resourceGroup().location]",
             "minLength": 1,
@@ -61,14 +125,20 @@
         "_solutionId": "[variables('solutionId')]",
         "_solutionVersion": "1.0.0",
         "_solutionName": "[parameters('title')]",
+        "dataCollectionRuleImmutableId": "[parameters('DCRImmutableID')]",
+        "_dataCollectionRuleImmutableId": "[variables('dataCollectionRuleImmutableId')]",
+        "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
+        "_dataCollectionEndpointId": "[parameters('dataCollectionEndpointId')]",
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
+        "logAnalyticsTableId1": "[parameters('graphQueriesTableName')]",
+        "streamName": "[parameters('streamName')]",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]",
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "dataConnectorVersionConnections": "1.0.0",
         "_dataConnectorContentIdConnectorDefinition": "[concat(replace(parameters('title'), ' ', ''), '-ConnectorDefinition')]",
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
         "_dataConnectorContentIdConnections": "[concat(replace(parameters('title'), ' ', ''), '-Connections')]",
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
-        "solutionIDNameLength": "[length(variables('solutionId'))]"
     },
     "resources": [
         {
@@ -97,9 +167,6 @@
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition'))]",
-                            "dependsOn": [
-                                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
-                            ],
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -140,78 +207,11 @@
                                 "connectorUiConfig": {
                                     "title": "[parameters('title')]",
                                     "publisher": "[parameters('publisher')]",
+                                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                                     "descriptionMarkdown": "[parameters('description')]",
-                                      "graphQueries": [
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "AuditLogs",
-                                                "baseQuery": "AuditLogs"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "OperationalLogs",
-                                                "baseQuery": "OperationalLogs"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "DeviceComplianceOrg",
-                                                "baseQuery": "DeviceComplianceOrg"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "Devices",
-                                                "baseQuery": "Devices"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "Windows365AuditLogs",
-                                                "baseQuery": "Windows365AuditLogs"
-                                            }
-                                        ],
-                                      "sampleQueries": [
-                                         {
-                                            "description": "All AuditLogs logs",
-                                            "query": "AuditLogs\n            | sort by TimeGenerated"
-                                        },
-                                        {
-                                            "description": "All OperationalLogs logs",
-                                            "query": "OperationalLogs\n            | sort by TimeGenerated"
-                                        },
-                                                                                 {
-                                            "description": "All DeviceComplianceOrg logs",
-                                            "query": "DeviceComplianceOrg\n            | sort by TimeGenerated"
-                                        },
-                                        {
-                                            "description": "All Devices logs",
-                                            "query": "Devices\n            | sort by TimeGenerated"
-                                        },
-                                                                                {
-                                            "description": "All Windows365AuditLogs logs",
-                                            "query": "Windows365AuditLogs\n            | sort by TimeGenerated"
-                                        }
-                                      ],
-                                      "dataTypes": [
-                                        {
-                                            "name": "AuditLogs",
-                                            "lastDataReceivedQuery": "AuditLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                        {
-                                            "name": "OperationalLogs",
-                                            "lastDataReceivedQuery": "OperationalLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                                                                {
-                                            "name": "DeviceComplianceOrg",
-                                            "lastDataReceivedQuery": "DeviceComplianceOrg\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                        {
-                                            "name": "Devices",
-                                            "lastDataReceivedQuery": "Devices\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                                                               {
-                                            "name": "Windows365AuditLogs",
-                                            "lastDataReceivedQuery": "Windows365AuditLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                      ],
+                                      "graphQueries": "[parameters('graphQueries')]",
+                                      "sampleQueries": "[parameters('sampleQueries')]",
+                                      "dataTypes": "[parameters('dataTypes')]",
                                     "connectivityCriteria": [
                                         {
                                             "type": "HasDataConnectors",
@@ -239,16 +239,9 @@
                                     },
                                     "instructionSteps": [
                                         {
-                                            "title": "Access the Intune Admin Portal and Configure Diagnostic Settings",
-                                            "description": "The option to send data from Intune to the Microsoft Sentinel workspace can be found under Reports > Diagnostic Settings. To quickly pivot to that location, click on [this link.](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/ReportingMenu/~/diagnostics)",
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "linkType": "URL"
-                                                    },
-                                                    "type": "InstallAgent"                                                 
-                                                }
-                                            ]
+                                            "description": "[parameters('InDescription')]",
+                                            "instructions": "[parameters('instructions')]",
+                                            "title": "[parameters('InTitle')]"
                                         }
                                     ]
                                 }
@@ -259,7 +252,7 @@
                 "packageKind": "Solution",
                 "packageVersion": "[variables('_solutionVersion')]",
                 "packageName": "[variables('_solutionName')]",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 50),'-','dc','-', uniqueString(concat(variables('_solutionId'),'-','DataConnector','-',variables('_dataConnectorContentIdConnectorDefinition'),'-', variables('dataConnectorVersionConnectorDefinition'))))]",
                 "packageId": "[variables('_solutionId')]",
                 "contentSchemaVersion": "3.0.0",
                 "version": "[variables('_solutionVersion')]"
@@ -275,78 +268,11 @@
                 "connectorUiConfig": {
                     "title": "[parameters('title')]",
                     "publisher": "[parameters('publisher')]",
+                    "graphQueriesTableName": "[parameters('graphQueriesTableName')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                    "graphQueries": [
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "AuditLogs",
-                                                "baseQuery": "AuditLogs"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "OperationalLogs",
-                                                "baseQuery": "OperationalLogs"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "DeviceComplianceOrg",
-                                                "baseQuery": "DeviceComplianceOrg"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "Devices",
-                                                "baseQuery": "Devices"
-                                            },
-                                            {
-                                                "metricName": "Total data received",
-                                                "legend": "Windows365AuditLogs",
-                                                "baseQuery": "Windows365AuditLogs"
-                                            }
-                                        ],
-                                      "sampleQueries": [
-                                         {
-                                            "description": "All AuditLogs logs",
-                                            "query": "AuditLogs\n            | sort by TimeGenerated"
-                                        },
-                                        {
-                                            "description": "All OperationalLogs logs",
-                                            "query": "OperationalLogs\n            | sort by TimeGenerated"
-                                        },
-                                                                                 {
-                                            "description": "All DeviceComplianceOrg logs",
-                                            "query": "DeviceComplianceOrg\n            | sort by TimeGenerated"
-                                        },
-                                        {
-                                            "description": "All Devices logs",
-                                            "query": "Devices\n            | sort by TimeGenerated"
-                                        },
-                                                                                {
-                                            "description": "All Windows365AuditLogs logs",
-                                            "query": "Windows365AuditLogs\n            | sort by TimeGenerated"
-                                        }
-                                      ],
-                                      "dataTypes": [
-                                        {
-                                            "name": "AuditLogs",
-                                            "lastDataReceivedQuery": "AuditLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                        {
-                                            "name": "OperationalLogs",
-                                            "lastDataReceivedQuery": "OperationalLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                                                                {
-                                            "name": "DeviceComplianceOrg",
-                                            "lastDataReceivedQuery": "DeviceComplianceOrg\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                        {
-                                            "name": "Devices",
-                                            "lastDataReceivedQuery": "Devices\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        },
-                                                                               {
-                                            "name": "Windows365AuditLogs",
-                                            "lastDataReceivedQuery": "Windows365AuditLogs\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                      ],
+                    "graphQueries": "[parameters('graphQueries')]",
+                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
@@ -372,20 +298,13 @@
                             }
                         ]
                     },
-                        "instructionSteps": [
-                            {
-                                "title": "Access the Intune Admin Portal and Configure Diagnostic Settings",
-                                "description": "The option to send data from Intune to the Microsoft Sentinel workspace can be found under Reports > Diagnostic Settings. To quickly pivot to that location, click on [this link.](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/ReportingMenu/~/diagnostics)",
-                                "instructions": [
-                                    {
-                                        "parameters": {
-                                            "linkType": "URL"
-                                        },
-                                        "type": "InstallAgent"                                                 
-                                    }
-                                ]
-                            }
-                        ]
+                    "instructionSteps": [
+                        {
+                            "description": "[parameters('InDescription')]",
+                            "instructions": "[parameters('instructions')]",
+                            "title": "[parameters('InTitle')]"
+                        }
+                    ]
                 }
             }
         },
@@ -393,9 +312,6 @@
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_dataConnectorContentIdConnectorDefinition'))]",
-            "dependsOn": [
-                    "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]"
-                ],
             "properties": {
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', variables('_dataConnectorContentIdConnectorDefinition'))]",
                 "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
@@ -419,8 +335,8 @@
                     "criteria": [
                         {
                             "kind": "ResourcesDataConnector",
-                            "contentId": "[variables('dataConnectorVersionConnections')]",
-                            "version": "[variables('_dataConnectorContentIdConnections')]"
+                            "contentId": "[variables('_dataConnectorContentIdConnections')]",
+                            "version": "[variables('dataConnectorVersionConnections')]"
                         }
                     ]
                 }
@@ -446,19 +362,66 @@
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnections')]",
                     "parameters": {
-                    "connectorDefinitionName": {
-                        "defaultValue": "connectorDefinitionName",
-                        "type": "string",
-                        "minLength": 1
-                    },
-                    "workspace": {
-                        "defaultValue": "[parameters('workspace')]",
-                        "type": "string"
-                    },
-                    "location": {
-                        "defaultValue": "[parameters('workspace-location')]",
-                        "type": "string"
-                    }
+                        "apiKey": {
+                            "defaultValue": "apiKey",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "api Key"
+                                }
+                            },
+                        "apiEndpoint": {
+                            "defaultValue": "apiEndpoint",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "apiEndpoint"
+                                }
+                            },
+                        "ClientId": {
+                            "defaultValue": "ClientId",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientId"
+                            }
+                                },
+                        "ClientSecret": {
+                            "defaultValue": "ClientSecret",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "ClientSecret"
+                            }
+                                },
+                        "AuthorizationCode": {
+                            "defaultValue": "AuthorizationCode",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                            "description": "AuthorizationCode"
+                                }
+                                },
+                        "connectorDefinitionName": {
+                            "defaultValue": "connectorDefinitionName",
+                            "type": "string",
+                            "minLength": 1
+                            },
+                        "workspace": {
+                            "defaultValue": "[parameters('workspace')]",
+                            "type": "string"
+                            },
+                        "location": {
+                            "defaultValue": "[parameters('workspace-location')]",
+                            "type": "string"
+                            },
+                        "dcrConfig": {
+                            "type": "object",
+                            "defaultValue": {
+                                "dataCollectionEndpoint": "[parameters('dataCollectionEndpointId')]",
+                                "dataCollectionRuleImmutableId": "[variables('_dataCollectionRuleImmutableId')]"
+                                }
+                            }
                     },
                     "variables": {
                         "_dataConnectorContentIdConnections": "[variables('_dataConnectorContentIdConnections')]"
@@ -496,7 +459,17 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "[[parameters('connectorDefinitionName')]"
+                                "connectorDefinitionName": "[[parameters('connectorDefinitionName')]",
+                                "dcrConfig": {
+                                    "streamName": "[variables('streamName')]",
+                                    "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
+                                    "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
+                                },
+                                "dataType": "[variables('logAnalyticsTableId1')]",
+                                "auth": "[parameters('auth')]",
+                                "request": "[parameters('request')]",
+                                "paging": "[parameters('paging')]",
+                                "response": "[parameters('response')]"
                             }
                         }
                     ]
@@ -504,7 +477,7 @@
                 "packageKind": "Solution",
                 "packageVersion": "[variables('_solutionVersion')]",
                 "packageName": "[variables('_solutionName')]",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 50),'-','rdc','-', uniqueString(concat(variables('_solutionId'),'-','ResourcesDataConnector','-',variables('_dataConnectorContentIdConnections'),'-', variables('dataConnectorVersionConnections'))))]",
                 "packageId": "[variables('_solutionId')]",
                 "contentSchemaVersion": "3.0.0",
                 "version": "[variables('_solutionVersion')]"
@@ -536,8 +509,8 @@
                     "criteria": [
                         {
                             "kind": "DataConnector",
-                            "contentId": "[variables('dataConnectorVersionConnectorDefinition')]",
-                            "version": "[variables('_dataConnectorContentIdConnectorDefinition')]"
+                            "contentId": "[variables('_dataConnectorContentIdConnectorDefinition')]",
+                            "version": "[variables('dataConnectorVersionConnectorDefinition')]"
                         }
                     ]
                 },
@@ -547,7 +520,7 @@
                 ],
                 "contentKind": "Solution",
                 "packageId": "[variables('_solutionId')]",
-                "contentProductId": "[concat(substring(variables('_solutionId'), 0, variables('solutionIDNameLength')),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
+                "contentProductId": "[concat(substring(variables('_solutionId'), 0, 50),'-','sl','-', uniqueString(concat(variables('_solutionId'),'-','Solution','-',variables('_solutionId'),'-', variables('_solutionVersion'))))]",
                 "displayName": "[variables('_solutionName')]",
                 "publisherDisplayName": "[variables('_solutionId')]"
             }
