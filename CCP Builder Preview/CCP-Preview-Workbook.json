@@ -355,7 +355,7 @@
                               },
                               "queryType": 1,
                               "resourceType": "microsoft.resourcegraph/resources",
-                              "value": null
+                              "value": "/subscriptions/1c61ccbf-70b3-45a3-a1fb-848ce46d70a6/resourceGroups/cxe-malowe2/providers/Microsoft.Insights/dataCollectionEndpoints/AWSTest"
                             },
                             {
                               "id": "43248596-1d75-4660-92a2-30120c7cd67e",
@@ -367,8 +367,7 @@
                               "timeContext": {
                                 "durationMs": 86400000
                               },
-                              "queryType": 12,
-                              "value": null
+                              "queryType": 12
                             }
                           ],
                           "style": "above",
@@ -674,13 +673,6 @@
                       {
                         "type": 1,
                         "content": {
-                          "json": "----------------------------------------------"
-                        },
-                        "name": "text - 12"
-                      },
-                      {
-                        "type": 1,
-                        "content": {
                           "json": "### Useful Information\r\n\r\nThe following items define the table: \r\n- Table Name: The name the new table will have.\r\n- Table Plan: The ingestion plan for the table.\r\n- Tier Retention: If Analytics, the default will be set to 90 days. If more is needed, the number can be modified. If Basic, the default will be set to 8 days.\r\n- Archive Retetnion: Sets the number of days that the data will be archived after the tier retention expires.\r\n- Total Retention: Sum of the tier retention and archive retention.\r\n- Schema: Schema of the table. This must be specified in JSON format.",
                           "style": "upsell"
                         },
@@ -698,6 +690,13 @@
                           }
                         ],
                         "name": "text - 15"
+                      },
+                      {
+                        "type": 1,
+                        "content": {
+                          "json": "----------------------------------------------"
+                        },
+                        "name": "text - 12"
                       },
                       {
                         "type": 11,
@@ -753,6 +752,14 @@
                         "styleSettings": {
                           "padding": "0px 0px 0px 20px"
                         }
+                      },
+                      {
+                        "type": 1,
+                        "content": {
+                          "json": "### Please Note\r\n\r\nDespite the action being successful, the message will claim that it failed regardless. This is an unfortunate limit for some API actions where the portal does not understand how to return a successful call. It is recommended that the 'confirm creation' buttons are used to confirm resource creation. It may take a minute or two to reflect in the UI.",
+                          "style": "warning"
+                        },
+                        "name": "text - 19"
                       },
                       {
                         "type": 9,
@@ -2597,8 +2604,7 @@
                                 "durationMs": 86400000
                               },
                               "queryType": 0,
-                              "resourceType": "microsoft.operationalinsights/workspaces",
-                              "value": null
+                              "resourceType": "microsoft.operationalinsights/workspaces"
                             },
                             {
                               "id": "88bd6651-1a20-40a0-a487-203532b74c88",
