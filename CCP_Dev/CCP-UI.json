@@ -34,14 +34,6 @@
             "type": "array",
             "defaultValue": []
         },
-        "InTitle": {
-            "defaultValue": "",
-            "type": "string"
-        },
-        "InDescription": {
-            "defaultValue": "",
-            "type": "string"
-        },
         "Scope": {
             "type": "string",
             "defaultValue": "Workspace"
