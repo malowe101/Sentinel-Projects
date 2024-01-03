@@ -186,9 +186,7 @@
                                     },
                                     "instructionSteps": [
                                         {
-                                            "description": "[parameters('InDescription')]",
-                                            "instructions": "[parameters('instructions')]",
-                                            "title": "[parameters('InTitle')]"
+                                            "instructions": "[parameters('instructions')]"
                                         }
                                     ]
                                 }
@@ -246,9 +244,7 @@
                     },
                         "instructionSteps": [
                         {
-                            "description": "[parameters('InDescription')]",
-                            "instructions": "[parameters('instructions')]",
-                            "title": "[parameters('InTitle')]"
+                            "instructions": "[parameters('instructions')]"
                         }
                     ]
                 }
