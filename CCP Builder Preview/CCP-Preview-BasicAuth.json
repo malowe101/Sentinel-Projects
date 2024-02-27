@@ -386,38 +386,14 @@
                             "description": "api Key"
                                 }
                             },
-                        "apiEndpoint": {
-                            "defaultValue": "apiEndpoint",
+                        "domainName": {
+                            "defaultValue": "domainname",
                             "type": "string",
                             "minLength": 1,
                             "metadata": {
-                            "description": "apiEndpoint"
+                            "description": "domainname"
                                 }
                             },
-                        "ClientId": {
-                            "defaultValue": "ClientId",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                            "description": "ClientId"
-                            }
-                                },
-                        "ClientSecret": {
-                            "defaultValue": "ClientSecret",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                            "description": "ClientSecret"
-                            }
-                                },
-                        "AuthorizationCode": {
-                            "defaultValue": "AuthorizationCode",
-                            "type": "string",
-                            "minLength": 1,
-                            "metadata": {
-                            "description": "AuthorizationCode"
-                                }
-                                },
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
                             "type": "string",
