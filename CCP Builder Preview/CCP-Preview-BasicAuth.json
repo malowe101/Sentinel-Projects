@@ -362,6 +362,22 @@
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnections')]",
                     "parameters": {
+                        "username": {
+                            "defaultValue": "username",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                                "description": "username for api endpoint"
+                            }
+                        },
+                        "password": {
+                            "defaultValue": "password",
+                            "type": "string",
+                            "minLength": 1,
+                            "metadata": {
+                                "description": "password for api endpoint"
+				            }
+                        },
                         "apiKey": {
                             "defaultValue": "apiKey",
                             "type": "string",
