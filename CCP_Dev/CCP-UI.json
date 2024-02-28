@@ -30,7 +30,7 @@
             "type": "array",
             "defaultValue": []
         },
-        "instructions": {
+         "instructions": {
             "type": "array",
             "defaultValue": []
         },
@@ -156,7 +156,7 @@
                                     "title": "[parameters('title')]",
                                     "publisher": "[parameters('publisher')]",
                                     "descriptionMarkdown": "[parameters('description')]",
-                                       "graphQueries": "[parameters('graphQueries')]",
+                                      "graphQueries": "[parameters('graphQueries')]",
                                       "sampleQueries": "[parameters('sampleQueries')]",
                                       "dataTypes": "[parameters('dataTypes')]",
                                     "connectivityCriteria": [
@@ -184,11 +184,7 @@
                                             }
                                         ]
                                     },
-                                    "instructionSteps": [
-                                        {
-                                            "instructions": "[parameters('instructions')]"
-                                        }
-                                    ]
+                    "instructionSteps": "[parameters('instructions')]"
                                 }
                             }
                         }
@@ -214,9 +210,9 @@
                     "title": "[parameters('title')]",
                     "publisher": "[parameters('publisher')]",
                     "descriptionMarkdown": "[parameters('description')]",
-                     "graphQueries": "[parameters('graphQueries')]",
-                        "sampleQueries": "[parameters('sampleQueries')]",
-                        "dataTypes": "[parameters('dataTypes')]",
+                    "graphQueries": "[parameters('graphQueries')]",
+                    "sampleQueries": "[parameters('sampleQueries')]",
+                    "dataTypes": "[parameters('dataTypes')]",
                     "connectivityCriteria": [
                         {
                             "type": "HasDataConnectors",
@@ -242,11 +238,7 @@
                             }
                         ]
                     },
-                        "instructionSteps": [
-                        {
-                            "instructions": "[parameters('instructions')]"
-                        }
-                    ]
+                    "instructionSteps": "[parameters('instructions')]"
                 }
             }
         },
