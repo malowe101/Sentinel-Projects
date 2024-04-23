@@ -5562,7 +5562,7 @@
                         "timeContext": {
                           "durationMs": 86400000
                         },
-                        "value": "[\r\n\t\t{\r\n\t\t\t\"type\": \"Textbox\",\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"Password\",\r\n\t\t\t\t\"placeholder\": \"Password\",\r\n\t\t\t\t\"type\": \"password\",\r\n\t\t\t\t\"name\": \"password\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"toggle\",\r\n\t\t\t\t\"name\": \"toggle\"\r\n\t\t\t},\r\n\t\t\t\"type\": \"ConnectionToggleButton\"\r\n\t\t}\r\n]\r\n"
+                        "value": "[\r\n\t\t{\r\n\t\t\t\"type\": \"Textbox\",\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"Path to console\",\r\n\t\t\t\t\"placeholder\": \"https://europe-west3.cloud.twistlock.com/{sasid}\",\r\n\t\t\t\t\"type\": \"text\",\r\n\t\t\t\t\"name\": \"domainname\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"type\": \"Textbox\",\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"Username\",\r\n\t\t\t\t\"placeholder\": \"Username\",\r\n\t\t\t\t\"type\": \"text\",\r\n\t\t\t\t\"name\": \"username\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"type\": \"Textbox\",\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"Password\",\r\n\t\t\t\t\"placeholder\": \"Password\",\r\n\t\t\t\t\"type\": \"password\",\r\n\t\t\t\t\"name\": \"password\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"parameters\": {\r\n\t\t\t\t\"label\": \"toggle\",\r\n\t\t\t\t\"name\": \"toggle\"\r\n\t\t\t},\r\n\t\t\t\"type\": \"ConnectionToggleButton\"\r\n\t\t}\r\n]\r\n"
                       }
                     ],
                     "style": "above",
