@@ -1769,7 +1769,7 @@
                         "timeContext": {
                           "durationMs": 86400000
                         },
-                        "value": null
+                        "value": "Web Session"
                       }
                     ],
                     "style": "above",
@@ -2429,7 +2429,7 @@
                         "timeContext": {
                           "durationMs": 86400000
                         },
-                        "value": "No"
+                        "value": "Yes"
                       }
                     ],
                     "style": "formVertical",
@@ -3215,7 +3215,7 @@
                               "timeContext": {
                                 "durationMs": 86400000
                               },
-                              "value": ""
+                              "value": "startTime"
                             },
                             {
                               "id": "2ed6ed3c-4ecf-4167-ad47-9c79bffe03ad",
@@ -3226,7 +3226,7 @@
                               "timeContext": {
                                 "durationMs": 86400000
                               },
-                              "value": ""
+                              "value": "endTime"
                             },
                             {
                               "id": "3ecb94be-86d6-4e58-88d3-d5a9535bb74e",
@@ -3328,7 +3328,7 @@
                                 "multiLineText": true,
                                 "editorLanguage": "json"
                               },
-                              "value": "{\r\n\t{\r\n    \t\"Query\":\"\"\r\n\t}\r\n}",
+                              "value": "{\r\n\t\"data\": { \"start\": {_QueryWindowStartTime}, \"end\": {_QueryWindowEndTime} }\r\n}",
                               "label": "Query Parameters"
                             }
                           ],
@@ -3697,7 +3697,7 @@
                               "timeContext": {
                                 "durationMs": 86400000
                               },
-                              "value": "LinkHeader"
+                              "value": "None"
                             }
                           ],
                           "style": "formVertical",
@@ -4577,7 +4577,7 @@
                               "name": "GrantType",
                               "label": "Grant Type",
                               "type": 1,
-                              "value": ""
+                              "value": "client_credentials"
                             },
                             {
                               "id": "c5091ecb-5bb6-494b-b5a0-072e9da4de19",
@@ -4837,7 +4837,7 @@
                   "timeContext": {
                     "durationMs": 86400000
                   },
-                  "value": "DATA CONNECTOR NAME HERE",
+                  "value": "ENTER CONNECTOR NAME HERE",
                   "label": "Title"
                 }
               ],
@@ -6256,6 +6256,11 @@
           "parameterName": "Auth",
           "comparison": "isNotEqualTo",
           "value": "OAuth2"
+        },
+        {
+          "parameterName": "Destination",
+          "comparison": "isNotEqualTo",
+          "value": "UI Only"
         }
       ],
       "name": "Deploy"
